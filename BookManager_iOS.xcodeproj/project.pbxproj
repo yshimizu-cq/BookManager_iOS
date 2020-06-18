@@ -7,15 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36B1B67F750148AE353B7FCC /* Pods_BookManager_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3572A335D954DEA0303FB730 /* Pods_BookManager_iOS.framework */; };
 		D524F626249B3AF100646538 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D524F625249B3AF100646538 /* AppDelegate.swift */; };
 		D524F628249B3AF100646538 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D524F627249B3AF100646538 /* SceneDelegate.swift */; };
 		D524F62A249B3AF100646538 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D524F629249B3AF100646538 /* ViewController.swift */; };
 		D524F62D249B3AF100646538 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D524F62B249B3AF100646538 /* Main.storyboard */; };
 		D524F62F249B3AF600646538 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D524F62E249B3AF600646538 /* Assets.xcassets */; };
 		D524F632249B3AF600646538 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D524F630249B3AF600646538 /* LaunchScreen.storyboard */; };
+		D524F63B249B410A00646538 /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D524F63A249B410A00646538 /* Rswift.framework */; };
+		D524F63C249B410A00646538 /* Rswift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D524F63A249B410A00646538 /* Rswift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D524F641249B43B100646538 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D524F640249B43B100646538 /* Nuke.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D524F63D249B410A00646538 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D524F63C249B410A00646538 /* Rswift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		15B1005522498A2A780D9F9C /* Pods-BookManager_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookManager_iOS.release.xcconfig"; path = "Target Support Files/Pods-BookManager_iOS/Pods-BookManager_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		3572A335D954DEA0303FB730 /* Pods_BookManager_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookManager_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7202B20DC691F99D23A52BC0 /* Pods-BookManager_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookManager_iOS.debug.xcconfig"; path = "Target Support Files/Pods-BookManager_iOS/Pods-BookManager_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		D524F622249B3AF100646538 /* BookManager_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookManager_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D524F625249B3AF100646538 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D524F627249B3AF100646538 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +45,8 @@
 		D524F62E249B3AF600646538 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D524F631249B3AF600646538 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D524F633249B3AF600646538 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D524F63A249B410A00646538 /* Rswift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rswift.framework; path = Carthage/Build/iOS/Rswift.framework; sourceTree = "<group>"; };
+		D524F640249B43B100646538 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +54,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36B1B67F750148AE353B7FCC /* Pods_BookManager_iOS.framework in Frameworks */,
+				D524F63B249B410A00646538 /* Rswift.framework in Frameworks */,
+				D524F641249B43B100646538 /* Nuke.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		400DED83B1CF2A6A17DF4C8F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D524F640249B43B100646538 /* Nuke.framework */,
+				D524F63A249B410A00646538 /* Rswift.framework */,
+				3572A335D954DEA0303FB730 /* Pods_BookManager_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7005533A7E37773DE36AEF0E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7202B20DC691F99D23A52BC0 /* Pods-BookManager_iOS.debug.xcconfig */,
+				15B1005522498A2A780D9F9C /* Pods-BookManager_iOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D524F619249B3AF100646538 = {
 			isa = PBXGroup;
 			children = (
 				D524F624249B3AF100646538 /* BookManager_iOS */,
 				D524F623249B3AF100646538 /* Products */,
+				7005533A7E37773DE36AEF0E /* Pods */,
+				400DED83B1CF2A6A17DF4C8F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +121,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D524F636249B3AF600646538 /* Build configuration list for PBXNativeTarget "BookManager_iOS" */;
 			buildPhases = (
+				14691C723D2BDC428D5F06A3 /* [CP] Check Pods Manifest.lock */,
+				D524F63F249B411B00646538 /* Run Script */,
 				D524F61E249B3AF100646538 /* Sources */,
 				D524F61F249B3AF100646538 /* Frameworks */,
 				D524F620249B3AF100646538 /* Resources */,
+				D524F639249B3EB000646538 /* ShellScript */,
+				D524F63D249B410A00646538 /* Embed Frameworks */,
+				D524F63E249B411900646538 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -132,6 +184,87 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		14691C723D2BDC428D5F06A3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BookManager_iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D524F639249B3EB000646538 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n${PODS_ROOT}/SwiftLint/swiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		D524F63E249B411900646538 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Rswift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		D524F63F249B411B00646538 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$SRCROOT/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D524F61E249B3AF100646538 /* Sources */ = {
@@ -282,10 +415,15 @@
 		};
 		D524F637249B3AF600646538 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7202B20DC691F99D23A52BC0 /* Pods-BookManager_iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7UWDNBYN7A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BookManager_iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -300,10 +438,15 @@
 		};
 		D524F638249B3AF600646538 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15B1005522498A2A780D9F9C /* Pods-BookManager_iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7UWDNBYN7A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BookManager_iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
