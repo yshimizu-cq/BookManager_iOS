@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
@@ -25,9 +25,13 @@ class LoginViewController: UIViewController {
     
     @IBAction func signupButtonTapped(_ sender: UIButton) {
 
+        //  Rswiftを使ってstoryboardのインスタンス取得
         let storyboard: UIStoryboard = R.storyboard.signup()
-        let nextView = storyboard.instantiateInitialViewController()
-        present(nextView!, animated: true, completion: nil)
+        //  遷移先ViewControllerのインスタンス取得
+        guard let signupView = storyboard.instantiateInitialViewController() as? SignupViewController else { return }
+        // 画面遷移
+        navigationController?.pushViewController(signupView, animated: true)
+        
     }
     
 

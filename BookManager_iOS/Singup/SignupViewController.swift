@@ -21,6 +21,7 @@ class SignupViewController: UIViewController {
     }
 
     @IBAction func returnButtonTapped(_ sender: UIBarButtonItem) {
+        //  自身を破棄して遷移元の画面に戻る
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func signupButtonTapped(_ sender: UIButton) {

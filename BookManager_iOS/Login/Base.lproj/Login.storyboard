@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yor-5e-wXf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--ログイン-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="BookManager_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,7 +23,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="メールアドレス" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fut-s4-53P">
-                                <rect key="frame" x="107" y="279" width="199.99999999999994" height="34.000000000000057"/>
+                                <rect key="frame" x="56.107820449063752" y="279" width="300" height="34.00000000000005"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -40,19 +40,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t4z-Mz-aSx">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="ログイン" id="n8K-Rq-ZLh"/>
-                                </items>
-                            </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41x-kR-PT4">
-                                <rect key="frame" x="107" y="554" width="200" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41x-kR-PT4">
+                                <rect key="frame" x="56.107820449063752" y="554" width="300" height="50"/>
                                 <color key="backgroundColor" red="0.22940834891508488" green="0.5073645566193441" blue="0.74316336803989635" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Mn7-yc-W8u"/>
@@ -70,7 +59,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="パスワード" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PTo-fR-er7">
-                                <rect key="frame" x="106" y="381" width="200" height="34"/>
+                                <rect key="frame" x="56.107820449063752" y="381" width="300" height="33.999999999999929"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -89,15 +78,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="t4z-Mz-aSx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0D9-sP-DPs"/>
                             <constraint firstItem="41x-kR-PT4" firstAttribute="trailing" secondItem="PTo-fR-er7" secondAttribute="trailing" id="7Bu-Tb-LRO"/>
                             <constraint firstItem="PTo-fR-er7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="107.00000000000001" id="7nP-mW-PzB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kVP-Dr-n9W" secondAttribute="trailing" constant="43" id="7wI-YE-5di"/>
                             <constraint firstItem="kVP-Dr-n9W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="219" id="AZw-vd-ZAi"/>
-                            <constraint firstItem="t4z-Mz-aSx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Erl-Qp-fdv"/>
                             <constraint firstItem="fut-s4-53P" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GKW-Yh-7NM"/>
                             <constraint firstItem="PTo-fR-er7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="401" id="HnW-vE-DmK"/>
-                            <constraint firstItem="t4z-Mz-aSx" firstAttribute="centerX" secondItem="fut-s4-53P" secondAttribute="centerX" id="QL4-Lp-xnR"/>
                             <constraint firstItem="fut-s4-53P" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="260" id="Uly-qf-gJZ"/>
                             <constraint firstAttribute="bottom" secondItem="41x-kR-PT4" secondAttribute="bottom" constant="292" id="ceh-cs-tHs"/>
                             <constraint firstItem="fut-s4-53P" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="106.36629092104454" id="gHP-d3-VWw"/>
@@ -107,12 +93,31 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="ログイン" id="qPQ-pa-4rm"/>
                     <connections>
                         <outlet property="mailTextField" destination="fut-s4-53P" id="Te7-xA-IV6"/>
                         <outlet property="passwordTextField" destination="PTo-fR-er7" id="gjX-9K-vLW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1044.9275362318842" y="103.79464285714285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zzX-Tk-xGY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yor-5e-wXf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="r78-it-lOD">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="9pL-h1-qcU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KaQ-rC-9q1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="103.79464285714285"/>
         </scene>
