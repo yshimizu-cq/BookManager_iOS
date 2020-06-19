@@ -14,9 +14,12 @@
 		D524F62D249B3AF100646538 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D524F62B249B3AF100646538 /* Login.storyboard */; };
 		D524F62F249B3AF600646538 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D524F62E249B3AF600646538 /* Assets.xcassets */; };
 		D524F632249B3AF600646538 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D524F630249B3AF600646538 /* LaunchScreen.storyboard */; };
-		D524F63B249B410A00646538 /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D524F63A249B410A00646538 /* Rswift.framework */; };
-		D524F63C249B410A00646538 /* Rswift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D524F63A249B410A00646538 /* Rswift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D524F641249B43B100646538 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D524F640249B43B100646538 /* Nuke.framework */; };
+		D5671BC4249C7EA1003E3BEE /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5671BC3249C7EA1003E3BEE /* Signup.storyboard */; };
+		D5671BC6249C7EBC003E3BEE /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5671BC5249C7EBC003E3BEE /* SignupViewController.swift */; };
+		D5671BC7249CA149003E3BEE /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D524F63A249B410A00646538 /* Rswift.framework */; };
+		D5671BC8249CA149003E3BEE /* Rswift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D524F63A249B410A00646538 /* Rswift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D5671BCA249CA4B6003E3BEE /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5671BC9249CA4B6003E3BEE /* R.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,7 +29,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D524F63C249B410A00646538 /* Rswift.framework in Embed Frameworks */,
+				D5671BC8249CA149003E3BEE /* Rswift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -47,6 +50,9 @@
 		D524F633249B3AF600646538 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D524F63A249B410A00646538 /* Rswift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rswift.framework; path = Carthage/Build/iOS/Rswift.framework; sourceTree = "<group>"; };
 		D524F640249B43B100646538 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
+		D5671BC3249C7EA1003E3BEE /* Signup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
+		D5671BC5249C7EBC003E3BEE /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		D5671BC9249CA4B6003E3BEE /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +61,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36B1B67F750148AE353B7FCC /* Pods_BookManager_iOS.framework in Frameworks */,
-				D524F63B249B410A00646538 /* Rswift.framework in Frameworks */,
+				D5671BC7249CA149003E3BEE /* Rswift.framework in Frameworks */,
 				D524F641249B43B100646538 /* Nuke.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,6 +91,7 @@
 		D524F619249B3AF100646538 = {
 			isa = PBXGroup;
 			children = (
+				D5671BC9249CA4B6003E3BEE /* R.generated.swift */,
 				D524F624249B3AF100646538 /* BookManager_iOS */,
 				D524F623249B3AF100646538 /* Products */,
 				7005533A7E37773DE36AEF0E /* Pods */,
@@ -103,6 +110,7 @@
 		D524F624249B3AF100646538 /* BookManager_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D5671BC2249C7E47003E3BEE /* Singup */,
 				D524F625249B3AF100646538 /* AppDelegate.swift */,
 				D524F627249B3AF100646538 /* SceneDelegate.swift */,
 				D524F62E249B3AF600646538 /* Assets.xcassets */,
@@ -111,6 +119,15 @@
 				D524F633249B3AF600646538 /* Info.plist */,
 			);
 			path = BookManager_iOS;
+			sourceTree = "<group>";
+		};
+		D5671BC2249C7E47003E3BEE /* Singup */ = {
+			isa = PBXGroup;
+			children = (
+				D5671BC3249C7EA1003E3BEE /* Signup.storyboard */,
+				D5671BC5249C7EBC003E3BEE /* SignupViewController.swift */,
+			);
+			path = Singup;
 			sourceTree = "<group>";
 		};
 		D5AB0F00249B596F0056CF2C /* Login */ = {
@@ -187,6 +204,7 @@
 			files = (
 				D524F632249B3AF600646538 /* LaunchScreen.storyboard in Resources */,
 				D524F62F249B3AF600646538 /* Assets.xcassets in Resources */,
+				D5671BC4249C7EA1003E3BEE /* Signup.storyboard in Resources */,
 				D524F62D249B3AF100646538 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +299,8 @@
 			files = (
 				D524F62A249B3AF100646538 /* LoginViewController.swift in Sources */,
 				D524F626249B3AF100646538 /* AppDelegate.swift in Sources */,
+				D5671BCA249CA4B6003E3BEE /* R.generated.swift in Sources */,
+				D5671BC6249C7EBC003E3BEE /* SignupViewController.swift in Sources */,
 				D524F628249B3AF100646538 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

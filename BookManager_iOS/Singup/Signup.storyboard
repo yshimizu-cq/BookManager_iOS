@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vJQ-qp-aSn">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Signup View Controller-->
+        <scene sceneID="We2-qM-oqA">
+            <objects>
+                <viewController id="vJQ-qp-aSn" customClass="SignupViewController" customModule="BookManager_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="18r-1v-MGg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="パスワード確認" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PfP-0v-55p">
+                                <rect key="frame" x="106.5" y="400" width="201" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="x39-Ki-POa"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="パスワード" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="803-IW-ugb">
+                                <rect key="frame" x="106" y="290" width="200.00000000000023" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="Pig-CB-7gW"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="メールアドレス" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oTq-yV-HhF">
+                                <rect key="frame" x="106.7234302567324" y="184.99999999999977" width="199.99999999999977" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="Cre-s2-u6P"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fmO-8Q-7Hh">
+                                <rect key="frame" x="-1" y="44" width="414" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="pdo-CW-j7j"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="サインアップ" id="gqU-ut-lrf">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt; 戻る" id="RMg-hN-T3a">
+                                            <connections>
+                                                <action selector="returnButtonTapped:" destination="vJQ-qp-aSn" id="epI-Mk-5yb"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oN-As-ZV7">
+                                <rect key="frame" x="106" y="528" width="200" height="49.999999999999773"/>
+                                <color key="backgroundColor" red="0.2294083489" green="0.50736455660000002" blue="0.74316336800000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="サインアップ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="signupButtonTapped:" destination="vJQ-qp-aSn" eventType="touchUpInside" id="CYC-us-vjV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="803-IW-ugb" firstAttribute="leading" secondItem="0oN-As-ZV7" secondAttribute="leading" id="92A-tb-hgy"/>
+                            <constraint firstItem="803-IW-ugb" firstAttribute="centerX" secondItem="PfP-0v-55p" secondAttribute="centerX" id="DhA-47-cxt"/>
+                            <constraint firstItem="oTq-yV-HhF" firstAttribute="leading" secondItem="PfP-0v-55p" secondAttribute="leading" id="Gpp-uF-fKx"/>
+                            <constraint firstItem="fmO-8Q-7Hh" firstAttribute="centerX" secondItem="oTq-yV-HhF" secondAttribute="centerX" id="GuK-cc-mlx"/>
+                            <constraint firstItem="3kR-sA-M7D" firstAttribute="trailing" secondItem="fmO-8Q-7Hh" secondAttribute="trailing" constant="1" id="OiY-Km-X0W"/>
+                            <constraint firstItem="803-IW-ugb" firstAttribute="centerX" secondItem="18r-1v-MGg" secondAttribute="centerX" id="PdS-09-Q89"/>
+                            <constraint firstItem="PfP-0v-55p" firstAttribute="centerX" secondItem="0oN-As-ZV7" secondAttribute="centerX" id="XDT-j8-cPJ"/>
+                            <constraint firstItem="0oN-As-ZV7" firstAttribute="top" secondItem="PfP-0v-55p" secondAttribute="bottom" constant="94.000000000000227" id="ZYw-lz-aRq"/>
+                            <constraint firstItem="803-IW-ugb" firstAttribute="leading" secondItem="3kR-sA-M7D" secondAttribute="leading" constant="106" id="Zda-Ti-UTn"/>
+                            <constraint firstItem="803-IW-ugb" firstAttribute="top" secondItem="oTq-yV-HhF" secondAttribute="bottom" constant="71.000000000000227" id="akF-Rz-Puy"/>
+                            <constraint firstItem="oTq-yV-HhF" firstAttribute="leading" secondItem="3kR-sA-M7D" secondAttribute="leading" constant="106.7234302567324" id="bId-qX-vLG"/>
+                            <constraint firstItem="oTq-yV-HhF" firstAttribute="top" secondItem="fmO-8Q-7Hh" secondAttribute="bottom" constant="96.999999999999773" id="bk6-HY-otU"/>
+                            <constraint firstItem="oTq-yV-HhF" firstAttribute="centerX" secondItem="803-IW-ugb" secondAttribute="centerX" id="jUY-Cf-aJH"/>
+                            <constraint firstItem="fmO-8Q-7Hh" firstAttribute="top" secondItem="3kR-sA-M7D" secondAttribute="top" id="nq8-iw-kKw"/>
+                            <constraint firstItem="3kR-sA-M7D" firstAttribute="bottom" secondItem="0oN-As-ZV7" secondAttribute="bottom" constant="284.00000000000023" id="w4G-Ph-vWr"/>
+                            <constraint firstItem="PfP-0v-55p" firstAttribute="top" secondItem="803-IW-ugb" secondAttribute="bottom" constant="75.999999999999773" id="xnw-0d-ZsH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3kR-sA-M7D"/>
+                    </view>
+                    <connections>
+                        <outlet property="mailTextField" destination="oTq-yV-HhF" id="slJ-jQ-DIY"/>
+                        <outlet property="passwordConfirmationTextField" destination="PfP-0v-55p" id="IJc-tY-Fjp"/>
+                        <outlet property="passwordTextField" destination="803-IW-ugb" id="MII-ex-xCF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Ac-YL-0AM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1610" y="-821"/>
+        </scene>
+    </scenes>
+</document>
