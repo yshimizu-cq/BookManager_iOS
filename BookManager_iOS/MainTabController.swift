@@ -18,16 +18,18 @@ class MainTabController: UITabBarController {
         // 1ページ目のViewController
         let bookListViewController = BookListViewController()
         bookListViewController.tabBarItem = UITabBarItem(title: "書籍一覧", image: nil, tag: 1)
-        viewControllers.append(bookListViewController)      // append => 配列の最後に値を追加
+        viewControllers.append(bookListViewController)  // append => 配列に追加
 
         // 2ページ目のViewController
-        let accountViewController = AccountViewController()
+        //  Rswiftを使ってstoryboardのインスタンス取得
+        let storyboard: UIStoryboard = R.storyboard.account()
+        //  AccountViewControllerのインスタンス取得
+        guard let accountViewController = storyboard.instantiateInitialViewController() as? AccountViewController else { return }
         accountViewController.tabBarItem = UITabBarItem(title: "アカウント", image: nil, tag: 2)
         viewControllers.append(accountViewController)
 
         self.setViewControllers(viewControllers, animated: false)
 
-        self.selectedIndex = 1
         self.selectedIndex = 0
 
     }

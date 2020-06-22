@@ -13,7 +13,17 @@ class AccountViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.white
-        self.navigationItem.title = "アカウント"
+        self.parent?.navigationItem.title = "アカウント"
+    }
+    
+    @IBAction func logoutButtonTapped(_ sender: UIButton) {
+        //  Rswiftを使ってstoryboardのインスタンス取得
+        let storyboard: UIStoryboard = R.storyboard.login()
+        //  遷移先ViewControllerのインスタンス取得
+        guard let loginView = storyboard.instantiateInitialViewController() as? LoginViewController else { return }
+        //  画面遷移
+//        self.present(loginView, animated: true, completion: nil)
+        navigationController?.pushViewController(loginView, animated: true)
     }
     
 }

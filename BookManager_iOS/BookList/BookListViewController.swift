@@ -13,7 +13,7 @@ class BookListViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.white
-        self.navigationItem.title = "書籍一覧"
+        self.parent?.navigationItem.title = "書籍一覧"
         self.parent?.navigationItem.hidesBackButton = true
     }
 }
