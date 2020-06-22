@@ -15,4 +15,5 @@ class AccountViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         self.navigationItem.title = "アカウント"
     }
+    
 }
