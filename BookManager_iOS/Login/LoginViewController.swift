@@ -15,12 +15,16 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var mailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    //  画面ロード後に実行すること
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
+        
+        let books: MainTabController = MainTabController()
+        self.navigationController?.pushViewController(books, animated: true)
     }
     
     @IBAction func signupButtonTapped(_ sender: UIButton) {
@@ -29,7 +33,7 @@ class LoginViewController: UIViewController {
         let storyboard: UIStoryboard = R.storyboard.signup()
         //  遷移先ViewControllerのインスタンス取得
         guard let signupView = storyboard.instantiateInitialViewController() as? SignupViewController else { return }
-        // 画面遷移
+        //  画面遷移
         navigationController?.pushViewController(signupView, animated: true)
         
     }

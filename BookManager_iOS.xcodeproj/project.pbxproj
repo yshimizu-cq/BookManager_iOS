@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		36B1B67F750148AE353B7FCC /* Pods_BookManager_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3572A335D954DEA0303FB730 /* Pods_BookManager_iOS.framework */; };
+		D5119EAE24A03BE2001DF20C /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5119EAD24A03BE2001DF20C /* BookListViewController.swift */; };
+		D5119EB024A040D7001DF20C /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5119EAF24A040D7001DF20C /* MainTabController.swift */; };
+		D5119EB324A04194001DF20C /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5119EB224A04194001DF20C /* AccountViewController.swift */; };
 		D524F626249B3AF100646538 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D524F625249B3AF100646538 /* AppDelegate.swift */; };
 		D524F628249B3AF100646538 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D524F627249B3AF100646538 /* SceneDelegate.swift */; };
 		D524F62A249B3AF100646538 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D524F629249B3AF100646538 /* LoginViewController.swift */; };
@@ -40,6 +43,9 @@
 		15B1005522498A2A780D9F9C /* Pods-BookManager_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookManager_iOS.release.xcconfig"; path = "Target Support Files/Pods-BookManager_iOS/Pods-BookManager_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		3572A335D954DEA0303FB730 /* Pods_BookManager_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookManager_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7202B20DC691F99D23A52BC0 /* Pods-BookManager_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookManager_iOS.debug.xcconfig"; path = "Target Support Files/Pods-BookManager_iOS/Pods-BookManager_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		D5119EAD24A03BE2001DF20C /* BookListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewController.swift; sourceTree = "<group>"; };
+		D5119EAF24A040D7001DF20C /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainTabController.swift; path = BookManager_iOS/MainTabController.swift; sourceTree = SOURCE_ROOT; };
+		D5119EB224A04194001DF20C /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		D524F622249B3AF100646538 /* BookManager_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookManager_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D524F625249B3AF100646538 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D524F627249B3AF100646538 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +94,22 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D5119EAC24A03A7F001DF20C /* BookList */ = {
+			isa = PBXGroup;
+			children = (
+				D5119EAD24A03BE2001DF20C /* BookListViewController.swift */,
+			);
+			path = BookList;
+			sourceTree = "<group>";
+		};
+		D5119EB124A04168001DF20C /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				D5119EB224A04194001DF20C /* AccountViewController.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 		D524F619249B3AF100646538 = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +132,9 @@
 		D524F624249B3AF100646538 /* BookManager_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D5119EB124A04168001DF20C /* Account */,
+				D5119EAF24A040D7001DF20C /* MainTabController.swift */,
+				D5119EAC24A03A7F001DF20C /* BookList */,
 				D5671BC2249C7E47003E3BEE /* Singup */,
 				D524F625249B3AF100646538 /* AppDelegate.swift */,
 				D524F627249B3AF100646538 /* SceneDelegate.swift */,
@@ -299,9 +324,12 @@
 			files = (
 				D524F62A249B3AF100646538 /* LoginViewController.swift in Sources */,
 				D524F626249B3AF100646538 /* AppDelegate.swift in Sources */,
+				D5119EB324A04194001DF20C /* AccountViewController.swift in Sources */,
+				D5119EB024A040D7001DF20C /* MainTabController.swift in Sources */,
 				D5671BCA249CA4B6003E3BEE /* R.generated.swift in Sources */,
 				D5671BC6249C7EBC003E3BEE /* SignupViewController.swift in Sources */,
 				D524F628249B3AF100646538 /* SceneDelegate.swift in Sources */,
+				D5119EAE24A03BE2001DF20C /* BookListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

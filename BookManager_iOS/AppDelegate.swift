@@ -10,6 +10,25 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var window: UIWindow?
+
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+
+        // ViewControllerを生成する.
+        let myFirstViewController: BookListViewController = BookListViewController()
+
+        // myFirstViewControllerをrootviewに設定し、Navication Controllerを生成する.
+        var myNavigationController: UINavigationController = UINavigationController(rootViewController: myFirstViewController)
+
+        // rootViewControllerにNavigationControllerを設定する.
+        self.window?.rootViewController = myNavigationController
+
+        // NavigationControllerを表示する.
+        self.window?.makeKeyAndVisible()
+
+        return true
+    }
 
 
 
