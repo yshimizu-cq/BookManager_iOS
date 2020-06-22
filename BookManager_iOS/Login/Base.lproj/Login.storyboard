@@ -93,7 +93,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="ログイン" id="qPQ-pa-4rm"/>
+                    <navigationItem key="navigationItem" title="ログイン" id="qPQ-pa-4rm">
+                        <barButtonItem key="backBarButtonItem" title="戻る" id="mgA-Pb-eaR"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="mailTextField" destination="fut-s4-53P" id="Te7-xA-IV6"/>
                         <outlet property="passwordTextField" destination="PTo-fR-er7" id="gjX-9K-vLW"/>
