@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookListCell" id="KGk-i7-Jjw" customClass="BookListCell" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rpp-Yv-OUV">
+                        <rect key="frame" x="13" y="13" width="79" height="76"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZdA-db-liv">
+                        <rect key="frame" x="189" y="13" width="70" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="値段" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cju-Ow-iRK">
+                        <rect key="frame" x="146" y="55" width="35" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="日付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3c0-0H-1hf">
+                        <rect key="frame" x="259" y="55" width="35" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="cju-Ow-iRK" firstAttribute="baseline" secondItem="3c0-0H-1hf" secondAttribute="baseline" id="0Iw-sj-qGn"/>
+                    <constraint firstItem="3c0-0H-1hf" firstAttribute="leading" secondItem="cju-Ow-iRK" secondAttribute="trailing" constant="78" id="Az4-ki-cEf"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="3c0-0H-1hf" secondAttribute="trailing" constant="61" id="E77-Cv-A3G"/>
+                    <constraint firstItem="cju-Ow-iRK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="VLL-tC-N3d"/>
+                    <constraint firstItem="cju-Ow-iRK" firstAttribute="firstBaseline" secondItem="3c0-0H-1hf" secondAttribute="firstBaseline" id="Y6j-Fe-RTf"/>
+                    <constraint firstItem="rpp-Yv-OUV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-7" id="ZW6-10-TU5"/>
+                    <constraint firstItem="cju-Ow-iRK" firstAttribute="leading" secondItem="rpp-Yv-OUV" secondAttribute="trailing" constant="54" id="c3a-J5-6m1"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ZdA-db-liv" secondAttribute="bottom" constant="55" id="cMi-gv-AA0"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="cju-Ow-iRK" secondAttribute="bottom" constant="13" id="gts-GC-PCh"/>
+                    <constraint firstItem="rpp-Yv-OUV" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="juy-8g-TOs"/>
+                    <constraint firstItem="rpp-Yv-OUV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-42" id="lTb-fv-uwR"/>
+                    <constraint firstItem="ZdA-db-liv" firstAttribute="leading" secondItem="rpp-Yv-OUV" secondAttribute="trailing" constant="97" id="te4-Hd-OVt"/>
+                    <constraint firstItem="rpp-Yv-OUV" firstAttribute="top" secondItem="ZdA-db-liv" secondAttribute="top" id="yQi-ly-BzH"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="date" destination="3c0-0H-1hf" id="PB4-qj-Nog"/>
+                <outlet property="price" destination="cju-Ow-iRK" id="x01-OS-ba3"/>
+                <outlet property="sampleImage" destination="rpp-Yv-OUV" id="6z3-ey-67X"/>
+                <outlet property="title" destination="ZdA-db-liv" id="q1d-Xu-gDw"/>
+            </connections>
+            <point key="canvasLocation" x="120" y="-52"/>
+        </tableViewCell>
+    </objects>
+</document>

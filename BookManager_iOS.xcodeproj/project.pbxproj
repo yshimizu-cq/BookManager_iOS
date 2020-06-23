@@ -17,6 +17,7 @@
 		D5119EC024A0A9E0001DF20C /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5119EBF24A0A9E0001DF20C /* AddBookViewController.swift */; };
 		D5119EC324A1AABD001DF20C /* EditBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5119EC224A1AABD001DF20C /* EditBookViewController.swift */; };
 		D5119EC524A1AEF7001DF20C /* EditBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5119EC424A1AEF7001DF20C /* EditBook.storyboard */; };
+		D5119ECC24A1D557001DF20C /* BookListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5119ECB24A1D557001DF20C /* BookListCell.swift */; };
 		D524F626249B3AF100646538 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D524F625249B3AF100646538 /* AppDelegate.swift */; };
 		D524F628249B3AF100646538 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D524F627249B3AF100646538 /* SceneDelegate.swift */; };
 		D524F62A249B3AF100646538 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D524F629249B3AF100646538 /* LoginViewController.swift */; };
@@ -58,6 +59,8 @@
 		D5119EBF24A0A9E0001DF20C /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
 		D5119EC224A1AABD001DF20C /* EditBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBookViewController.swift; sourceTree = "<group>"; };
 		D5119EC424A1AEF7001DF20C /* EditBook.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditBook.storyboard; sourceTree = "<group>"; };
+		D5119ECA24A1D556001DF20C /* BookListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BookListCell.xib; path = /Users/shimizuyuta/Caraquri/Training/BookManager_iOS/BookManager_iOS/BookList/BookListCell.xib; sourceTree = "<absolute>"; };
+		D5119ECB24A1D557001DF20C /* BookListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookListCell.swift; path = /Users/shimizuyuta/Caraquri/Training/BookManager_iOS/BookManager_iOS/BookList/BookListCell.swift; sourceTree = "<absolute>"; };
 		D524F622249B3AF100646538 /* BookManager_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookManager_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D524F625249B3AF100646538 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D524F627249B3AF100646538 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +112,8 @@
 		D5119EAC24A03A7F001DF20C /* BookList */ = {
 			isa = PBXGroup;
 			children = (
+				D5119ECB24A1D557001DF20C /* BookListCell.swift */,
+				D5119ECA24A1D556001DF20C /* BookListCell.xib */,
 				D5119EAD24A03BE2001DF20C /* BookListViewController.swift */,
 			);
 			path = BookList;
@@ -367,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5119ECC24A1D557001DF20C /* BookListCell.swift in Sources */,
 				D524F62A249B3AF100646538 /* LoginViewController.swift in Sources */,
 				D5119EC024A0A9E0001DF20C /* AddBookViewController.swift in Sources */,
 				D524F626249B3AF100646538 /* AppDelegate.swift in Sources */,
