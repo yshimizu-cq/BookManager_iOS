@@ -17,7 +17,7 @@ class AccountViewController: UIViewController {
     }
     
     @IBAction func logoutButtonTapped(_ sender: UIButton) {
-        self.navigationController?.popToRootViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)  // RootViewに戻る
     }
     
 }

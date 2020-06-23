@@ -15,6 +15,8 @@
 		D5119EBB24A06F22001DF20C /* Logout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5119EBA24A06F22001DF20C /* Logout.storyboard */; };
 		D5119EBD24A07512001DF20C /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5119EBC24A07512001DF20C /* Account.storyboard */; };
 		D5119EC024A0A9E0001DF20C /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5119EBF24A0A9E0001DF20C /* AddBookViewController.swift */; };
+		D5119EC324A1AABD001DF20C /* EditBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5119EC224A1AABD001DF20C /* EditBookViewController.swift */; };
+		D5119EC524A1AEF7001DF20C /* EditBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5119EC424A1AEF7001DF20C /* EditBook.storyboard */; };
 		D524F626249B3AF100646538 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D524F625249B3AF100646538 /* AppDelegate.swift */; };
 		D524F628249B3AF100646538 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D524F627249B3AF100646538 /* SceneDelegate.swift */; };
 		D524F62A249B3AF100646538 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D524F629249B3AF100646538 /* LoginViewController.swift */; };
@@ -54,6 +56,8 @@
 		D5119EBA24A06F22001DF20C /* Logout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Logout.storyboard; sourceTree = "<group>"; };
 		D5119EBC24A07512001DF20C /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		D5119EBF24A0A9E0001DF20C /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
+		D5119EC224A1AABD001DF20C /* EditBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBookViewController.swift; sourceTree = "<group>"; };
+		D5119EC424A1AEF7001DF20C /* EditBook.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditBook.storyboard; sourceTree = "<group>"; };
 		D524F622249B3AF100646538 /* BookManager_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookManager_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D524F625249B3AF100646538 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D524F627249B3AF100646538 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +140,15 @@
 			path = AddBook;
 			sourceTree = "<group>";
 		};
+		D5119EC124A1AA9A001DF20C /* EditBook */ = {
+			isa = PBXGroup;
+			children = (
+				D5119EC224A1AABD001DF20C /* EditBookViewController.swift */,
+				D5119EC424A1AEF7001DF20C /* EditBook.storyboard */,
+			);
+			path = EditBook;
+			sourceTree = "<group>";
+		};
 		D524F619249B3AF100646538 = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +171,7 @@
 		D524F624249B3AF100646538 /* BookManager_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D5119EC124A1AA9A001DF20C /* EditBook */,
 				D5119EBE24A0A99D001DF20C /* AddBook */,
 				D5119EB724A06EC3001DF20C /* Logout */,
 				D5119EB124A04168001DF20C /* Account */,
@@ -260,6 +274,7 @@
 				D5119EBD24A07512001DF20C /* Account.storyboard in Resources */,
 				D5671BC4249C7EA1003E3BEE /* Signup.storyboard in Resources */,
 				D524F62D249B3AF100646538 /* Login.storyboard in Resources */,
+				D5119EC524A1AEF7001DF20C /* EditBook.storyboard in Resources */,
 				D5119EBB24A06F22001DF20C /* Logout.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +375,7 @@
 				D5671BCA249CA4B6003E3BEE /* R.generated.swift in Sources */,
 				D5671BC6249C7EBC003E3BEE /* SignupViewController.swift in Sources */,
 				D524F628249B3AF100646538 /* SceneDelegate.swift in Sources */,
+				D5119EC324A1AABD001DF20C /* EditBookViewController.swift in Sources */,
 				D5119EB924A06EDE001DF20C /* LogoutViewController.swift in Sources */,
 				D5119EAE24A03BE2001DF20C /* BookListViewController.swift in Sources */,
 			);
