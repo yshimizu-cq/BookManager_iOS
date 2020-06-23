@@ -12,28 +12,10 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
-        // ViewControllerを生成する.
-        let myFirstViewController: BookListViewController = BookListViewController()
-
-        // myFirstViewControllerをrootviewに設定し、Navication Controllerを生成する.
-        var myNavigationController: UINavigationController = UINavigationController(rootViewController: myFirstViewController)
-
-        // rootViewControllerにNavigationControllerを設定する.
-        self.window?.rootViewController = myNavigationController
-
-        // NavigationControllerを表示する.
-        self.window?.makeKeyAndVisible()
-
-        return true
-    }
-
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
         return true
     }
 
@@ -50,7 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
 
 }
 

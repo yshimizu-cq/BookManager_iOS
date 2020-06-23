@@ -18,6 +18,7 @@ class MainTabController: UITabBarController {
         // 1ページ目のViewController
         let bookListViewController = BookListViewController()
         bookListViewController.tabBarItem = UITabBarItem(title: "書籍一覧", image: nil, tag: 1)
+
         viewControllers.append(bookListViewController)  // append => 配列に追加
 
         // 2ページ目のViewController

@@ -17,13 +17,7 @@ class AccountViewController: UIViewController {
     }
     
     @IBAction func logoutButtonTapped(_ sender: UIButton) {
-        //  Rswiftを使ってstoryboardのインスタンス取得
-        let storyboard: UIStoryboard = R.storyboard.login()
-        //  遷移先ViewControllerのインスタンス取得
-        guard let loginView = storyboard.instantiateInitialViewController() as? LoginViewController else { return }
-        //  画面遷移
-//        self.present(loginView, animated: true, completion: nil)
-        navigationController?.pushViewController(loginView, animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
 }
