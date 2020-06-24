@@ -55,7 +55,8 @@ class BookListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)    // セルの選択を解除
+        // セルの選択を解除
+        tableView.deselectRow(at: indexPath, animated: true)
         //  Rswiftを使ってstoryboardのインスタンス取得
         let storyboard: UIStoryboard = R.storyboard.editBook()
         //  遷移先ViewControllerのインスタンス取得

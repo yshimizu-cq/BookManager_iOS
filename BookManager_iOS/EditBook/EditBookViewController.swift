@@ -31,7 +31,19 @@ class EditBookViewController: UIViewController {
         
     // ”キャンセル”ボタンが押された時の処理
     @objc func cancelButtonTapped(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func nameTextField(_ sender: UITextField) {
+        nameTextField.text = sender.text
+    }
+    
+    @IBAction func priceTextField(_ sender: UITextField) {
+        priceTextField.text = sender.text
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            self.view.endEditing(true)
     }
 
 }

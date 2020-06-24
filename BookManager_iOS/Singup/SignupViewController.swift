@@ -17,6 +17,9 @@ class SignupViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        passwordTextField.isSecureTextEntry = true
+        passwordConfirmationTextField.isSecureTextEntry = true
         
     }
 
@@ -24,7 +27,24 @@ class SignupViewController: UIViewController {
         //  自身を破棄して遷移元の画面に戻る
         self.dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func signupButtonTapped(_ sender: UIButton) {
+    }
+    
+    @IBAction func mailTextField(_ sender: UITextField) {
+        mailTextField.text = sender.text
+    }
+    
+    @IBAction func passwordTextField(_ sender: UITextField) {
+        passwordTextField.text = sender.text
+    }
+    
+    @IBAction func passwordConfirmationTextField(_ sender: UITextField) {
+        passwordConfirmationTextField.text = sender.text
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            self.view.endEditing(true)
     }
 }
 
