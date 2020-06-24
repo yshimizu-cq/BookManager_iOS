@@ -54,8 +54,8 @@ class BookListViewController: UIViewController, UITableViewDelegate, UITableView
         self.present(navigationController, animated: true, completion: nil)
     }
     
-    //  ”書籍セル"が押された時の処理
-    @IBAction func bookTapped(_ sender: UIButton) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)    // セルの選択を解除
         //  Rswiftを使ってstoryboardのインスタンス取得
         let storyboard: UIStoryboard = R.storyboard.editBook()
         //  遷移先ViewControllerのインスタンス取得

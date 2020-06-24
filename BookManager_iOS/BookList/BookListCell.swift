@@ -11,21 +11,21 @@ class BookListCell: UITableViewCell {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "title"
+        label.text = "タイトル"
         label.translatesAutoresizingMaskIntoConstraints = false    //   AutosizingのAutoLayoutへの変換をオフ
         return label
     }()
     
     let priceLabel: UILabel = {
         let label = UILabel()
-        label.text = "price"
+        label.text = "価格"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     let dateLabel: UILabel = {
         let label = UILabel()
-        label.text = "date"
+        label.text = "購入日"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -63,9 +63,5 @@ class BookListCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-//    func setCell(title: String, price: String, date: Date, bookImageView: UIImage) {
-//
-//    }
 
 }
