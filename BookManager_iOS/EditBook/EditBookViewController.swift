@@ -10,11 +10,28 @@ import UIKit
 
 class EditBookViewController: UIViewController {
 
+    @IBOutlet weak var imageUploadButtonTapped: UIButton!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var priceTextField: UITextField!
+    @IBOutlet weak var dateTextFiled: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.white
+        self.parent?.navigationItem.title = "編集中"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(saveButtonTapped(_:)))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "キャンセル", style: .plain, target: self, action: #selector(cancelButtonTapped(_:)))
 
+    }
+    
+    // ”完了”ボタンが押された時の処理
+    @objc func saveButtonTapped(_ sender: UIBarButtonItem) {
+    }
+        
+    // ”キャンセル”ボタンが押された時の処理
+    @objc func cancelButtonTapped(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
 
 }

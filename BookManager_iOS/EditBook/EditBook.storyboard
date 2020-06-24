@@ -10,17 +10,137 @@
         <!--編集中-->
         <scene sceneID="HA2-ah-g8g">
             <objects>
-                <viewController title="編集中" id="LZu-Kw-MAc" customClass="EditBookViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editbook" title="編集中" id="LZu-Kw-MAc" customClass="EditBookViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I98-JV-7uE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9F-Yx-9Ge">
+                                <rect key="frame" x="246" y="198" width="111" height="57"/>
+                                <color key="backgroundColor" red="0.2294083489" green="0.50736455660000002" blue="0.74316336800000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="111" id="aJl-wF-3St"/>
+                                </constraints>
+                                <state key="normal" title="画像添付">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="書籍名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaC-it-DkR">
+                                <rect key="frame" x="57" y="366" width="100" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="PaC-28-OBv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iKp-t3-8Wc">
+                                <rect key="frame" x="57" y="397" width="300" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="q9b-PJ-eKu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="価格" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSW-wC-4jd">
+                                <rect key="frame" x="57" y="454" width="35" height="21"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cJD-9c-lcp">
+                                <rect key="frame" x="57" y="485" width="300" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="jmS-Pr-BvG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="購入日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YcN-V7-38N">
+                                <rect key="frame" x="57" y="542" width="52" height="21"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DBe-mq-DVz">
+                                <rect key="frame" x="57" y="151" width="150" height="124"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="e7J-PV-5Fz">
+                                <rect key="frame" x="57" y="571" width="300" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <locale key="locale" localeIdentifier="ja_JP"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </datePicker>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="CaC-it-DkR" firstAttribute="leading" secondItem="iKp-t3-8Wc" secondAttribute="leading" id="1tU-re-udp"/>
+                            <constraint firstItem="DBe-mq-DVz" firstAttribute="centerY" secondItem="J9F-Yx-9Ge" secondAttribute="centerY" id="3cz-Fx-c8Y"/>
+                            <constraint firstItem="cJD-9c-lcp" firstAttribute="top" secondItem="sSW-wC-4jd" secondAttribute="bottom" constant="10" id="3kt-0m-djR"/>
+                            <constraint firstItem="YcN-V7-38N" firstAttribute="top" secondItem="cJD-9c-lcp" secondAttribute="bottom" constant="23" id="4ga-14-Wxd"/>
+                            <constraint firstItem="J9F-Yx-9Ge" firstAttribute="leading" secondItem="DBe-mq-DVz" secondAttribute="trailing" constant="39" id="70f-ds-hFj"/>
+                            <constraint firstItem="DBe-mq-DVz" firstAttribute="top" secondItem="zab-G2-tqh" secondAttribute="top" constant="107" id="8D0-Io-LZo"/>
+                            <constraint firstItem="cJD-9c-lcp" firstAttribute="leading" secondItem="YcN-V7-38N" secondAttribute="leading" id="8Qz-Dj-X6D"/>
+                            <constraint firstItem="CaC-it-DkR" firstAttribute="top" secondItem="DBe-mq-DVz" secondAttribute="bottom" constant="91" id="AD4-CJ-fPm"/>
+                            <constraint firstItem="iKp-t3-8Wc" firstAttribute="top" secondItem="CaC-it-DkR" secondAttribute="bottom" constant="1" id="Gkz-Es-4EL"/>
+                            <constraint firstItem="DBe-mq-DVz" firstAttribute="leading" secondItem="zab-G2-tqh" secondAttribute="leading" constant="57" id="IQn-j8-V6J"/>
+                            <constraint firstItem="sSW-wC-4jd" firstAttribute="top" secondItem="iKp-t3-8Wc" secondAttribute="bottom" constant="23" id="Kv4-YH-YGK"/>
+                            <constraint firstItem="J9F-Yx-9Ge" firstAttribute="trailing" secondItem="iKp-t3-8Wc" secondAttribute="trailing" id="L4M-VJ-0cL"/>
+                            <constraint firstItem="zab-G2-tqh" firstAttribute="trailing" secondItem="CaC-it-DkR" secondAttribute="trailing" constant="257" id="LaV-dw-yhK"/>
+                            <constraint firstItem="sSW-wC-4jd" firstAttribute="leading" secondItem="cJD-9c-lcp" secondAttribute="leading" id="TVH-uD-WA9"/>
+                            <constraint firstItem="iKp-t3-8Wc" firstAttribute="trailing" secondItem="cJD-9c-lcp" secondAttribute="trailing" id="VW6-CN-GPo"/>
+                            <constraint firstItem="DBe-mq-DVz" firstAttribute="leading" secondItem="CaC-it-DkR" secondAttribute="leading" id="rD6-vK-NRw"/>
+                            <constraint firstItem="iKp-t3-8Wc" firstAttribute="centerX" secondItem="I98-JV-7uE" secondAttribute="centerX" id="shQ-P0-SN8"/>
+                            <constraint firstItem="J9F-Yx-9Ge" firstAttribute="top" secondItem="zab-G2-tqh" secondAttribute="top" constant="154" id="tek-FJ-7i8"/>
+                            <constraint firstItem="iKp-t3-8Wc" firstAttribute="leading" secondItem="sSW-wC-4jd" secondAttribute="leading" id="wqF-eQ-8KO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zab-G2-tqh"/>
                     </view>
+                    <connections>
+                        <outlet property="imageUploadButtonTapped" destination="J9F-Yx-9Ge" id="rC5-mW-mpM"/>
+                        <outlet property="nameTextField" destination="iKp-t3-8Wc" id="VRn-xB-Ykd"/>
+                        <outlet property="priceTextField" destination="cJD-9c-lcp" id="l0p-o3-MwU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oac-F3-fSk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32" y="25"/>
+            <point key="canvasLocation" x="31.884057971014496" y="24.776785714285712"/>
         </scene>
     </scenes>
 </document>

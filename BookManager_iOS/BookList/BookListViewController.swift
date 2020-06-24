@@ -11,8 +11,6 @@ import UIKit
 class BookListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     let tableView = UITableView()
-    let items: [String] = ["Sample1", "Sample2", "Sample3"]
-    let sampleImage = UIImage(named: "sample_image")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +19,11 @@ class BookListViewController: UIViewController, UITableViewDelegate, UITableView
         self.parent?.navigationItem.title = "書籍一覧"
         self.parent?.navigationItem.hidesBackButton = true
         
-        // tableView に BookListCell を登録する
+        // tableViewにBookListCellを"cell"という名前で登録する
         tableView.frame = view.bounds
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "BookListCell", bundle: nil), forCellReuseIdentifier: "BookListCell")
+        tableView.register(BookListCell.self, forCellReuseIdentifier: "cell")
         view.addSubview(tableView)
         
         // バーボタンアイテムの追加
@@ -33,19 +31,20 @@ class BookListViewController: UIViewController, UITableViewDelegate, UITableView
 
     }
     
-    //  表示するセルの数を指定する
+    //  表示するセルの数を指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return 8
     }
     
-    //  表示するセルの内容を指定する
+    //  セルをインスタンス化
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BookListCell") as? BookListCell
-        cell.title.text = "samplebook"
-        cell.price.text = "3000円"
-        cell.date.text = "2020/06/20"
-        cell.sampleImage.image = sampleImage
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         return cell
+    }
+    
+    //    セルの高さを指定
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
     }
     
     //  ”追加”ボタンが押された時の処理
@@ -53,6 +52,16 @@ class BookListViewController: UIViewController, UITableViewDelegate, UITableView
         let addBook: AddBookViewController = AddBookViewController()
         let navigationController = UINavigationController(rootViewController: addBook)
         self.present(navigationController, animated: true, completion: nil)
+    }
+    
+    //  ”書籍セル"が押された時の処理
+    @IBAction func bookTapped(_ sender: UIButton) {
+        //  Rswiftを使ってstoryboardのインスタンス取得
+        let storyboard: UIStoryboard = R.storyboard.editBook()
+        //  遷移先ViewControllerのインスタンス取得
+        guard let editBookView = storyboard.instantiateInitialViewController() as? EditBookViewController else { return }
+        //  画面遷移
+        navigationController?.pushViewController(editBookView, animated: true)
     }
     
 }

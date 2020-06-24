@@ -15,20 +15,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Kp-Ns-GLa">
-                                <rect key="frame" x="106.1338225463611" y="433" width="200.00000000000003" height="50.000000000000085"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.98833753389694556" green="0.72472588498244062" blue="1" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.98833753390000001" green="0.72472588500000001" blue="1" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5m-Rq-rJB">
+                                <rect key="frame" x="56" y="423" width="302" height="50"/>
+                                <color key="backgroundColor" red="0.93505100389999996" green="0.34777913710000002" blue="0.52242369099999997" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="3Cu-M3-1xM"/>
+                                </constraints>
                                 <state key="normal" title="ログアウト">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="logoutButtonTapped:" destination="SWi-1i-70k" eventType="touchUpInside" id="96J-un-Buv"/>
+                                    <action selector="logoutButtonTapped:" destination="SWi-1i-70k" eventType="touchUpInside" id="lud-tk-IS9"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="L5m-Rq-rJB" firstAttribute="leading" secondItem="wDZ-Io-WW2" secondAttribute="leading" constant="56" id="CyZ-mv-9nw"/>
+                            <constraint firstItem="L5m-Rq-rJB" firstAttribute="centerY" secondItem="q6s-jv-R5y" secondAttribute="centerY" id="dii-9k-leN"/>
+                            <constraint firstItem="L5m-Rq-rJB" firstAttribute="centerX" secondItem="q6s-jv-R5y" secondAttribute="centerX" id="gF9-es-E33"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wDZ-Io-WW2"/>
                     </view>
                 </viewController>

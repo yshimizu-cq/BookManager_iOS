@@ -15,22 +15,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVP-Dr-n9W">
-                                <rect key="frame" x="219" y="747" width="152" height="30"/>
-                                <state key="normal" title="新規アカウント作成"/>
-                                <connections>
-                                    <action selector="signupButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zlf-mo-yXv"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="メールアドレス" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fut-s4-53P">
-                                <rect key="frame" x="56.107820449063752" y="279" width="300" height="34.00000000000005"/>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fut-s4-53P">
+                                <rect key="frame" x="56.107820449063752" y="321" width="300" height="34.00000000000005"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
                                         <integer key="value" value="1"/>
@@ -40,8 +33,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41x-kR-PT4">
-                                <rect key="frame" x="56.107820449063752" y="554" width="300" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41x-kR-PT4">
+                                <rect key="frame" x="56" y="504" width="302" height="50"/>
                                 <color key="backgroundColor" red="0.22940834891508488" green="0.5073645566193441" blue="0.74316336803989635" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Mn7-yc-W8u"/>
@@ -58,14 +51,14 @@
                                     <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GI2-Ro-ncU"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="パスワード" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PTo-fR-er7">
-                                <rect key="frame" x="56.107820449063752" y="381" width="300" height="33.999999999999929"/>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PTo-fR-er7">
+                                <rect key="frame" x="56.107820449063752" y="423" width="300" height="34"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
                                         <integer key="value" value="1"/>
@@ -75,21 +68,53 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレス" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pma-JF-3TK">
+                                <rect key="frame" x="56" y="283" width="133" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="gEa-my-KHi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワード" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECA-pG-2tv">
+                                <rect key="frame" x="56" y="387" width="87" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="5Xd-Yc-U3j"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVP-Dr-n9W">
+                                <rect key="frame" x="206" y="688" width="152" height="30"/>
+                                <state key="normal" title="新規アカウント作成"/>
+                                <connections>
+                                    <action selector="signupButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zlf-mo-yXv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="41x-kR-PT4" firstAttribute="trailing" secondItem="PTo-fR-er7" secondAttribute="trailing" id="7Bu-Tb-LRO"/>
-                            <constraint firstItem="PTo-fR-er7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="107.00000000000001" id="7nP-mW-PzB"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kVP-Dr-n9W" secondAttribute="trailing" constant="43" id="7wI-YE-5di"/>
-                            <constraint firstItem="kVP-Dr-n9W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="219" id="AZw-vd-ZAi"/>
-                            <constraint firstItem="fut-s4-53P" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GKW-Yh-7NM"/>
-                            <constraint firstItem="PTo-fR-er7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="401" id="HnW-vE-DmK"/>
-                            <constraint firstItem="fut-s4-53P" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="260" id="Uly-qf-gJZ"/>
-                            <constraint firstAttribute="bottom" secondItem="41x-kR-PT4" secondAttribute="bottom" constant="292" id="ceh-cs-tHs"/>
-                            <constraint firstItem="fut-s4-53P" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="106.36629092104454" id="gHP-d3-VWw"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kVP-Dr-n9W" secondAttribute="bottom" constant="85" id="m8Z-Ez-o5g"/>
-                            <constraint firstItem="PTo-fR-er7" firstAttribute="centerX" secondItem="41x-kR-PT4" secondAttribute="centerX" id="wo2-46-uq8"/>
-                            <constraint firstItem="fut-s4-53P" firstAttribute="centerX" secondItem="PTo-fR-er7" secondAttribute="centerX" id="zfo-KR-Ayo"/>
+                            <constraint firstItem="Pma-JF-3TK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="195" id="0A0-vI-YA1"/>
+                            <constraint firstItem="fut-s4-53P" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="56.107820449063752" id="1Jf-9o-gMC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kVP-Dr-n9W" secondAttribute="bottom" constant="85" id="CHN-U9-4h1"/>
+                            <constraint firstItem="PTo-fR-er7" firstAttribute="leading" secondItem="41x-kR-PT4" secondAttribute="leading" id="FtU-th-rQ3"/>
+                            <constraint firstItem="41x-kR-PT4" firstAttribute="top" secondItem="PTo-fR-er7" secondAttribute="bottom" constant="47" id="Hyb-r4-qZq"/>
+                            <constraint firstItem="fut-s4-53P" firstAttribute="top" secondItem="Pma-JF-3TK" secondAttribute="bottom" constant="8" id="NR5-Mt-7SH"/>
+                            <constraint firstItem="ECA-pG-2tv" firstAttribute="top" secondItem="fut-s4-53P" secondAttribute="bottom" constant="31.999999999999943" id="Ohi-ea-bic"/>
+                            <constraint firstItem="PTo-fR-er7" firstAttribute="top" secondItem="ECA-pG-2tv" secondAttribute="bottom" constant="6" id="Qjn-xR-aEb"/>
+                            <constraint firstItem="fut-s4-53P" firstAttribute="leading" secondItem="PTo-fR-er7" secondAttribute="leading" id="TUw-Zn-L4G"/>
+                            <constraint firstItem="Pma-JF-3TK" firstAttribute="leading" secondItem="ECA-pG-2tv" secondAttribute="leading" id="Wth-rN-ha0"/>
+                            <constraint firstItem="Pma-JF-3TK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="56" id="aBW-NK-oGE"/>
+                            <constraint firstItem="fut-s4-53P" firstAttribute="trailing" secondItem="PTo-fR-er7" secondAttribute="trailing" id="dTd-vu-0FI"/>
+                            <constraint firstItem="fut-s4-53P" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="drZ-TV-Frz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pma-JF-3TK" secondAttribute="trailing" constant="225" id="pb4-SO-L2a"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kVP-Dr-n9W" secondAttribute="trailing" constant="43" id="sAe-B0-KUe"/>
+                            <constraint firstItem="kVP-Dr-n9W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="219" id="z2b-op-GMM"/>
+                            <constraint firstItem="PTo-fR-er7" firstAttribute="trailing" secondItem="41x-kR-PT4" secondAttribute="trailing" id="zRQ-Fy-ax9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
