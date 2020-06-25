@@ -25,7 +25,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-        
+
         let minimumLengthOfCharactors = 6
         
         guard let mail = mailTextField.text,
@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
             alertMessage(message: "未入力項目があります")
             return
         }
-        
+
         // 文字数チェック
         guard mail.count >= minimumLengthOfCharactors, password.count >= minimumLengthOfCharactors else {
             alertMessage(message: "メールアドレスとパスワードは6文字以上で設定してください")
@@ -47,7 +47,7 @@ class LoginViewController: UIViewController {
         let books: MainTabController = MainTabController()
         self.navigationController?.pushViewController(books, animated: true)
     }
-    
+
     @IBAction func signupButtonTapped(_ sender: UIButton) {
 
         //  Rswiftを使ってstoryboardのインスタンス取得
@@ -58,7 +58,7 @@ class LoginViewController: UIViewController {
         navigationController?.pushViewController(signupView, animated: true)
         
     }
-    
+
     //  returnでキーボードを閉じる
     @IBAction func mailTextField(_ sender: UITextField) {
         mailTextField.text = sender.text
