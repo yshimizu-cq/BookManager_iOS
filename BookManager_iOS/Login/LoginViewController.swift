@@ -26,6 +26,24 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         
+        let minimumLengthOfCharactors = 6
+        
+        guard let mail = mailTextField.text,
+              let password = passwordTextField.text else {
+            return
+        }
+        //　未入力チェック
+        guard !mail.isEmpty, !password.isEmpty else {
+            alertMessage(message: "未入力項目があります")
+            return
+        }
+        
+        // 文字数チェック
+        guard mail.count >= minimumLengthOfCharactors, password.count >= minimumLengthOfCharactors else {
+            alertMessage(message: "メールアドレスとパスワードは6文字以上で設定してください")
+            return
+        }
+
         let books: MainTabController = MainTabController()
         self.navigationController?.pushViewController(books, animated: true)
     }
@@ -53,6 +71,13 @@ class LoginViewController: UIViewController {
     //  画面タップでキーボードを閉じる
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             self.view.endEditing(true)
+    }
+    
+    // アラート表示
+    private func alertMessage(message: String) {
+        let alert = UIAlertController(title: "入力エラー", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
     }
 
 }

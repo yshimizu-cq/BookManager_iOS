@@ -29,6 +29,33 @@ class SignupViewController: UIViewController {
     }
     
     @IBAction func signupButtonTapped(_ sender: UIButton) {
+        let minimumLengthOfCharactors = 6
+        
+        guard let mail = mailTextField.text,
+              let password = passwordTextField.text,
+              let passwordConfirmation = passwordConfirmationTextField.text else {
+            return
+        }
+        //　未入力チェック
+        guard !mail.isEmpty, !password.isEmpty, !passwordConfirmation.isEmpty else {
+            alertMessage(message: "未入力項目があります")
+            return
+        }
+        
+        // 文字数チェック
+        guard mail.count >= minimumLengthOfCharactors, password.count >= minimumLengthOfCharactors else {
+            alertMessage(message: "メールアドレスとパスワードは6文字以上で設定してください")
+            return
+        }
+        
+        // パスワード一致チェック
+        guard password == passwordConfirmation else {
+            alertMessage(message: "パスワードが一致していません")
+            return
+        }
+        
+        let books: MainTabController = MainTabController()
+        self.navigationController?.pushViewController(books, animated: true)
     }
     
     @IBAction func mailTextField(_ sender: UITextField) {
@@ -45,6 +72,13 @@ class SignupViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             self.view.endEditing(true)
+    }
+    
+    // アラート表示
+    private func alertMessage(message: String) {
+        let alert = UIAlertController(title: "入力エラー", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
     }
 }
 

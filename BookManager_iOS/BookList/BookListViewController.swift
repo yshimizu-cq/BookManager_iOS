@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BookListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class BookListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let tableView = UITableView()
 
@@ -33,7 +33,7 @@ class BookListViewController: UIViewController, UITableViewDelegate, UITableView
     
     //  表示するセルの数を指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return 30
     }
     
     //  セルをインスタンス化
