@@ -102,52 +102,54 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="e7J-PV-5Fz">
-                                <rect key="frame" x="57" y="584" width="300" height="50"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="of1-Ql-isD">
+                                <rect key="frame" x="57" y="584" width="300" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="hpB-ZN-uq9"/>
+                                    <constraint firstAttribute="height" constant="34" id="x0Q-I7-P8p"/>
                                 </constraints>
-                                <locale key="locale" localeIdentifier="ja_JP"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="1"/>
+                                        <integer key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                            </datePicker>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="cJD-9c-lcp" firstAttribute="trailing" secondItem="of1-Ql-isD" secondAttribute="trailing" id="2dt-v4-RUR"/>
                             <constraint firstItem="iKp-t3-8Wc" firstAttribute="top" secondItem="CaC-it-DkR" secondAttribute="bottom" constant="1" id="4jC-6v-Yzz"/>
                             <constraint firstItem="cJD-9c-lcp" firstAttribute="leading" secondItem="YcN-V7-38N" secondAttribute="leading" id="8JM-dj-iRE"/>
+                            <constraint firstItem="of1-Ql-isD" firstAttribute="top" secondItem="YcN-V7-38N" secondAttribute="bottom" constant="8" id="Cs1-rE-Ci3"/>
                             <constraint firstItem="CaC-it-DkR" firstAttribute="leading" secondItem="iKp-t3-8Wc" secondAttribute="leading" id="HsS-o6-wm1"/>
                             <constraint firstItem="J9F-Yx-9Ge" firstAttribute="trailing" secondItem="iKp-t3-8Wc" secondAttribute="trailing" constant="-1" id="ISq-70-rUu"/>
                             <constraint firstItem="DBe-mq-DVz" firstAttribute="leading" secondItem="CaC-it-DkR" secondAttribute="leading" id="KeN-V4-zcq"/>
                             <constraint firstItem="J9F-Yx-9Ge" firstAttribute="leading" secondItem="DBe-mq-DVz" secondAttribute="trailing" constant="68" id="L6T-wH-U8X"/>
                             <constraint firstItem="YcN-V7-38N" firstAttribute="top" secondItem="cJD-9c-lcp" secondAttribute="bottom" constant="23" id="Lyk-XH-2NG"/>
                             <constraint firstItem="zab-G2-tqh" firstAttribute="trailing" secondItem="CaC-it-DkR" secondAttribute="trailing" constant="257" id="PV1-op-s9t"/>
+                            <constraint firstItem="CaC-it-DkR" firstAttribute="top" secondItem="DBe-mq-DVz" secondAttribute="bottom" constant="92" id="PnF-3q-h23"/>
                             <constraint firstItem="DBe-mq-DVz" firstAttribute="top" secondItem="zab-G2-tqh" secondAttribute="top" constant="123" id="QdR-qw-nCI"/>
-                            <constraint firstItem="cJD-9c-lcp" firstAttribute="trailing" secondItem="e7J-PV-5Fz" secondAttribute="trailing" id="SnF-ih-EsO"/>
                             <constraint firstItem="sSW-wC-4jd" firstAttribute="top" secondItem="iKp-t3-8Wc" secondAttribute="bottom" constant="23" id="UiG-OB-a5A"/>
                             <constraint firstItem="cJD-9c-lcp" firstAttribute="top" secondItem="sSW-wC-4jd" secondAttribute="bottom" constant="10" id="WVp-Mq-EOn"/>
-                            <constraint firstItem="e7J-PV-5Fz" firstAttribute="top" secondItem="YcN-V7-38N" secondAttribute="bottom" constant="8" id="YKe-1f-I8Y"/>
-                            <constraint firstItem="zab-G2-tqh" firstAttribute="bottom" secondItem="e7J-PV-5Fz" secondAttribute="bottom" constant="228" id="Z6T-aa-RK0"/>
                             <constraint firstItem="iKp-t3-8Wc" firstAttribute="centerX" secondItem="I98-JV-7uE" secondAttribute="centerX" id="ZTU-se-zWe"/>
+                            <constraint firstItem="YcN-V7-38N" firstAttribute="leading" secondItem="of1-Ql-isD" secondAttribute="leading" id="bGt-AR-Rmc"/>
                             <constraint firstItem="sSW-wC-4jd" firstAttribute="leading" secondItem="cJD-9c-lcp" secondAttribute="leading" id="cJc-YW-vQO"/>
                             <constraint firstItem="iKp-t3-8Wc" firstAttribute="trailing" secondItem="cJD-9c-lcp" secondAttribute="trailing" id="oxB-cj-83b"/>
                             <constraint firstItem="DBe-mq-DVz" firstAttribute="leading" secondItem="zab-G2-tqh" secondAttribute="leading" constant="57" id="p6b-XM-iW4"/>
                             <constraint firstItem="iKp-t3-8Wc" firstAttribute="leading" secondItem="sSW-wC-4jd" secondAttribute="leading" id="qBF-73-tGu"/>
-                            <constraint firstItem="YcN-V7-38N" firstAttribute="leading" secondItem="e7J-PV-5Fz" secondAttribute="leading" id="rmE-v6-are"/>
                             <constraint firstItem="J9F-Yx-9Ge" firstAttribute="top" secondItem="zab-G2-tqh" secondAttribute="top" constant="157" id="uJd-2D-nH5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zab-G2-tqh"/>
                     </view>
                     <connections>
+                        <outlet property="dateTextField" destination="of1-Ql-isD" id="YFK-Av-I3G"/>
                         <outlet property="imageUploadButtonTapped" destination="J9F-Yx-9Ge" id="rC5-mW-mpM"/>
                         <outlet property="imageView" destination="DBe-mq-DVz" id="kX6-kh-TvJ"/>
                         <outlet property="nameTextField" destination="iKp-t3-8Wc" id="VRn-xB-Ykd"/>
