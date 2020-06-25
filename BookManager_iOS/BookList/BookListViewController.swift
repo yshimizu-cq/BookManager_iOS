@@ -28,7 +28,7 @@ class BookListViewController: UIViewController, UITableViewDelegate, UITableView
         
         // バーボタンアイテムの追加
         self.parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "追加", style: .plain, target: self, action: #selector(addBarButtonTapped(_:)))
-
+        
     }
     
     //  表示するセルの数を指定
@@ -39,6 +39,8 @@ class BookListViewController: UIViewController, UITableViewDelegate, UITableView
     //  セルをインスタンス化
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+        
         return cell
     }
     

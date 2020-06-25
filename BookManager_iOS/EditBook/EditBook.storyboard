@@ -22,12 +22,13 @@
                                     <constraint firstAttribute="width" constant="111" id="aJl-wF-3St"/>
                                     <constraint firstAttribute="height" constant="57" id="wM8-fh-DJq"/>
                                 </constraints>
+                                <color key="tintColor" red="0.22568563746378714" green="0.51003223097158246" blue="0.74316336800000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="画像添付">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DBe-mq-DVz">
-                                <rect key="frame" x="57" y="167" width="150" height="120"/>
+                                <rect key="frame" x="57" y="167" width="120" height="120"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="c0n-NB-WmJ"/>
@@ -127,7 +128,7 @@
                             <constraint firstItem="CaC-it-DkR" firstAttribute="leading" secondItem="iKp-t3-8Wc" secondAttribute="leading" id="HsS-o6-wm1"/>
                             <constraint firstItem="J9F-Yx-9Ge" firstAttribute="trailing" secondItem="iKp-t3-8Wc" secondAttribute="trailing" constant="-1" id="ISq-70-rUu"/>
                             <constraint firstItem="DBe-mq-DVz" firstAttribute="leading" secondItem="CaC-it-DkR" secondAttribute="leading" id="KeN-V4-zcq"/>
-                            <constraint firstItem="J9F-Yx-9Ge" firstAttribute="leading" secondItem="DBe-mq-DVz" secondAttribute="trailing" constant="38" id="L6T-wH-U8X"/>
+                            <constraint firstItem="J9F-Yx-9Ge" firstAttribute="leading" secondItem="DBe-mq-DVz" secondAttribute="trailing" constant="68" id="L6T-wH-U8X"/>
                             <constraint firstItem="YcN-V7-38N" firstAttribute="top" secondItem="cJD-9c-lcp" secondAttribute="bottom" constant="23" id="Lyk-XH-2NG"/>
                             <constraint firstItem="zab-G2-tqh" firstAttribute="trailing" secondItem="CaC-it-DkR" secondAttribute="trailing" constant="257" id="PV1-op-s9t"/>
                             <constraint firstItem="DBe-mq-DVz" firstAttribute="top" secondItem="zab-G2-tqh" secondAttribute="top" constant="123" id="QdR-qw-nCI"/>
@@ -148,6 +149,7 @@
                     </view>
                     <connections>
                         <outlet property="imageUploadButtonTapped" destination="J9F-Yx-9Ge" id="rC5-mW-mpM"/>
+                        <outlet property="imageView" destination="DBe-mq-DVz" id="kX6-kh-TvJ"/>
                         <outlet property="nameTextField" destination="iKp-t3-8Wc" id="VRn-xB-Ykd"/>
                         <outlet property="priceTextField" destination="cJD-9c-lcp" id="l0p-o3-MwU"/>
                     </connections>
