@@ -80,6 +80,7 @@ class EditBookViewController: UIViewController {
     
     // UIDatePickerのDoneを押したら発火
     @objc func done() {
+        
         dateTextField.endEditing(true)
         // 日付のフォーマット
         let formatter = DateFormatter()
