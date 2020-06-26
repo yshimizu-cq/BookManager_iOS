@@ -78,16 +78,13 @@ class EditBookViewController: UIViewController {
             self.view.endEditing(true)
     }
     
-    // UIDatePickerのDoneを押したら発火
     @objc func done() {
         
         dateTextField.endEditing(true)
         // 日付のフォーマット
         let formatter = DateFormatter()
-        //"yyyy年MM月dd日"を"yyyy/MM/dd"したりして出力の仕方を好きに変更できるよ
         formatter.dateFormat = "yyyy年MM月dd日"
-        //(from: datePicker.date))を指定してあげることで
-        //datePickerで指定した日付が表示される
+        //(from: datePicker.date))を指定してあげることでdatePickerで指定した日付が表示される
         dateTextField.text = "\(formatter.string(from: datePicker.date))"
 
     }
