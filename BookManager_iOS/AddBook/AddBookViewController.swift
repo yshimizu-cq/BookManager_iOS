@@ -120,38 +120,38 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(bookImageView)
         view.addSubview(imageUploadButton)
         
-        bookImageView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 50).isActive = true
-        bookImageView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -150).isActive = true
+        bookImageView.leftAnchor.constraint(equalTo: titleTextField.leftAnchor).isActive = true
+        bookImageView.centerYAnchor.constraint(equalTo: titleTextField.topAnchor, constant: -150).isActive = true
         bookImageView.widthAnchor.constraint(equalToConstant: 120).isActive = true
         bookImageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
         
-        imageUploadButton.leftAnchor.constraint(equalTo: bookImageView.rightAnchor, constant: 60).isActive = true
+        imageUploadButton.rightAnchor.constraint(equalTo: titleTextField.rightAnchor).isActive = true
         imageUploadButton.centerYAnchor.constraint(equalTo: bookImageView.centerYAnchor).isActive = true
         imageUploadButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
         imageUploadButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
-        titleTextField.leftAnchor.constraint(equalTo: bookImageView.leftAnchor).isActive = true
+        titleTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         titleTextField.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-        titleTextField.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        titleTextField.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.7).isActive = true
         titleTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
-        titleLabel.leftAnchor.constraint(equalTo: bookImageView.leftAnchor).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: titleTextField.leftAnchor).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: titleTextField.topAnchor).isActive = true
 
-        priceTextField.leftAnchor.constraint(equalTo: bookImageView.leftAnchor).isActive = true
+        priceTextField.leftAnchor.constraint(equalTo: titleTextField.leftAnchor).isActive = true
         priceTextField.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: 50).isActive = true
-        priceTextField.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        priceTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        priceTextField.widthAnchor.constraint(equalTo: titleTextField.widthAnchor).isActive = true
+        priceTextField.heightAnchor.constraint(equalTo: titleTextField.heightAnchor).isActive = true
 
-        priceLabel.leftAnchor.constraint(equalTo: bookImageView.leftAnchor).isActive = true
+        priceLabel.leftAnchor.constraint(equalTo: priceTextField.leftAnchor).isActive = true
         priceLabel.bottomAnchor.constraint(equalTo: priceTextField.topAnchor).isActive = true
         
         dateTextField.leftAnchor.constraint(equalTo: bookImageView.leftAnchor).isActive = true
         dateTextField.topAnchor.constraint(equalTo: priceTextField.bottomAnchor, constant: 50).isActive = true
-        dateTextField.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        dateTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        dateTextField.widthAnchor.constraint(equalTo: titleTextField.widthAnchor).isActive = true
+        dateTextField.heightAnchor.constraint(equalTo: titleTextField.heightAnchor).isActive = true
         
-        dateLabel.leftAnchor.constraint(equalTo: bookImageView.leftAnchor).isActive = true
+        dateLabel.leftAnchor.constraint(equalTo: dateTextField.leftAnchor).isActive = true
         dateLabel.bottomAnchor.constraint(equalTo: dateTextField.topAnchor).isActive = true
         
     }

@@ -36,7 +36,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41x-kR-PT4">
-                                <rect key="frame" x="56" y="494.5" width="308" height="50"/>
+                                <rect key="frame" x="56" y="485.5" width="302" height="50"/>
                                 <color key="backgroundColor" red="0.22940834891508488" green="0.5073645566193441" blue="0.74316336803989635" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Mn7-yc-W8u"/>
@@ -54,7 +54,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="PTo-fR-er7">
-                                <rect key="frame" x="56" y="423" width="302" height="34"/>
+                                <rect key="frame" x="56" y="405" width="302" height="34"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -73,8 +73,22 @@
                                     <action selector="passwordTextField:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="rV7-aW-Bpr"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワード" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECA-pG-2tv">
+                                <rect key="frame" x="56" y="376" width="302" height="20.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVP-Dr-n9W">
+                                <rect key="frame" x="56" y="688" width="302" height="30"/>
+                                <state key="normal" title="新規アカウント作成"/>
+                                <connections>
+                                    <action selector="signupButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zlf-mo-yXv"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレス" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pma-JF-3TK">
-                                <rect key="frame" x="56" y="283" width="133" height="30"/>
+                                <rect key="frame" x="56" y="290" width="302" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="gEa-my-KHi"/>
@@ -83,20 +97,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワード" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECA-pG-2tv">
-                                <rect key="frame" x="56" y="387" width="87" height="20.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVP-Dr-n9W">
-                                <rect key="frame" x="206" y="688" width="152" height="30"/>
-                                <state key="normal" title="新規アカウント作成"/>
-                                <connections>
-                                    <action selector="signupButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zlf-mo-yXv"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -105,19 +105,19 @@
                             <constraint firstItem="ECA-pG-2tv" firstAttribute="leading" secondItem="41x-kR-PT4" secondAttribute="leading" id="CYa-Te-Fpq"/>
                             <constraint firstItem="fut-s4-53P" firstAttribute="trailing" secondItem="PTo-fR-er7" secondAttribute="trailing" id="F1y-Gp-FKx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kVP-Dr-n9W" secondAttribute="trailing" constant="56" id="GMk-Nc-GEB"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ECA-pG-2tv" secondAttribute="trailing" constant="271" id="IaQ-TC-oEu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ECA-pG-2tv" secondAttribute="trailing" constant="56" id="IaQ-TC-oEu"/>
                             <constraint firstItem="fut-s4-53P" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="56.107820449063752" id="OCc-F8-t1c"/>
                             <constraint firstItem="fut-s4-53P" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PHj-MV-y4T"/>
-                            <constraint firstItem="Pma-JF-3TK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="195" id="Q1Z-n6-PqM"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="41x-kR-PT4" secondAttribute="trailing" constant="50" id="RTN-ut-caW"/>
+                            <constraint firstItem="Pma-JF-3TK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="202" id="Q1Z-n6-PqM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="41x-kR-PT4" secondAttribute="trailing" constant="56" id="RTN-ut-caW"/>
+                            <constraint firstItem="41x-kR-PT4" firstAttribute="top" secondItem="PTo-fR-er7" secondAttribute="bottom" constant="46.5" id="WkT-WS-I4j"/>
                             <constraint firstItem="fut-s4-53P" firstAttribute="leading" secondItem="PTo-fR-er7" secondAttribute="leading" id="cWe-Kv-PTR"/>
-                            <constraint firstItem="ECA-pG-2tv" firstAttribute="top" secondItem="fut-s4-53P" secondAttribute="bottom" constant="32" id="d82-Ys-9vN"/>
-                            <constraint firstItem="fut-s4-53P" firstAttribute="top" secondItem="Pma-JF-3TK" secondAttribute="bottom" constant="8" id="eqI-ga-FKX"/>
-                            <constraint firstItem="41x-kR-PT4" firstAttribute="top" secondItem="PTo-fR-er7" secondAttribute="bottom" constant="37.5" id="fsI-4C-Tp3"/>
-                            <constraint firstItem="PTo-fR-er7" firstAttribute="top" secondItem="ECA-pG-2tv" secondAttribute="bottom" constant="15.5" id="qZ8-qB-rcc"/>
+                            <constraint firstItem="fut-s4-53P" firstAttribute="top" secondItem="Pma-JF-3TK" secondAttribute="bottom" constant="1" id="eqI-ga-FKX"/>
+                            <constraint firstItem="ECA-pG-2tv" firstAttribute="top" secondItem="fut-s4-53P" secondAttribute="bottom" constant="21" id="ouw-AV-irG"/>
+                            <constraint firstItem="PTo-fR-er7" firstAttribute="top" secondItem="ECA-pG-2tv" secondAttribute="bottom" constant="8.5" id="qZ8-qB-rcc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kVP-Dr-n9W" secondAttribute="bottom" constant="144" id="sie-id-QUN"/>
-                            <constraint firstItem="kVP-Dr-n9W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="206" id="unA-TT-wKk"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pma-JF-3TK" secondAttribute="trailing" constant="225" id="xZL-Sh-Jta"/>
+                            <constraint firstItem="kVP-Dr-n9W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="56" id="unA-TT-wKk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pma-JF-3TK" secondAttribute="trailing" constant="56" id="xZL-Sh-Jta"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
