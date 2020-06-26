@@ -68,6 +68,7 @@ Carthage/Build/
 Carthage/Checkouts/
 
 Carthage/
+photos/
 
 # Accio dependency management
 Dependencies/
@@ -98,8 +99,7 @@ Pods/*
 # R.swift
 *.generated.swift
 
-*.DS_Store
+.DS_Store
 /Licence
 *.xcworkspace
 !default.xcworkspace
-photos/
