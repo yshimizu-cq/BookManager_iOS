@@ -153,6 +153,17 @@ class AddBookViewController: UIViewController, UITextFieldDelegate{
     // ”完了”ボタンが押された時の処理
     @objc func saveButtonTapped(_ sender: UIBarButtonItem) {
         
+        guard let title = titleTextField.text,
+              let price = priceTextField.text,
+            let date = dateTextField.text else {
+            return
+        }
+        //　未入力チェック
+        guard !title.isEmpty, !price.isEmpty, !date.isEmpty else {
+            alertMessage(message: "未入力項目があります")
+            return
+        }
+
     }
         
     // ”キャンセル”ボタンが押された時の処理
@@ -184,6 +195,13 @@ class AddBookViewController: UIViewController, UITextFieldDelegate{
         formatter.dateFormat = "yyyy年MM月dd日"
         //(from: datePicker.date))を指定することでdatePickerで指定した日付が表示される
         dateTextField.text = "\(formatter.string(from: datePicker.date))"
+    }
+    
+    // アラート表示
+    private func alertMessage(message: String) {
+        let alert = UIAlertController(title: "入力エラー", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
     }
 
 }

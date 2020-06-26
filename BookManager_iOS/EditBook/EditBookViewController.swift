@@ -11,7 +11,7 @@ import UIKit
 class EditBookViewController: UIViewController {
 
     @IBOutlet weak var imageUploadButtonTapped: UIButton!
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
@@ -42,10 +42,23 @@ class EditBookViewController: UIViewController {
         // インプットビュー設定(紐づいているUITextfieldへ代入)
         dateTextField.inputView = datePicker
         dateTextField.inputAccessoryView = toolbar
+        
     }
     
-    // ”完了”ボタンが押された時の処理
+    // ”保存”ボタンが押された時の処理
     @objc func saveButtonTapped(_ sender: UIBarButtonItem) {
+        
+        guard let title = titleTextField.text,
+              let price = priceTextField.text,
+            let date = dateTextField.text else {
+            return
+        }
+        //　未入力チェック
+        guard !title.isEmpty, !price.isEmpty, !date.isEmpty else {
+            alertMessage(message: "未入力項目があります")
+            return
+        }
+        
     }
         
     // ”キャンセル”ボタンが押された時の処理
@@ -53,8 +66,8 @@ class EditBookViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func nameTextField(_ sender: UITextField) {
-        nameTextField.text = sender.text
+    @IBAction func titleTextField(_ sender: UITextField) {
+        titleTextField.text = sender.text
     }
     
     @IBAction func priceTextField(_ sender: UITextField) {
@@ -76,6 +89,13 @@ class EditBookViewController: UIViewController {
         //datePickerで指定した日付が表示される
         dateTextField.text = "\(formatter.string(from: datePicker.date))"
 
+    }
+    
+    // アラート表示
+    private func alertMessage(message: String) {
+        let alert = UIAlertController(title: "入力エラー", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
     }
 
 }

@@ -152,8 +152,8 @@
                         <outlet property="dateTextField" destination="of1-Ql-isD" id="YFK-Av-I3G"/>
                         <outlet property="imageUploadButtonTapped" destination="J9F-Yx-9Ge" id="rC5-mW-mpM"/>
                         <outlet property="imageView" destination="DBe-mq-DVz" id="kX6-kh-TvJ"/>
-                        <outlet property="nameTextField" destination="iKp-t3-8Wc" id="VRn-xB-Ykd"/>
                         <outlet property="priceTextField" destination="cJD-9c-lcp" id="l0p-o3-MwU"/>
+                        <outlet property="titleTextField" destination="iKp-t3-8Wc" id="ku0-aA-1gL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oac-F3-fSk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
