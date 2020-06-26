@@ -10,13 +10,14 @@ import UIKit
 
 class BookListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+//    var addBookButton: UIBarButtonItem!
     let tableView = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.white
-        self.parent?.navigationItem.title = "書籍一覧"
+        self.navigationItem.title = "書籍一覧"
         self.parent?.navigationItem.hidesBackButton = true
         
         // tableViewにBookListCellを"cell"という名前で登録する
@@ -27,7 +28,7 @@ class BookListViewController: UIViewController, UITableViewDelegate, UITableView
         view.addSubview(tableView)
         
         // バーボタンアイテムの追加
-        self.parent?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "追加", style: .plain, target: self, action: #selector(addBarButtonTapped(_:)))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "追加", style: .plain, target: self, action: #selector(addBarButtonTapped(_:)))
         
     }
     
@@ -52,8 +53,8 @@ class BookListViewController: UIViewController, UITableViewDelegate, UITableView
     //  ”追加”ボタンが押された時の処理
     @objc func addBarButtonTapped(_ sender: UIBarButtonItem) {
         let addBook: AddBookViewController = AddBookViewController()
-        let navigationController = UINavigationController(rootViewController: addBook)
-        self.present(navigationController, animated: true, completion: nil)
+        let addBookViewController = UINavigationController(rootViewController: addBook)
+        self.present(addBookViewController, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -62,9 +63,9 @@ class BookListViewController: UIViewController, UITableViewDelegate, UITableView
         //  Rswiftを使ってstoryboardのインスタンス取得
         let storyboard: UIStoryboard = R.storyboard.editBook()
         //  遷移先ViewControllerのインスタンス取得
-        guard let editBookView = storyboard.instantiateInitialViewController() as? EditBookViewController else { return }
+        guard let editBookViewController = storyboard.instantiateInitialViewController() as? EditBookViewController else { return }
         //  画面遷移
-        navigationController?.pushViewController(editBookView, animated: true)
+        navigationController?.pushViewController(editBookViewController, animated: true)
     }
     
 }

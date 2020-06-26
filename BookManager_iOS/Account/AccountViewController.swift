@@ -9,15 +9,20 @@
 import UIKit
 
 class AccountViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.backgroundColor = UIColor.white
-        self.parent?.navigationItem.title = "アカウント"
+        self.navigationItem.title = "アカウント"
+        
     }
     
     @IBAction func logoutButtonTapped(_ sender: UIButton) {
-        self.navigationController?.popToRootViewController(animated: true)  // RootViewに戻る
+        
+        let storyboard: UIStoryboard = R.storyboard.login()
+        guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return }
+        window.rootViewController = storyboard.instantiateInitialViewController()
+        
     }
     
 }

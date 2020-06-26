@@ -16,22 +16,35 @@ class MainTabController: UITabBarController {
         var viewControllers: [UIViewController] = []
                
         // 1ページ目のViewController
-        let bookListViewController = BookListViewController()
-        bookListViewController.tabBarItem = UITabBarItem(title: "書籍一覧", image: nil, tag: 1)
+//        let bookListViewController = BookListViewController()
+//        bookListViewController.tabBarItem = UITabBarItem(title: "書籍一覧", image: nil, tag: 1)
+//        viewControllers.append(bookListViewController)  // append => 配列に追加
+        
+        let bookList = UINavigationController(rootViewController: BookListViewController())
+        bookList.tabBarItem = UITabBarItem(title: "書籍一覧", image: nil, tag: 1)
+        viewControllers.append(bookList)  // append => 配列に追加
 
-        viewControllers.append(bookListViewController)  // append => 配列に追加
-
-        // 2ページ目のViewController
-        //  Rswiftを使ってstoryboardのインスタンス取得
+//        // 2ページ目のViewController
+//        //  Rswiftを使ってstoryboardのインスタンス取得
+//        let storyboard: UIStoryboard = R.storyboard.account()
+//        //  AccountViewControllerのインスタンス取得
+//        guard let accountViewController = storyboard.instantiateInitialViewController() as? AccountViewController else { return }
+//        accountViewController.tabBarItem = UITabBarItem(title: "アカウント", image: nil, tag: 2)
+//        viewControllers.append(accountViewController)
+//
+//        self.setViewControllers(viewControllers, animated: false)
+//
+//        self.selectedIndex = 0
+        
         let storyboard: UIStoryboard = R.storyboard.account()
-        //  AccountViewControllerのインスタンス取得
-        guard let accountViewController = storyboard.instantiateInitialViewController() as? AccountViewController else { return }
-        accountViewController.tabBarItem = UITabBarItem(title: "アカウント", image: nil, tag: 2)
-        viewControllers.append(accountViewController)
-
+        guard let account = storyboard.instantiateInitialViewController() as? AccountViewController else { return }
+        account.tabBarItem = UITabBarItem(title: "アカウント", image: nil, tag: 2)
+        viewControllers.append(account)
+        
         self.setViewControllers(viewControllers, animated: false)
-
-        self.selectedIndex = 0
+        
+        
+        
 
     }
 

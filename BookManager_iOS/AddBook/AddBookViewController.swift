@@ -71,7 +71,7 @@ class AddBookViewController: UIViewController, UITextFieldDelegate{
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = UIColor(red: 100/255, green: 149/255, blue: 237/255, alpha: 1)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(nil ,action: #selector(imageUploadButtonTapped(_ :)),for: .touchUpInside)  //  "画像投稿"ボタンタップで実行
+        button.addTarget(nil,action: #selector(imageUploadButtonTapped(_ :)),for: .touchUpInside)  //  "画像投稿"ボタンタップで実行
         return button
     }()
 

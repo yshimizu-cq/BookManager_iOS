@@ -45,7 +45,9 @@ class LoginViewController: UIViewController {
         }
 
         let books: MainTabController = MainTabController()
-        self.navigationController?.pushViewController(books, animated: true)
+        let window = UIApplication.shared.windows.first { $0.isKeyWindow }
+        window?.rootViewController = books
+
     }
 
     @IBAction func signupButtonTapped(_ sender: UIButton) {
