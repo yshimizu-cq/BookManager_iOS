@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddBookViewController: UIViewController, UITextFieldDelegate{
+class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     //  UIコード実装
     
@@ -71,7 +71,7 @@ class AddBookViewController: UIViewController, UITextFieldDelegate{
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = UIColor(red: 100/255, green: 149/255, blue: 237/255, alpha: 1)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(nil,action: #selector(imageUploadButtonTapped(_ :)),for: .touchUpInside)  //  "画像投稿"ボタンタップで実行
+        button.addTarget(nil, action: #selector(imageUploadButtonTapped(_ :)), for: .touchUpInside)  //  "画像投稿"ボタンタップで実行
         return button
     }()
 
@@ -87,6 +87,29 @@ class AddBookViewController: UIViewController, UITextFieldDelegate{
         titleTextField.delegate = self
         priceTextField.delegate = self
         dateTextField.delegate = self
+        
+        //  アンカー設定
+        setAnchor()
+        
+        //  ピッカー設定
+        datePicker.date = Date()
+        datePicker.datePickerMode = UIDatePicker.Mode.date
+        datePicker.locale = Locale(identifier: "ja")
+        dateTextField.inputView = datePicker
+
+        //  決定バーの生成
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
+        let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        toolbar.setItems([spacelItem, doneItem], animated: true)
+
+        //  インプットビュー設定(紐づいているUITextfieldへ代入)
+        dateTextField.inputView = datePicker
+        dateTextField.inputAccessoryView = toolbar
+
+    }
+    
+    private func setAnchor() {
         
         view.addSubview(titleLabel)
         view.addSubview(titleTextField)
@@ -131,26 +154,9 @@ class AddBookViewController: UIViewController, UITextFieldDelegate{
         dateLabel.leftAnchor.constraint(equalTo: bookImageView.leftAnchor).isActive = true
         dateLabel.bottomAnchor.constraint(equalTo: dateTextField.topAnchor).isActive = true
         
-        
-        // ピッカー設定
-        datePicker.date = Date()
-        datePicker.datePickerMode = UIDatePicker.Mode.date
-        datePicker.locale = Locale(identifier: "ja")
-        dateTextField.inputView = datePicker
-
-        // 決定バーの生成
-        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
-        let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
-        toolbar.setItems([spacelItem, doneItem], animated: true)
-
-        // インプットビュー設定(紐づいているUITextfieldへ代入)
-        dateTextField.inputView = datePicker
-        dateTextField.inputAccessoryView = toolbar
-
     }
     
-    // ”完了”ボタンが押された時の処理
+    //  ”完了”ボタンが押された時の処理
     @objc func saveButtonTapped(_ sender: UIBarButtonItem) {
         
         guard let title = titleTextField.text,
@@ -158,7 +164,7 @@ class AddBookViewController: UIViewController, UITextFieldDelegate{
             let date = dateTextField.text else {
             return
         }
-        //　未入力チェック
+        //  未入力チェック
         guard !title.isEmpty, !price.isEmpty, !date.isEmpty else {
             alertMessage(message: "未入力項目があります")
             return
