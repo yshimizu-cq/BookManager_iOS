@@ -102,3 +102,4 @@ Pods/*
 /Licence
 *.xcworkspace
 !default.xcworkspace
+photos/
