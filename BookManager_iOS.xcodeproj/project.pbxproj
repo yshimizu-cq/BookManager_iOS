@@ -23,12 +23,12 @@
 		D524F641249B43B100646538 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D524F640249B43B100646538 /* Nuke.framework */; };
 		D55280D824A9AF9000D6248D /* APIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D55280D724A9AF8F00D6248D /* APIKit.framework */; };
 		D55280D924A9AF9000D6248D /* APIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D55280D724A9AF8F00D6248D /* APIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D55280ED24A9EB7B00D6248D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55280EC24A9EB7B00D6248D /* SceneDelegate.swift */; };
 		D5671BC4249C7EA1003E3BEE /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5671BC3249C7EA1003E3BEE /* Signup.storyboard */; };
 		D5671BC6249C7EBC003E3BEE /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5671BC5249C7EBC003E3BEE /* SignupViewController.swift */; };
 		D5671BC7249CA149003E3BEE /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D524F63A249B410A00646538 /* Rswift.framework */; };
 		D5671BC8249CA149003E3BEE /* Rswift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D524F63A249B410A00646538 /* Rswift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D5671BCA249CA4B6003E3BEE /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5671BC9249CA4B6003E3BEE /* R.generated.swift */; };
+		D5FF0ACD24A9FBB6001640BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FF0ACC24A9FBB6001640BC /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,10 +65,10 @@
 		D524F63A249B410A00646538 /* Rswift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rswift.framework; path = Carthage/Build/iOS/Rswift.framework; sourceTree = "<group>"; };
 		D524F640249B43B100646538 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 		D55280D724A9AF8F00D6248D /* APIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = APIKit.framework; path = Carthage/Build/iOS/APIKit.framework; sourceTree = "<group>"; };
-		D55280EC24A9EB7B00D6248D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D5671BC3249C7EA1003E3BEE /* Signup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
 		D5671BC5249C7EBC003E3BEE /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		D5671BC9249CA4B6003E3BEE /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		D5FF0ACC24A9FBB6001640BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,7 +162,7 @@
 				D5AB0F00249B596F0056CF2C /* Login */,
 				D524F630249B3AF600646538 /* LaunchScreen.storyboard */,
 				D524F633249B3AF600646538 /* Info.plist */,
-				D55280EC24A9EB7B00D6248D /* SceneDelegate.swift */,
+				D5FF0ACC24A9FBB6001640BC /* SceneDelegate.swift */,
 			);
 			path = BookManager_iOS;
 			sourceTree = "<group>";
@@ -330,10 +330,10 @@
 				D5119EB324A04194001DF20C /* AccountViewController.swift in Sources */,
 				D5119EB024A040D7001DF20C /* MainTabController.swift in Sources */,
 				D5671BCA249CA4B6003E3BEE /* R.generated.swift in Sources */,
+				D5FF0ACD24A9FBB6001640BC /* SceneDelegate.swift in Sources */,
 				D5671BC6249C7EBC003E3BEE /* SignupViewController.swift in Sources */,
 				D5119EC324A1AABD001DF20C /* EditBookViewController.swift in Sources */,
 				D5119EAE24A03BE2001DF20C /* BookListViewController.swift in Sources */,
-				D55280ED24A9EB7B00D6248D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

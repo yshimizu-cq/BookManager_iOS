@@ -8,11 +8,11 @@
 
 import UIKit
 
-class BookListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class BookListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-//    var addBookButton: UIBarButtonItem!
+    //    var addBookButton: UIBarButtonItem!
     let tableView = UITableView()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,7 +54,7 @@ class BookListViewController: UIViewController, UITableViewDelegate, UITableView
     @objc func addBarButtonTapped(_ sender: UIBarButtonItem) {
         let addBook: AddBookViewController = AddBookViewController()
         let addBookViewController = UINavigationController(rootViewController: addBook)
-        self.present(addBookViewController, animated: true, completion: nil)
+        self.present(addBookViewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

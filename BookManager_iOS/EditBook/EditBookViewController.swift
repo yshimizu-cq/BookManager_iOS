@@ -8,8 +8,8 @@
 
 import UIKit
 
-class EditBookViewController: UIViewController {
-
+final class EditBookViewController: UIViewController {
+    
     @IBOutlet weak var imageUploadButtonTapped: UIButton!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
@@ -32,13 +32,13 @@ class EditBookViewController: UIViewController {
         datePicker.datePickerMode = UIDatePicker.Mode.date
         datePicker.locale = Locale(identifier: "ja")
         dateTextField.inputView = datePicker
-
+        
         // 決定バーの生成
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
         let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
         toolbar.setItems([spacelItem, doneItem], animated: true)
-
+        
         // インプットビュー設定(紐づいているUITextfieldへ代入)
         dateTextField.inputView = datePicker
         dateTextField.inputAccessoryView = toolbar
@@ -49,9 +49,9 @@ class EditBookViewController: UIViewController {
     @objc func saveButtonTapped(_ sender: UIBarButtonItem) {
         
         guard let title = titleTextField.text,
-              let price = priceTextField.text,
+            let price = priceTextField.text,
             let date = dateTextField.text else {
-            return
+                return
         }
         //　未入力チェック
         guard !title.isEmpty, !price.isEmpty, !date.isEmpty else {
@@ -60,7 +60,7 @@ class EditBookViewController: UIViewController {
         }
         
     }
-        
+    
     // ”キャンセル”ボタンが押された時の処理
     @objc func cancelButtonTapped(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
@@ -75,7 +75,7 @@ class EditBookViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-            self.view.endEditing(true)
+        self.view.endEditing(true)
     }
     
     @objc func done() {
@@ -86,16 +86,16 @@ class EditBookViewController: UIViewController {
         formatter.dateFormat = "yyyy年MM月dd日"
         //(from: datePicker.date))を指定してあげることでdatePickerで指定した日付が表示される
         dateTextField.text = "\(formatter.string(from: datePicker.date))"
-
+        
     }
     
     // アラート表示
     private func alertMessage(message: String) {
         let alert = UIAlertController(title: "入力エラー", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }
-
+    
 }
 
 

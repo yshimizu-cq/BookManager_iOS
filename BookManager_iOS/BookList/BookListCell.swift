@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BookListCell: UITableViewCell {
+final class BookListCell: UITableViewCell {
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -22,14 +22,14 @@ class BookListCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     let dateLabel: UILabel = {
         let label = UILabel()
         label.text = "購入日"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     let bookImageView: UIImageView = {
         var imageView = UIImageView()
         imageView.image = UIImage(named: "sample_image")
@@ -63,5 +63,5 @@ class BookListCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
 }

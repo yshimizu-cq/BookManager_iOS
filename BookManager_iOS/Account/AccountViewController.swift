@@ -8,9 +8,10 @@
 
 import UIKit
 
-class AccountViewController: UIViewController {
+final class AccountViewController: UIViewController {
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         self.navigationItem.title = "アカウント"
@@ -21,15 +22,15 @@ class AccountViewController: UIViewController {
         
         //  ダイアログ設定
         let logoutDialog = UIAlertController(title: "ログアウト", message: "よろしいですか？", preferredStyle: .alert)
-        logoutDialog.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        logoutDialog.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         logoutDialog.addAction(UIAlertAction(title: "OK", style: .default,
-        handler: { _ in
-          //  rootにlogin storyboardを設定して遷移
-          let storyboard: UIStoryboard = R.storyboard.login()
-          guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return }
-          window.rootViewController = storyboard.instantiateInitialViewController()
+                                             handler: { _ in
+                                                //  rootにlogin storyboardを設定して遷移
+                                                let storyboard: UIStoryboard = R.storyboard.login()
+                                                guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return }
+                                                window.rootViewController = storyboard.instantiateInitialViewController()
         }))
-        self.present(logoutDialog, animated: true, completion: nil)
+        self.present(logoutDialog, animated: true)
         
     }
     

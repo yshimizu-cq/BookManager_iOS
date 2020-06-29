@@ -9,32 +9,32 @@
 import UIKit
 
 //  サインアップ画面
-class SignupViewController: UIViewController {
+final class SignupViewController: UIViewController {
     
     @IBOutlet weak var mailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordConfirmationTextField: UITextField!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         passwordTextField.isSecureTextEntry = true
         passwordConfirmationTextField.isSecureTextEntry = true
         
     }
-
+    
     @IBAction func returnButtonTapped(_ sender: UIBarButtonItem) {
         //  自身を破棄して遷移元の画面に戻る
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true)
     }
     
     @IBAction func signupButtonTapped(_ sender: UIButton) {
         let minimumLengthOfCharactors = 6
         
         guard let mail = mailTextField.text,
-              let password = passwordTextField.text,
-              let passwordConfirmation = passwordConfirmationTextField.text else {
-            return
+            let password = passwordTextField.text,
+            let passwordConfirmation = passwordConfirmationTextField.text else {
+                return
         }
         //　未入力チェック
         guard !mail.isEmpty, !password.isEmpty, !passwordConfirmation.isEmpty else {
@@ -78,7 +78,7 @@ class SignupViewController: UIViewController {
     // アラート表示
     private func alertMessage(message: String) {
         let alert = UIAlertController(title: "入力エラー", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }
 }

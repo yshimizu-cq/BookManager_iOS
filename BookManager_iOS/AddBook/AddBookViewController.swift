@@ -41,7 +41,7 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
-
+    
     let dateLabel: UILabel = {
         let label = UILabel()
         label.text = "購入日"
@@ -57,7 +57,7 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
     }()
     
     var datePicker: UIDatePicker = UIDatePicker()
-
+    
     let bookImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "sample_image")
@@ -74,7 +74,7 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         button.addTarget(nil, action: #selector(imageUploadButtonTapped(_ :)), for: .touchUpInside)  //  "画像投稿"ボタンタップで実行
         return button
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -96,17 +96,17 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         datePicker.datePickerMode = UIDatePicker.Mode.date
         datePicker.locale = Locale(identifier: "ja")
         dateTextField.inputView = datePicker
-
+        
         //  決定バーの生成
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
         let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
         toolbar.setItems([spacelItem, doneItem], animated: true)
-
+        
         //  インプットビュー設定(紐づいているUITextfieldへ代入)
         dateTextField.inputView = datePicker
         dateTextField.inputAccessoryView = toolbar
-
+        
     }
     
     private func setAnchor() {
@@ -137,12 +137,12 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         
         titleLabel.leftAnchor.constraint(equalTo: titleTextField.leftAnchor).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: titleTextField.topAnchor).isActive = true
-
+        
         priceTextField.leftAnchor.constraint(equalTo: titleTextField.leftAnchor).isActive = true
         priceTextField.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: 50).isActive = true
         priceTextField.widthAnchor.constraint(equalTo: titleTextField.widthAnchor).isActive = true
         priceTextField.heightAnchor.constraint(equalTo: titleTextField.heightAnchor).isActive = true
-
+        
         priceLabel.leftAnchor.constraint(equalTo: priceTextField.leftAnchor).isActive = true
         priceLabel.bottomAnchor.constraint(equalTo: priceTextField.topAnchor).isActive = true
         
@@ -160,21 +160,21 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
     @objc func saveButtonTapped(_ sender: UIBarButtonItem) {
         
         guard let title = titleTextField.text,
-              let price = priceTextField.text,
+            let price = priceTextField.text,
             let date = dateTextField.text else {
-            return
+                return
         }
         //  未入力チェック
         guard !title.isEmpty, !price.isEmpty, !date.isEmpty else {
             alertMessage(message: "未入力項目があります")
             return
         }
-
-    }
         
+    }
+    
     // ”キャンセル”ボタンが押された時の処理
     @objc func cancelButtonTapped(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true)
     }
     
     // ”画像投稿”ボタンが押された時の処理
@@ -206,8 +206,8 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
     // アラート表示
     private func alertMessage(message: String) {
         let alert = UIAlertController(title: "入力エラー", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }
-
+    
 }

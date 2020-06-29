@@ -10,8 +10,8 @@ import UIKit
 
 
 //  ログイン画面
-class LoginViewController: UIViewController {
-
+final class LoginViewController: UIViewController {
+    
     @IBOutlet weak var mailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -21,37 +21,37 @@ class LoginViewController: UIViewController {
         
         // 入力された文字を非表示モードにする.
         passwordTextField.isSecureTextEntry = true
-
+        
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-
+        
         let minimumLengthOfCharactors = 6
         
         guard let mail = mailTextField.text,
-              let password = passwordTextField.text else {
-            return
+            let password = passwordTextField.text else {
+                return
         }
         //　未入力チェック
         guard !mail.isEmpty, !password.isEmpty else {
             alertMessage(message: "未入力項目があります")
             return
         }
-
+        
         // 文字数チェック
         guard mail.count >= minimumLengthOfCharactors, password.count >= minimumLengthOfCharactors else {
             alertMessage(message: "メールアドレスとパスワードは6文字以上で設定してください")
             return
         }
-
+        
         let books: MainTabController = MainTabController()
         let window = UIApplication.shared.windows.first { $0.isKeyWindow }
         window?.rootViewController = books
-
+        
     }
-
+    
     @IBAction func signupButtonTapped(_ sender: UIButton) {
-
+        
         //  Rswiftを使ってstoryboardのインスタンス取得
         let storyboard: UIStoryboard = R.storyboard.signup()
         //  遷移先ViewControllerのインスタンス取得
@@ -60,7 +60,7 @@ class LoginViewController: UIViewController {
         navigationController?.pushViewController(signupView, animated: true)
         
     }
-
+    
     //  returnでキーボードを閉じる
     @IBAction func mailTextField(_ sender: UITextField) {
         mailTextField.text = sender.text
@@ -72,15 +72,15 @@ class LoginViewController: UIViewController {
     
     //  画面タップでキーボードを閉じる
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-            self.view.endEditing(true)
+        self.view.endEditing(true)
     }
     
     // アラート表示
     private func alertMessage(message: String) {
         let alert = UIAlertController(title: "入力エラー", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }
-
+    
 }
 
