@@ -5,7 +5,6 @@
 //  Created by 清水雄大 on 2020/06/18.
 //  Copyright © 2020 Yuta Shimizu. All rights reserved.
 //
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -18,7 +17,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
-        // bad
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -51,4 +49,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
-
