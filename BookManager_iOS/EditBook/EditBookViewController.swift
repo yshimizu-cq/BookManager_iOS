@@ -84,7 +84,7 @@ class EditBookViewController: UIViewController {
         // 日付のフォーマット
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy年MM月dd日"
-        //(from: datePicker.date))を指定してあげることでdatePickerで指定した日付が表示される
+        // (from: datePicker.date))を指定してあげることでdatePickerで指定した日付が表示される
         dateTextField.text = "\(formatter.string(from: datePicker.date))"
 
     }
