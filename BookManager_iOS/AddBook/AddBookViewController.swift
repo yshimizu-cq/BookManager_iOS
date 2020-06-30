@@ -17,11 +17,12 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         return label
     }()
     
-    private let titleTextField: UITextField = {
+    private lazy var titleTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.clearButtonMode = UITextField.ViewMode.whileEditing
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.delegate = self
         return textField
     }()
     
@@ -32,11 +33,12 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         return label
     }()
     
-    private let priceTextField: UITextField = {
+    private lazy var priceTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.clearButtonMode = UITextField.ViewMode.whileEditing
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.delegate = self
         return textField
     }()
     
@@ -47,10 +49,11 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         return label
     }()
     
-    private let dateTextField: UITextField = {
+    private lazy var dateTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.delegate = self
         return textField
     }()
     
@@ -94,7 +97,7 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
     private let purchaseDate: UIDatePicker = {
         let picker = UIDatePicker()
         picker.date = Date()
-        picker.datePickerMode = UIDatePicker.Mode.date
+        picker.datePickerMode = .date
         picker.locale = Locale(identifier: "ja")
         return picker
     }()
@@ -128,11 +131,7 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         navigationItem.title = R.string.localizable.resister()
         navigationItem.setRightBarButton(rightBarButton, animated: true)
         navigationItem.setLeftBarButton(leftBarButton, animated: true)
-        
-        titleTextField.delegate = self
-        priceTextField.delegate = self
-        dateTextField.delegate = self
-        
+
         //  アンカー設定
         setAnchor()
         
