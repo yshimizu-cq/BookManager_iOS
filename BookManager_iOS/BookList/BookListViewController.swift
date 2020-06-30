@@ -20,7 +20,7 @@ final class BookListViewController: UIViewController {
         rightBarButton.style = .plain
         rightBarButton.action = #selector(didAddBarButtonTapped(_:))
         return rightBarButton
-    }()
+        }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,6 @@ final class BookListViewController: UIViewController {
         view.backgroundColor = .white
         navigationItem.title = R.string.localizable.booklist()
         navigationItem.hidesBackButton = true
-        
         navigationItem.setRightBarButton(rightBarButton, animated: true)    // バーボタンアイテムの追加
         
         // tableViewにBookListCellを"cell"という名前で登録する
@@ -37,7 +36,6 @@ final class BookListViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(BookListCell.self, forCellReuseIdentifier: "cell")
         view.addSubview(tableView)
-
     }
     //  ”追加”ボタンが押された時の処理
     @objc func didAddBarButtonTapped(_ sender: UIBarButtonItem) {
@@ -48,12 +46,13 @@ final class BookListViewController: UIViewController {
 }
 
 extension BookListViewController: UITableViewDataSource {
-       //  セルをインスタンス化
+    //  セルをインスタンス化
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         return cell
     }
+    
     //  表示するセルの数を指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 30

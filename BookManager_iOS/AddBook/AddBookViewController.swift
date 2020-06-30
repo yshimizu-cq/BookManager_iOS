@@ -80,7 +80,7 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         rightBarButton.style = .plain
         rightBarButton.action = #selector(didSaveButtonTapped(_:))
         return rightBarButton
-    }()
+        }()
     
     private lazy var leftBarButton: UIBarButtonItem = { [weak self] in
         let leftBarButton = UIBarButtonItem()
@@ -89,7 +89,7 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         leftBarButton.style = .plain
         leftBarButton.action = #selector(didCancelButtonTapped(_:))
         return leftBarButton
-    }()
+        }()
     
     private let purchaseDate: UIDatePicker = {
         let picker = UIDatePicker()
@@ -103,15 +103,21 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         let toolbar = UIToolbar()
         toolbar.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35)
         return toolbar
-    }()
+        }()
     
     private let spacelItem: UIBarButtonItem = {
-        let spacelitem = UIBarButtonItem.init(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let spacelitem = UIBarButtonItem.init(barButtonSystemItem: .flexibleSpace,
+                                              target: self,
+                                              action: nil
+        )
         return spacelitem
     }()
     
     private let doneItem: UIBarButtonItem = {
-        let doneitem = UIBarButtonItem.init(barButtonSystemItem: .done, target: self, action: #selector(didDoneButtonTapped))
+        let doneitem = UIBarButtonItem.init(barButtonSystemItem: .done,
+                                            target: self,
+                                            action: #selector(didDoneButtonTapped)
+        )
         return doneitem
     }()
     
@@ -120,7 +126,6 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         
         view.backgroundColor = .white
         navigationItem.title = R.string.localizable.resister()
-        
         navigationItem.setRightBarButton(rightBarButton, animated: true)
         navigationItem.setLeftBarButton(leftBarButton, animated: true)
         
@@ -135,11 +140,9 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         dateTextField.inputView = purchaseDate
         toolBar.setItems([spacelItem, doneItem], animated: true)    //  決定バーの生成
         dateTextField.inputAccessoryView = toolBar  //  インプットビュー設定(紐づいているUITextfieldへ代入)
-        
     }
     
     private func setAnchor() {
-        
         view.addSubview(titleLabel)
         view.addSubview(titleTextField)
         view.addSubview(priceLabel)
@@ -182,7 +185,6 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         
         dateLabel.leftAnchor.constraint(equalTo: dateTextField.leftAnchor).isActive = true
         dateLabel.bottomAnchor.constraint(equalTo: dateTextField.topAnchor).isActive = true
-        
     }
     
     //  ”完了”ボタンが押された時の処理
@@ -198,7 +200,6 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
             showAlert(message: R.string.localizable.blank())
             return
         }
-        
     }
     
     // ”キャンセル”ボタンが押された時の処理
@@ -238,5 +239,4 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         alert.addAction(UIAlertAction(title: R.string.localizable.okay(), style: .default))
         present(alert, animated: true)
     }
-    
 }

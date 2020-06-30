@@ -19,7 +19,6 @@ final class AccountViewController: UIViewController {
     }
     
     @IBAction func didLogoutButtonTapped(_ sender: UIButton) {
-        
         //  ダイアログ設定
         let logoutDialog = UIAlertController(title: R.string.localizable.logout(), message: R.string.localizable.okay(), preferredStyle: .alert)
         logoutDialog.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .cancel))
@@ -31,7 +30,5 @@ final class AccountViewController: UIViewController {
                                                 window.rootViewController = storyboard
         }))
         self.present(logoutDialog, animated: true)
-        
     }
-    
 }

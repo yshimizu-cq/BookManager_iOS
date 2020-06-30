@@ -20,7 +20,6 @@ final class SignupViewController: UIViewController {
         
         passwordTextField.isSecureTextEntry = true
         passwordConfirmationTextField.isSecureTextEntry = true
-        
     }
     
     @IBAction func returnButtonTapped(_ sender: UIBarButtonItem) {
@@ -36,6 +35,7 @@ final class SignupViewController: UIViewController {
             let passwordConfirmation = passwordConfirmationTextField.text else {
                 return
         }
+        
         //　未入力チェック
         guard !mail.isEmpty, !password.isEmpty, !passwordConfirmation.isEmpty else {
             showAlert(message: R.string.localizable.blank())
@@ -82,4 +82,3 @@ final class SignupViewController: UIViewController {
         present(alert, animated: true)
     }
 }
-

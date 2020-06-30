@@ -25,7 +25,7 @@ final class EditBookViewController: UIViewController {
         rightBarButton.style = .plain
         rightBarButton.action = #selector(didSaveButtonTapped(_:))
         return rightBarButton
-    }()
+        }()
     
     private lazy var leftBarButton: UIBarButtonItem = { [weak self] in
         let leftBarButton = UIBarButtonItem()
@@ -34,7 +34,7 @@ final class EditBookViewController: UIViewController {
         leftBarButton.style = .plain
         leftBarButton.action = #selector(didCancelButtonTapped(_:))
         return leftBarButton
-    }()
+        }()
     
     private let purchaseDate: UIDatePicker = {
         let picker = UIDatePicker()
@@ -48,7 +48,7 @@ final class EditBookViewController: UIViewController {
         let toolbar = UIToolbar()
         toolbar.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35)
         return toolbar
-    }()
+        }()
     
     private let spacelItem: UIBarButtonItem = {
         let spacelitem = UIBarButtonItem.init(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
@@ -64,23 +64,19 @@ final class EditBookViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        
         navigationItem.title = R.string.localizable.edit()
         navigationItem.setRightBarButton(rightBarButton, animated: true)
         navigationItem.setLeftBarButton(leftBarButton, animated: true)
-        
         imageView.image = UIImage(named: R.string.localizable.sampleImage())
         
         //  ピッカー設定
         dateTextField.inputView = purchaseDate
         toolBar.setItems([spacelItem, doneItem], animated: true)    //  決定バーの生成
         dateTextField.inputAccessoryView = toolBar  //  インプットビュー設定(紐づいているUITextfieldへ代入)
-        
     }
     
     // ”保存”ボタンが押された時の処理
     @objc func didSaveButtonTapped(_ sender: UIBarButtonItem) {
-        
         guard let title = titleTextField.text,
             let price = priceTextField.text,
             let date = dateTextField.text else {
@@ -91,7 +87,6 @@ final class EditBookViewController: UIViewController {
             showAlert(message: R.string.localizable.blank())
             return
         }
-        
     }
     
     // ”キャンセル”ボタンが押された時の処理
@@ -112,14 +107,12 @@ final class EditBookViewController: UIViewController {
     }
     
     @objc func didDoneButtonTapped() {
-        
         dateTextField.endEditing(true)
         // 日付のフォーマット
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy年MM月dd日"
         //(from: datePicker.date))を指定してあげることでdatePickerで指定した日付が表示される
         dateTextField.text = "\(formatter.string(from: datePicker.date))"
-        
     }
     
     // アラート表示
@@ -128,7 +121,4 @@ final class EditBookViewController: UIViewController {
         alert.addAction(UIAlertAction(title: R.string.localizable.okay(), style: .default))
         present(alert, animated: true)
     }
-    
 }
-
-

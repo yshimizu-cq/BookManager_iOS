@@ -21,7 +21,6 @@ final class LoginViewController: UIViewController {
         
         // 入力された文字を非表示モードにする.
         passwordTextField.isSecureTextEntry = true
-        
     }
     
     @IBAction func didLoginButtonTapped(_ sender: UIButton) {
@@ -57,37 +56,27 @@ final class LoginViewController: UIViewController {
         guard let signupView = storyboard.instantiateInitialViewController() as? SignupViewController else { return }
         //  画面遷移
         navigationController?.pushViewController(signupView, animated: true)
-        
     }
     
     //  returnでキーボードを閉じる
     @IBAction func mailTextField(_ sender: UITextField) {
-        
         mailTextField.text = sender.text
-        
     }
+    
     //  returnでキーボードを閉じる
     @IBAction func passwordTextField(_ sender: UITextField) {
-        
         passwordTextField.text = sender.text
-        
     }
     
     //  画面タップでキーボードを閉じる
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
         self.view.endEditing(true)
-        
     }
     
     // アラート表示
     private func showAlert(message: String) {
-        
         let alert = UIAlertController(title: R.string.localizable.error(), message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: R.string.localizable.okay(), style: .default))
         present(alert, animated: true)
-        
     }
-    
 }
-

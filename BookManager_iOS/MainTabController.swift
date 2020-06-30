@@ -9,6 +9,7 @@
 import UIKit
 
 final class MainTabController: UITabBarController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,7 +25,5 @@ final class MainTabController: UITabBarController {
         account.tabBarItem = UITabBarItem(title: R.string.localizable.account(), image: nil, tag: 2)
         viewControllers.append(account)
         self.setViewControllers(viewControllers, animated: false)
-        
     }
-    
 }
