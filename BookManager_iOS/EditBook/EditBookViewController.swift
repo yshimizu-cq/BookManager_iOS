@@ -51,12 +51,18 @@ final class EditBookViewController: UIViewController {
         }()
     
     private let spacelItem: UIBarButtonItem = {
-        let spacelitem = UIBarButtonItem.init(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let spacelitem = UIBarButtonItem.init(barButtonSystemItem: .flexibleSpace,
+                                              target: self,
+                                              action: nil
+        )
         return spacelitem
     }()
     
     private let doneItem: UIBarButtonItem = {
-        let doneitem = UIBarButtonItem.init(barButtonSystemItem: .done, target: self, action: #selector(didDoneButtonTapped))
+        let doneitem = UIBarButtonItem.init(barButtonSystemItem: .done,
+                                            target: self,
+                                            action: #selector(didDoneButtonTapped)
+        )
         return doneitem
     }()
     
@@ -67,7 +73,7 @@ final class EditBookViewController: UIViewController {
         navigationItem.title = R.string.localizable.edit()
         navigationItem.setRightBarButton(rightBarButton, animated: true)
         navigationItem.setLeftBarButton(leftBarButton, animated: true)
-        imageView.image = UIImage(named: R.string.localizable.sampleImage())
+        imageView.image = R.image.sample_image()
         
         //  ピッカー設定
         dateTextField.inputView = purchaseDate
@@ -97,7 +103,7 @@ final class EditBookViewController: UIViewController {
     @IBAction func didTapTitleReturn(_ sender: UITextField) {
         titleTextField.text = sender.text
     }
-
+    
     
     @IBAction func didTapPriceReturn(_ sender: UITextField) {
         priceTextField.text = sender.text

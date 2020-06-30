@@ -58,7 +58,7 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     private let bookImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: R.string.localizable.sampleImage())
+        imageView.image = R.image.sample_image()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
