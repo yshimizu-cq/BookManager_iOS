@@ -13,8 +13,8 @@ final class AccountViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
-        self.navigationItem.title = "アカウント"
+        view.backgroundColor = .white
+        navigationItem.title = "アカウント"
         
     }
     
@@ -26,9 +26,9 @@ final class AccountViewController: UIViewController {
         logoutDialog.addAction(UIAlertAction(title: "OK", style: .default,
                                              handler: { _ in
                                                 //  rootにlogin storyboardを設定して遷移
-                                                let storyboard: UIStoryboard = R.storyboard.login()
+                                                let storyboard = R.storyboard.login().instantiateInitialViewController()
                                                 guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return }
-                                                window.rootViewController = storyboard.instantiateInitialViewController()
+                                                window.rootViewController = storyboard
         }))
         self.present(logoutDialog, animated: true)
         

@@ -63,23 +63,31 @@ final class LoginViewController: UIViewController {
     
     //  returnでキーボードを閉じる
     @IBAction func mailTextField(_ sender: UITextField) {
+        
         mailTextField.text = sender.text
+        
     }
     //  returnでキーボードを閉じる
     @IBAction func passwordTextField(_ sender: UITextField) {
+        
         passwordTextField.text = sender.text
+        
     }
     
     //  画面タップでキーボードを閉じる
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         self.view.endEditing(true)
+        
     }
     
     // アラート表示
     private func alertMessage(message: String) {
+        
         let alert = UIAlertController(title: "入力エラー", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
+        
     }
     
 }

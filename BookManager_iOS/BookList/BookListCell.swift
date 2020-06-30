@@ -9,28 +9,28 @@ import UIKit
 
 final class BookListCell: UITableViewCell {
     
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "書籍名"
         label.translatesAutoresizingMaskIntoConstraints = false    //   AutosizingのAutoLayoutへの変換をオフ
         return label
     }()
     
-    let priceLabel: UILabel = {
+    private let priceLabel: UILabel = {
         let label = UILabel()
         label.text = "価格"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    let dateLabel: UILabel = {
+    private let dateLabel: UILabel = {
         let label = UILabel()
         label.text = "購入日"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    let bookImageView: UIImageView = {
+    private let bookImageView: UIImageView = {
         var imageView = UIImageView()
         imageView.image = UIImage(named: "sample_image")
         imageView.translatesAutoresizingMaskIntoConstraints = false

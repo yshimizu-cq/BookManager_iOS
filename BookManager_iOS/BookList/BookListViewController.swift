@@ -11,14 +11,14 @@ import UIKit
 final class BookListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //    var addBookButton: UIBarButtonItem!
-    let tableView = UITableView()
+    private let tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.white
-        self.navigationItem.title = "書籍一覧"
-        self.parent?.navigationItem.hidesBackButton = true
+        view.backgroundColor = .white
+        navigationItem.title = "書籍一覧"
+        navigationItem.hidesBackButton = true
         
         // tableViewにBookListCellを"cell"という名前で登録する
         tableView.frame = view.bounds
@@ -28,7 +28,7 @@ final class BookListViewController: UIViewController, UITableViewDelegate, UITab
         view.addSubview(tableView)
         
         // バーボタンアイテムの追加
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "追加", style: .plain, target: self, action: #selector(addBarButtonTapped(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "追加", style: .plain, target: self, action: #selector(addBarButtonTapped(_:)))
         
     }
     

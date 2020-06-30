@@ -12,14 +12,14 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     //  UIコード実装
     
-    let titleLabel: UILabel = {
+   private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "書籍名"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    let titleTextField: UITextField = {
+    private let titleTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.clearButtonMode = UITextField.ViewMode.whileEditing
@@ -27,14 +27,14 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         return textField
     }()
     
-    let priceLabel: UILabel = {
+    private let priceLabel: UILabel = {
         let label = UILabel()
         label.text = "価格"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    let priceTextField: UITextField = {
+    private let priceTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.clearButtonMode = UITextField.ViewMode.whileEditing
@@ -42,30 +42,30 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         return textField
     }()
     
-    let dateLabel: UILabel = {
+    private let dateLabel: UILabel = {
         let label = UILabel()
         label.text = "購入日"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    let dateTextField: UITextField = {
+    private let dateTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
-    var datePicker: UIDatePicker = UIDatePicker()
+    private var datePicker: UIDatePicker = UIDatePicker()
     
-    let bookImageView: UIImageView = {
+    private let bookImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "sample_image")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    let imageUploadButton: UIButton = {
+    private let imageUploadButton: UIButton = {
         let button = UIButton()
         button.setTitle("画像添付", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
@@ -78,11 +78,11 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.white
-        self.navigationItem.title = "登録"
+        view.backgroundColor = .white
+        navigationItem.title = "登録"
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "完了", style: .plain, target: self, action: #selector(saveButtonTapped(_:)))
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "キャンセル", style: .plain, target: self, action: #selector(cancelButtonTapped(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "完了", style: .plain, target: self, action: #selector(saveButtonTapped(_:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "キャンセル", style: .plain, target: self, action: #selector(cancelButtonTapped(_:)))
         
         titleTextField.delegate = self
         priceTextField.delegate = self
