@@ -24,7 +24,7 @@ final class LoginViewController: UIViewController {
         
     }
     
-    @IBAction func loginButtonTapped(_ sender: UIButton) {
+    @IBAction func didLoginButtonTapped(_ sender: UIButton) {
         
         let minimumLengthOfCharactors = 6
         
@@ -50,8 +50,7 @@ final class LoginViewController: UIViewController {
         
     }
     
-    @IBAction func signupButtonTapped(_ sender: UIButton) {
-        
+    @IBAction func didSignupButtonTapped(_ sender: UIButton) {
         //  Rswiftを使ってstoryboardのインスタンス取得
         let storyboard: UIStoryboard = R.storyboard.signup()
         //  遷移先ViewControllerのインスタンス取得

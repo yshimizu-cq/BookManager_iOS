@@ -10,9 +10,7 @@ import UIKit
 
 class AddBookViewController: UIViewController, UITextFieldDelegate {
     
-    //  UIコード実装
-    
-   private let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "書籍名"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -71,8 +69,50 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = UIColor(red: 100/255, green: 149/255, blue: 237/255, alpha: 1)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(nil, action: #selector(imageUploadButtonTapped(_ :)), for: .touchUpInside)  //  "画像投稿"ボタンタップで実行
+        button.addTarget(nil, action: #selector(didImageUploadButtonTapped(_ :)), for: .touchUpInside)
         return button
+    }()
+    
+    private lazy var rightBarButton: UIBarButtonItem = { [weak self] in     //  lazy var => 呼び出された時に初期値決定
+        let rightBarButton = UIBarButtonItem()
+        rightBarButton.target = self     //  targetで対象を指定
+        rightBarButton.title = "完了"
+        rightBarButton.style = .plain
+        rightBarButton.action = #selector(didSaveButtonTapped(_:))
+        return rightBarButton
+    }()
+    
+    private lazy var leftBarButton: UIBarButtonItem = { [weak self] in
+        let leftBarButton = UIBarButtonItem()
+        leftBarButton.target = self     //  targetで対象を指定
+        leftBarButton.title = "キャンセル"
+        leftBarButton.style = .plain
+        leftBarButton.action = #selector(didCancelButtonTapped(_:))
+        return leftBarButton
+    }()
+    
+    private let purchaseDate: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.date = Date()
+        picker.datePickerMode = UIDatePicker.Mode.date
+        picker.locale = Locale(identifier: "ja")
+        return picker
+    }()
+    
+    private lazy var toolBar: UIToolbar = { [weak self] in
+        let toolbar = UIToolbar()
+        toolbar.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35)
+        return toolbar
+    }()
+    
+    private let spacelItem: UIBarButtonItem = {
+        let spacelitem = UIBarButtonItem.init(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        return spacelitem
+    }()
+    
+    private let doneItem: UIBarButtonItem = {
+        let doneitem = UIBarButtonItem.init(barButtonSystemItem: .done, target: self, action: #selector(didDoneButtonTapped))
+        return doneitem
     }()
     
     override func viewDidLoad() {
@@ -81,8 +121,8 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         view.backgroundColor = .white
         navigationItem.title = "登録"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "完了", style: .plain, target: self, action: #selector(saveButtonTapped(_:)))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "キャンセル", style: .plain, target: self, action: #selector(cancelButtonTapped(_:)))
+        navigationItem.setRightBarButton(rightBarButton, animated: true)
+        navigationItem.setLeftBarButton(leftBarButton, animated: true)
         
         titleTextField.delegate = self
         priceTextField.delegate = self
@@ -92,20 +132,9 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         setAnchor()
         
         //  ピッカー設定
-        datePicker.date = Date()
-        datePicker.datePickerMode = UIDatePicker.Mode.date
-        datePicker.locale = Locale(identifier: "ja")
-        dateTextField.inputView = datePicker
-        
-        //  決定バーの生成
-        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
-        let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
-        toolbar.setItems([spacelItem, doneItem], animated: true)
-        
-        //  インプットビュー設定(紐づいているUITextfieldへ代入)
-        dateTextField.inputView = datePicker
-        dateTextField.inputAccessoryView = toolbar
+        dateTextField.inputView = purchaseDate
+        toolBar.setItems([spacelItem, doneItem], animated: true)    //  決定バーの生成
+        dateTextField.inputAccessoryView = toolBar  //  インプットビュー設定(紐づいているUITextfieldへ代入)
         
     }
     
@@ -157,7 +186,7 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
     }
     
     //  ”完了”ボタンが押された時の処理
-    @objc func saveButtonTapped(_ sender: UIBarButtonItem) {
+    @objc func didSaveButtonTapped(_ sender: UIBarButtonItem) {
         
         guard let title = titleTextField.text,
             let price = priceTextField.text,
@@ -173,12 +202,12 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
     }
     
     // ”キャンセル”ボタンが押された時の処理
-    @objc func cancelButtonTapped(_ sender: UIBarButtonItem) {
+    @objc func didCancelButtonTapped(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true)
     }
     
     // ”画像投稿”ボタンが押された時の処理
-    @objc func imageUploadButtonTapped(_ sender: UIBarButtonItem) {
+    @objc func didImageUploadButtonTapped(_ sender: UIBarButtonItem) {
         
     }
     
@@ -194,7 +223,7 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    @objc func done() {
+    @objc func didDoneButtonTapped() {
         dateTextField.endEditing(true)
         // 日付のフォーマット
         let formatter = DateFormatter()

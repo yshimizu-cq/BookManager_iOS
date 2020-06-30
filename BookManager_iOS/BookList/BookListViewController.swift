@@ -13,6 +13,15 @@ final class BookListViewController: UIViewController, UITableViewDelegate, UITab
     //    var addBookButton: UIBarButtonItem!
     private let tableView = UITableView()
     
+    private lazy var rightBarButton: UIBarButtonItem = { [weak self] in     //  lazy var => 呼び出された時に初期値決定
+        let rightBarButton = UIBarButtonItem()
+        rightBarButton.target = self     //  targetで対象を指定
+        rightBarButton.title = "追加"
+        rightBarButton.style = .plain
+        rightBarButton.action = #selector(didAddBarButtonTapped(_:))
+        return rightBarButton
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,16 +29,15 @@ final class BookListViewController: UIViewController, UITableViewDelegate, UITab
         navigationItem.title = "書籍一覧"
         navigationItem.hidesBackButton = true
         
+        navigationItem.setRightBarButton(rightBarButton, animated: true)    // バーボタンアイテムの追加
+        
         // tableViewにBookListCellを"cell"という名前で登録する
         tableView.frame = view.bounds
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(BookListCell.self, forCellReuseIdentifier: "cell")
         view.addSubview(tableView)
-        
-        // バーボタンアイテムの追加
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "追加", style: .plain, target: self, action: #selector(addBarButtonTapped(_:)))
-        
+
     }
     
     //  表示するセルの数を指定
@@ -51,7 +59,7 @@ final class BookListViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     //  ”追加”ボタンが押された時の処理
-    @objc func addBarButtonTapped(_ sender: UIBarButtonItem) {
+    @objc func didAddBarButtonTapped(_ sender: UIBarButtonItem) {
         let addBook: AddBookViewController = AddBookViewController()
         let addBookViewController = UINavigationController(rootViewController: addBook)
         self.present(addBookViewController, animated: true)

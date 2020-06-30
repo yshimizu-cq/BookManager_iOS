@@ -30,7 +30,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="logoutButtonTapped:" destination="SWi-1i-70k" eventType="touchUpInside" id="lud-tk-IS9"/>
+                                    <action selector="didLogoutButtonTapped:" destination="SWi-1i-70k" eventType="touchUpInside" id="dcq-2m-cX9"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lgS-KN-t5e">

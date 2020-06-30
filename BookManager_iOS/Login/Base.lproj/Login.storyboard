@@ -50,7 +50,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GI2-Ro-ncU"/>
+                                    <action selector="didLoginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Ys-82-sCe"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="PTo-fR-er7">
@@ -84,7 +84,7 @@
                                 <rect key="frame" x="56" y="688" width="302" height="30"/>
                                 <state key="normal" title="新規アカウント作成"/>
                                 <connections>
-                                    <action selector="signupButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zlf-mo-yXv"/>
+                                    <action selector="didSignupButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jfw-ib-U4l"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレス" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pma-JF-3TK">

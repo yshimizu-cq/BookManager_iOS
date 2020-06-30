@@ -15,38 +15,71 @@ final class EditBookViewController: UIViewController {
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
+    
     private var datePicker: UIDatePicker = UIDatePicker()
+    
+    private lazy var rightBarButton: UIBarButtonItem = { [weak self] in     //  lazy var => 呼び出された時に初期値決定
+        let rightBarButton = UIBarButtonItem()
+        rightBarButton.target = self     //  targetで対象を指定
+        rightBarButton.title = "保存"
+        rightBarButton.style = .plain
+        rightBarButton.action = #selector(didSaveButtonTapped(_:))
+        return rightBarButton
+    }()
+    
+    private lazy var leftBarButton: UIBarButtonItem = { [weak self] in
+        let leftBarButton = UIBarButtonItem()
+        leftBarButton.target = self     //  targetで対象を指定
+        leftBarButton.title = "キャンセル"
+        leftBarButton.style = .plain
+        leftBarButton.action = #selector(didCancelButtonTapped(_:))
+        return leftBarButton
+    }()
+    
+    private let purchaseDate: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.date = Date()
+        picker.datePickerMode = UIDatePicker.Mode.date
+        picker.locale = Locale(identifier: "ja")
+        return picker
+    }()
+    
+    private lazy var toolBar: UIToolbar = { [weak self] in
+        let toolbar = UIToolbar()
+        toolbar.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35)
+        return toolbar
+    }()
+    
+    private let spacelItem: UIBarButtonItem = {
+        let spacelitem = UIBarButtonItem.init(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        return spacelitem
+    }()
+    
+    private let doneItem: UIBarButtonItem = {
+        let doneitem = UIBarButtonItem.init(barButtonSystemItem: .done, target: self, action: #selector(didDoneButtonTapped))
+        return doneitem
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
+        
         navigationItem.title = "編集中"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(saveButtonTapped(_:)))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "キャンセル", style: .plain, target: self, action: #selector(cancelButtonTapped(_:)))
+        navigationItem.setRightBarButton(rightBarButton, animated: true)
+        navigationItem.setLeftBarButton(leftBarButton, animated: true)
         
         imageView.image = UIImage(named: "sample_image")
         
-        // ピッカー設定
-        datePicker.date = Date()
-        datePicker.datePickerMode = UIDatePicker.Mode.date
-        datePicker.locale = Locale(identifier: "ja")
-        dateTextField.inputView = datePicker
-        
-        // 決定バーの生成
-        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
-        let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
-        toolbar.setItems([spacelItem, doneItem], animated: true)
-        
-        // インプットビュー設定(紐づいているUITextfieldへ代入)
-        dateTextField.inputView = datePicker
-        dateTextField.inputAccessoryView = toolbar
+        //  ピッカー設定
+        dateTextField.inputView = purchaseDate
+        toolBar.setItems([spacelItem, doneItem], animated: true)    //  決定バーの生成
+        dateTextField.inputAccessoryView = toolBar  //  インプットビュー設定(紐づいているUITextfieldへ代入)
         
     }
     
     // ”保存”ボタンが押された時の処理
-    @objc func saveButtonTapped(_ sender: UIBarButtonItem) {
+    @objc func didSaveButtonTapped(_ sender: UIBarButtonItem) {
         
         guard let title = titleTextField.text,
             let price = priceTextField.text,
@@ -62,7 +95,7 @@ final class EditBookViewController: UIViewController {
     }
     
     // ”キャンセル”ボタンが押された時の処理
-    @objc func cancelButtonTapped(_ sender: UIBarButtonItem) {
+    @objc func didCancelButtonTapped(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -78,7 +111,7 @@ final class EditBookViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    @objc func done() {
+    @objc func didDoneButtonTapped() {
         
         dateTextField.endEditing(true)
         // 日付のフォーマット

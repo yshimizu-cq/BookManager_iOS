@@ -18,7 +18,7 @@ final class AccountViewController: UIViewController {
         
     }
     
-    @IBAction func logoutButtonTapped(_ sender: UIButton) {
+    @IBAction func didLogoutButtonTapped(_ sender: UIButton) {
         
         //  ダイアログ設定
         let logoutDialog = UIAlertController(title: "ログアウト", message: "よろしいですか？", preferredStyle: .alert)
