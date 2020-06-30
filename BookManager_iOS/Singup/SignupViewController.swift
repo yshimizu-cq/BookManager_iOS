@@ -59,15 +59,15 @@ final class SignupViewController: UIViewController {
         window?.rootViewController = books
     }
     
-    @IBAction func mailTextField(_ sender: UITextField) {
+    @IBAction func didTapMailReturn(_ sender: UITextField) {
         mailTextField.text = sender.text
     }
-    
-    @IBAction func passwordTextField(_ sender: UITextField) {
+
+    @IBAction func didTapPasswordReturn(_ sender: UITextField) {
         passwordTextField.text = sender.text
     }
     
-    @IBAction func passwordConfirmationTextField(_ sender: UITextField) {
+    @IBAction func didTapPasswordConfirmationReturn(_ sender: UITextField) {
         passwordConfirmationTextField.text = sender.text
     }
     

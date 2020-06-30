@@ -59,12 +59,12 @@ final class LoginViewController: UIViewController {
     }
     
     //  returnでキーボードを閉じる
-    @IBAction func mailTextField(_ sender: UITextField) {
+    @IBAction func didTapMailReturn(_ sender: UITextField) {
         mailTextField.text = sender.text
     }
     
     //  returnでキーボードを閉じる
-    @IBAction func passwordTextField(_ sender: UITextField) {
+    @IBAction func didTapPasswordReturn(_ sender: UITextField) {
         passwordTextField.text = sender.text
     }
     

@@ -63,7 +63,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="titleTextField:" destination="LZu-Kw-MAc" eventType="editingDidEndOnExit" id="eOD-NJ-K8n"/>
+                                    <action selector="didTapTitleReturn:" destination="LZu-Kw-MAc" eventType="editingDidEndOnExit" id="v7j-x5-EbY"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="価格" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSW-wC-4jd">
@@ -92,7 +92,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="priceTextField:" destination="LZu-Kw-MAc" eventType="editingDidEndOnExit" id="UTw-43-F3t"/>
+                                    <action selector="didTapPriceReturn:" destination="LZu-Kw-MAc" eventType="editingDidEndOnExit" id="xU6-r2-9lf"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="購入日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YcN-V7-38N">

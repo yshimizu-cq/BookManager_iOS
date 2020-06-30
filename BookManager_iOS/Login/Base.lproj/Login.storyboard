@@ -32,7 +32,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="mailTextField:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="at8-TM-vZ8"/>
+                                    <action selector="didTapMailReturn:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="Zdj-dc-xtU"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41x-kR-PT4">
@@ -70,7 +70,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="passwordTextField:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="rV7-aW-Bpr"/>
+                                    <action selector="didTapPasswordReturn:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="p4n-zi-y5a"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワード" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECA-pG-2tv">

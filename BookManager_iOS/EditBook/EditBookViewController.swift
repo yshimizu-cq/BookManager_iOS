@@ -94,11 +94,12 @@ final class EditBookViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func titleTextField(_ sender: UITextField) {
+    @IBAction func didTapTitleReturn(_ sender: UITextField) {
         titleTextField.text = sender.text
     }
+
     
-    @IBAction func priceTextField(_ sender: UITextField) {
+    @IBAction func didTapPriceReturn(_ sender: UITextField) {
         priceTextField.text = sender.text
     }
     

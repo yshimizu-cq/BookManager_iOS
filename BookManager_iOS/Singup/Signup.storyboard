@@ -35,7 +35,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="passwordConfirmationTextField:" destination="vJQ-qp-aSn" eventType="editingDidEndOnExit" id="zX5-fa-BBY"/>
+                                    <action selector="didTapPasswordConfirmationReturn:" destination="vJQ-qp-aSn" eventType="editingDidEndOnExit" id="Qam-bO-vr2"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="803-IW-ugb">
@@ -58,7 +58,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="passwordTextField:" destination="vJQ-qp-aSn" eventType="editingDidEndOnExit" id="Kax-Am-Epc"/>
+                                    <action selector="didTapPasswordReturn:" destination="vJQ-qp-aSn" eventType="editingDidEndOnExit" id="cHN-cV-0OK"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="oTq-yV-HhF">
@@ -81,7 +81,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="mailTextField:" destination="vJQ-qp-aSn" eventType="editingDidEndOnExit" id="nSk-TP-kPH"/>
+                                    <action selector="didTapMailReturn:" destination="vJQ-qp-aSn" eventType="editingDidEndOnExit" id="4oN-ad-fhL"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレス" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBl-hf-8Iv">
