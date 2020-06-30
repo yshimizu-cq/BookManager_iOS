@@ -16,12 +16,12 @@ final class MainTabController: UITabBarController {
         var viewControllers: [UIViewController] = []
         // BookListViewControllerを取得
         let bookList = UINavigationController(rootViewController: BookListViewController())
-        bookList.tabBarItem = UITabBarItem(title: "書籍一覧", image: nil, tag: 1)
+        bookList.tabBarItem = UITabBarItem(title: R.string.localizable.booklist(), image: nil, tag: 1)
         viewControllers.append(bookList)  // append => 配列に追加
         // AccountViewControllerを取得
         let storyboard: UIStoryboard = R.storyboard.account()
         guard let account = storyboard.instantiateInitialViewController() as? AccountViewController else { return }
-        account.tabBarItem = UITabBarItem(title: "アカウント", image: nil, tag: 2)
+        account.tabBarItem = UITabBarItem(title: R.string.localizable.account(), image: nil, tag: 2)
         viewControllers.append(account)
         self.setViewControllers(viewControllers, animated: false)
         

@@ -16,7 +16,7 @@ final class BookListViewController: UIViewController, UITableViewDelegate, UITab
     private lazy var rightBarButton: UIBarButtonItem = { [weak self] in     //  lazy var => 呼び出された時に初期値決定
         let rightBarButton = UIBarButtonItem()
         rightBarButton.target = self     //  targetで対象を指定
-        rightBarButton.title = "追加"
+        rightBarButton.title = R.string.localizable.add()
         rightBarButton.style = .plain
         rightBarButton.action = #selector(didAddBarButtonTapped(_:))
         return rightBarButton
@@ -26,7 +26,7 @@ final class BookListViewController: UIViewController, UITableViewDelegate, UITab
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        navigationItem.title = "書籍一覧"
+        navigationItem.title = R.string.localizable.booklist()
         navigationItem.hidesBackButton = true
         
         navigationItem.setRightBarButton(rightBarButton, animated: true)    // バーボタンアイテムの追加

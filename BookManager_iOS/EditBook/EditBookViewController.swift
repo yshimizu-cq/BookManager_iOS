@@ -21,7 +21,7 @@ final class EditBookViewController: UIViewController {
     private lazy var rightBarButton: UIBarButtonItem = { [weak self] in     //  lazy var => 呼び出された時に初期値決定
         let rightBarButton = UIBarButtonItem()
         rightBarButton.target = self     //  targetで対象を指定
-        rightBarButton.title = "保存"
+        rightBarButton.title = R.string.localizable.save()
         rightBarButton.style = .plain
         rightBarButton.action = #selector(didSaveButtonTapped(_:))
         return rightBarButton
@@ -30,7 +30,7 @@ final class EditBookViewController: UIViewController {
     private lazy var leftBarButton: UIBarButtonItem = { [weak self] in
         let leftBarButton = UIBarButtonItem()
         leftBarButton.target = self     //  targetで対象を指定
-        leftBarButton.title = "キャンセル"
+        leftBarButton.title = R.string.localizable.cancel()
         leftBarButton.style = .plain
         leftBarButton.action = #selector(didCancelButtonTapped(_:))
         return leftBarButton
@@ -65,11 +65,11 @@ final class EditBookViewController: UIViewController {
         
         view.backgroundColor = .white
         
-        navigationItem.title = "編集中"
+        navigationItem.title = R.string.localizable.edit()
         navigationItem.setRightBarButton(rightBarButton, animated: true)
         navigationItem.setLeftBarButton(leftBarButton, animated: true)
         
-        imageView.image = UIImage(named: "sample_image")
+        imageView.image = UIImage(named: R.string.localizable.sampleImage())
         
         //  ピッカー設定
         dateTextField.inputView = purchaseDate
@@ -88,7 +88,7 @@ final class EditBookViewController: UIViewController {
         }
         //　未入力チェック
         guard !title.isEmpty, !price.isEmpty, !date.isEmpty else {
-            alertMessage(message: "未入力項目があります")
+            showAlert(message: R.string.localizable.blank())
             return
         }
         
@@ -123,9 +123,9 @@ final class EditBookViewController: UIViewController {
     }
     
     // アラート表示
-    private func alertMessage(message: String) {
-        let alert = UIAlertController(title: "入力エラー", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+    private func showAlert(message: String) {
+        let alert = UIAlertController(title: R.string.localizable.error(), message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: R.string.localizable.okay(), style: .default))
         present(alert, animated: true)
     }
     

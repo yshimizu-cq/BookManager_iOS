@@ -11,28 +11,28 @@ final class BookListCell: UITableViewCell {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "書籍名"
+        label.text = R.string.localizable.bookName()
         label.translatesAutoresizingMaskIntoConstraints = false    //   AutosizingのAutoLayoutへの変換をオフ
         return label
     }()
     
     private let priceLabel: UILabel = {
         let label = UILabel()
-        label.text = "価格"
+        label.text = R.string.localizable.price()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let dateLabel: UILabel = {
         let label = UILabel()
-        label.text = "購入日"
+        label.text = R.string.localizable.purchaseDate()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let bookImageView: UIImageView = {
         var imageView = UIImageView()
-        imageView.image = UIImage(named: "sample_image")
+        imageView.image = UIImage(named: R.string.localizable.sampleImage())
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -44,7 +44,12 @@ final class BookListCell: UITableViewCell {
         addSubview(dateLabel)
         addSubview(bookImageView)
         
-        //  Anchor指定（値は後で要修正）
+        //  アンカー設定
+        setAnchor()
+        
+    }
+    
+    private func setAnchor() {
         titleLabel.leftAnchor.constraint(equalTo: bookImageView.rightAnchor, constant: 50).isActive = true
         titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 30).isActive = true
         

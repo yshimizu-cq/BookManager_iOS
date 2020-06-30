@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings
+  BookManager_iOS
+
+  Created by 清水雄大 on 2020/06/30.
+  Copyright © 2020 Yuta Shimizu. All rights reserved.
+*/
+
+//  タイトル
+"account" = "アカウント";
+"booklist" = "書籍一覧";
+"edit" = "編集中";
+
+//  ラベル
+"bookName" = "書籍名";
+"price" = "価格";
+"purchaseDate" = "購入日";
+
+
+//  ボタン
+"attachedImage" = "画像添付";
+"logout" = "ログアウト";
+
+//  ナビゲーションボタン
+"save" = "保存";
+"cancel" = "キャンセル";
+"done" = "完了";
+"resister" = "登録";
+"add" = "追加";
+
+//  メッセージ
+"blank" = "未入力項目があります";
+"error" = "入力エラー";
+"okay" = "OK";
+"okayQuestion" = "よろしいですか？";
+"mailAndPassword" = "メールアドレスとパスワードは6文字以上で設定してください";
+"notMatch" = "パスワードが一致していません";
+
+//  画像
+"sampleImage" = "sample_image";
+

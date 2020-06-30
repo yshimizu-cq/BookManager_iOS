@@ -12,7 +12,7 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "書籍名"
+        label.text = R.string.localizable.bookName()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -27,7 +27,7 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     private let priceLabel: UILabel = {
         let label = UILabel()
-        label.text = "価格"
+        label.text = R.string.localizable.price()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -42,7 +42,7 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     private let dateLabel: UILabel = {
         let label = UILabel()
-        label.text = "購入日"
+        label.text = R.string.localizable.purchaseDate()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -58,14 +58,14 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     private let bookImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "sample_image")
+        imageView.image = UIImage(named: R.string.localizable.sampleImage())
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     private let imageUploadButton: UIButton = {
         let button = UIButton()
-        button.setTitle("画像添付", for: .normal)
+        button.setTitle(R.string.localizable.attachedImage(), for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = UIColor(red: 100/255, green: 149/255, blue: 237/255, alpha: 1)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -76,7 +76,7 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
     private lazy var rightBarButton: UIBarButtonItem = { [weak self] in     //  lazy var => 呼び出された時に初期値決定
         let rightBarButton = UIBarButtonItem()
         rightBarButton.target = self     //  targetで対象を指定
-        rightBarButton.title = "完了"
+        rightBarButton.title = R.string.localizable.done()
         rightBarButton.style = .plain
         rightBarButton.action = #selector(didSaveButtonTapped(_:))
         return rightBarButton
@@ -85,7 +85,7 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
     private lazy var leftBarButton: UIBarButtonItem = { [weak self] in
         let leftBarButton = UIBarButtonItem()
         leftBarButton.target = self     //  targetで対象を指定
-        leftBarButton.title = "キャンセル"
+        leftBarButton.title = R.string.localizable.cancel()
         leftBarButton.style = .plain
         leftBarButton.action = #selector(didCancelButtonTapped(_:))
         return leftBarButton
@@ -119,7 +119,7 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        navigationItem.title = "登録"
+        navigationItem.title = R.string.localizable.resister()
         
         navigationItem.setRightBarButton(rightBarButton, animated: true)
         navigationItem.setLeftBarButton(leftBarButton, animated: true)
@@ -195,7 +195,7 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         }
         //  未入力チェック
         guard !title.isEmpty, !price.isEmpty, !date.isEmpty else {
-            alertMessage(message: "未入力項目があります")
+            showAlert(message: R.string.localizable.blank())
             return
         }
         
@@ -233,9 +233,9 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
     }
     
     // アラート表示
-    private func alertMessage(message: String) {
-        let alert = UIAlertController(title: "入力エラー", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+    private func showAlert(message: String) {
+        let alert = UIAlertController(title: R.string.localizable.error(), message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: R.string.localizable.okay(), style: .default))
         present(alert, animated: true)
     }
     

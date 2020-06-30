@@ -14,16 +14,16 @@ final class AccountViewController: UIViewController {
         
         super.viewDidLoad()
         view.backgroundColor = .white
-        navigationItem.title = "アカウント"
+        navigationItem.title = R.string.localizable.account()
         
     }
     
     @IBAction func didLogoutButtonTapped(_ sender: UIButton) {
         
         //  ダイアログ設定
-        let logoutDialog = UIAlertController(title: "ログアウト", message: "よろしいですか？", preferredStyle: .alert)
-        logoutDialog.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        logoutDialog.addAction(UIAlertAction(title: "OK", style: .default,
+        let logoutDialog = UIAlertController(title: R.string.localizable.logout(), message: R.string.localizable.okay(), preferredStyle: .alert)
+        logoutDialog.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .cancel))
+        logoutDialog.addAction(UIAlertAction(title: R.string.localizable.okayQuestion(), style: .default,
                                              handler: { _ in
                                                 //  rootにlogin storyboardを設定して遷移
                                                 let storyboard = R.storyboard.login().instantiateInitialViewController()

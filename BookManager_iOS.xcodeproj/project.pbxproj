@@ -29,6 +29,7 @@
 		D5671BC8249CA149003E3BEE /* Rswift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D524F63A249B410A00646538 /* Rswift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D5671BCA249CA4B6003E3BEE /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5671BC9249CA4B6003E3BEE /* R.generated.swift */; };
 		D5FF0ACD24A9FBB6001640BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FF0ACC24A9FBB6001640BC /* SceneDelegate.swift */; };
+		D5FF0ADD24AB0A1D001640BC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5FF0ADF24AB0A1D001640BC /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,9 +59,7 @@
 		D524F622249B3AF100646538 /* BookManager_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookManager_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D524F625249B3AF100646538 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D524F629249B3AF100646538 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		D524F62C249B3AF100646538 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		D524F62E249B3AF600646538 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D524F631249B3AF600646538 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D524F633249B3AF600646538 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D524F63A249B410A00646538 /* Rswift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rswift.framework; path = Carthage/Build/iOS/Rswift.framework; sourceTree = "<group>"; };
 		D524F640249B43B100646538 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
@@ -69,6 +68,9 @@
 		D5671BC5249C7EBC003E3BEE /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		D5671BC9249CA4B6003E3BEE /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		D5FF0ACC24A9FBB6001640BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D5FF0AE024AB0C7F001640BC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D5FF0AE324AB0F5E001640BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
+		D5FF0AE424AB0F5E001640BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				D524F630249B3AF600646538 /* LaunchScreen.storyboard */,
 				D524F633249B3AF600646538 /* Info.plist */,
 				D5FF0ACC24A9FBB6001640BC /* SceneDelegate.swift */,
+				D5FF0ADF24AB0A1D001640BC /* Localizable.strings */,
 			);
 			path = BookManager_iOS;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ja,
 				Base,
 			);
 			mainGroup = D524F619249B3AF100646538;
@@ -250,6 +254,7 @@
 				D524F632249B3AF600646538 /* LaunchScreen.storyboard in Resources */,
 				D524F62F249B3AF600646538 /* Assets.xcassets in Resources */,
 				D5119EBD24A07512001DF20C /* Account.storyboard in Resources */,
+				D5FF0ADD24AB0A1D001640BC /* Localizable.strings in Resources */,
 				D5671BC4249C7EA1003E3BEE /* Signup.storyboard in Resources */,
 				D524F62D249B3AF100646538 /* Login.storyboard in Resources */,
 				D5119EC524A1AEF7001DF20C /* EditBook.storyboard in Resources */,
@@ -343,7 +348,7 @@
 		D524F62B249B3AF100646538 /* Login.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D524F62C249B3AF100646538 /* Base */,
+				D5FF0AE324AB0F5E001640BC /* Base */,
 			);
 			name = Login.storyboard;
 			sourceTree = "<group>";
@@ -351,9 +356,17 @@
 		D524F630249B3AF600646538 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D524F631249B3AF600646538 /* Base */,
+				D5FF0AE424AB0F5E001640BC /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D5FF0ADF24AB0A1D001640BC /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D5FF0AE024AB0C7F001640BC /* ja */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -363,6 +376,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -423,6 +437,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

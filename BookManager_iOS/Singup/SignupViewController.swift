@@ -38,19 +38,19 @@ final class SignupViewController: UIViewController {
         }
         //　未入力チェック
         guard !mail.isEmpty, !password.isEmpty, !passwordConfirmation.isEmpty else {
-            alertMessage(message: "未入力項目があります")
+            showAlert(message: R.string.localizable.blank())
             return
         }
         
         // 文字数チェック
         guard mail.count >= minimumLengthOfCharactors, password.count >= minimumLengthOfCharactors else {
-            alertMessage(message: "メールアドレスとパスワードは6文字以上で設定してください")
+            showAlert(message: R.string.localizable.mailAndPassword())
             return
         }
         
         // パスワード一致チェック
         guard password == passwordConfirmation else {
-            alertMessage(message: "パスワードが一致していません")
+            showAlert(message: R.string.localizable.notMatch())
             return
         }
         
@@ -76,9 +76,9 @@ final class SignupViewController: UIViewController {
     }
     
     // アラート表示
-    private func alertMessage(message: String) {
-        let alert = UIAlertController(title: "入力エラー", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+    private func showAlert(message: String) {
+        let alert = UIAlertController(title: R.string.localizable.error(), message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: R.string.localizable.okay(), style: .default))
         present(alert, animated: true)
     }
 }
