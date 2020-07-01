@@ -31,7 +31,7 @@ final class SignupViewController: UIViewController {
     }
     
     @IBAction func signupButtonTapped(_ sender: UIButton) {
-        let minimumLengthOfCharactors = 6
+        let Minimum_Length_Of_Charactors = 6
         
         //  nilチェック
         guard let mail = mailTextField.text,
@@ -44,7 +44,7 @@ final class SignupViewController: UIViewController {
         }
         
         // 文字数チェック
-        guard mail.count >= minimumLengthOfCharactors, password.count >= minimumLengthOfCharactors else {
+        guard mail.count >= Minimum_Length_Of_Charactors, password.count >= Minimum_Length_Of_Charactors else {
             showAlert(message: R.string.localizable.countCharacters())
             return
         }

@@ -22,7 +22,7 @@ final class LoginViewController: UIViewController {
     }
     
     @IBAction func didLoginButtonTapped(_ sender: UIButton) {
-        let minimumLengthOfCharactors = 6
+        let Minimum_Length_Of_Charactors = 6
         
         //  nilチェック
         guard let mail = mailTextField.text,
@@ -34,7 +34,7 @@ final class LoginViewController: UIViewController {
         }
         
         // 文字数チェック
-        guard mail.count >= minimumLengthOfCharactors, password.count >= minimumLengthOfCharactors else {
+        guard mail.count >= Minimum_Length_Of_Charactors, password.count >= Minimum_Length_Of_Charactors else {
             showAlert(message: R.string.localizable.countCharacters())
             return
         }
@@ -45,10 +45,8 @@ final class LoginViewController: UIViewController {
     }
     
     @IBAction func didSignupButtonTapped(_ sender: UIButton) {
-        //  Rswiftを使ってstoryboardのインスタンス取得
-        let storyboard: UIStoryboard = R.storyboard.signup()
-        //  遷移先ViewControllerのインスタンス取得
-        guard let signupView = storyboard.instantiateInitialViewController() as? SignupViewController else { return }
+        //  Rswiftを使ってstoryboardのインスタンス取得して遷移先ViewControllerのインスタンス取得
+        let signupView = R.storyboard.signup.instantiateInitialViewController()!
         //  画面遷移
         navigationController?.pushViewController(signupView, animated: true)
     }

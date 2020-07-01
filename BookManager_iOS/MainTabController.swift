@@ -20,8 +20,7 @@ final class MainTabController: UITabBarController {
         bookList.tabBarItem = UITabBarItem(title: R.string.localizable.booklist(), image: nil, tag: 1)
         viewControllers.append(bookList)  // append => 配列に追加
         // AccountViewControllerを取得
-        let storyboard: UIStoryboard = R.storyboard.account()
-        guard let account = storyboard.instantiateInitialViewController() as? AccountViewController else { return }
+        let account = R.storyboard.account.instantiateInitialViewController()!
         account.tabBarItem = UITabBarItem(title: R.string.localizable.account(), image: nil, tag: 2)
         viewControllers.append(account)
         self.setViewControllers(viewControllers, animated: false)

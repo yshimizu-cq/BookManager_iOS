@@ -20,11 +20,11 @@ final class BookListViewController: UIViewController {
         rightBarButton.style = .plain
         rightBarButton.action = #selector(didAddBarButtonTapped(_:))
         return rightBarButton
-        }()
+    }()
     
     // tableViewにBookListCellを"cell"という名前で登録する
     private lazy var bookTableView: UITableView = {
-       let bookTable = UITableView()
+        let bookTable = UITableView()
         bookTable.frame = view.bounds
         bookTable.delegate = self
         bookTable.dataSource = self
@@ -73,10 +73,8 @@ extension BookListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // セルの選択を解除
         tableView.deselectRow(at: indexPath, animated: true)
-        //  Rswiftを使ってstoryboardのインスタンス取得
-        let storyboard: UIStoryboard = R.storyboard.editBook()
-        //  遷移先ViewControllerのインスタンス取得
-        guard let editBookViewController = storyboard.instantiateInitialViewController() as? EditBookViewController else { return }
+        //  Rswiftを使ってstoryboardのインスタンス取得し、遷移先ViewControllerのインスタンス取得
+        let editBookViewController = R.storyboard.editBook.instantiateInitialViewController()!
         //  画面遷移
         navigationController?.pushViewController(editBookViewController, animated: true)
     }

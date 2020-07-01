@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--編集中-->
+        <!--Edit Book View Controller-->
         <scene sceneID="HA2-ah-g8g">
             <objects>
-                <viewController title="編集中" id="LZu-Kw-MAc" customClass="EditBookViewController" customModule="BookManager_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LZu-Kw-MAc" customClass="EditBookViewController" customModule="BookManager_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I98-JV-7uE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
