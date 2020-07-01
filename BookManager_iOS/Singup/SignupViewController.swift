@@ -33,21 +33,19 @@ final class SignupViewController: UIViewController {
     @IBAction func signupButtonTapped(_ sender: UIButton) {
         let minimumLengthOfCharactors = 6
         
+        //  nilチェック
         guard let mail = mailTextField.text,
             let password = passwordTextField.text,
-            let passwordConfirmation = passwordConfirmationTextField.text else {
+            let passwordConfirmation = passwordConfirmationTextField.text,
+            //　未入力チェック
+            !mail.isEmpty, !password.isEmpty, !passwordConfirmation.isEmpty else {
+                showAlert(message: R.string.localizable.blank())
                 return
-        }
-        
-        //　未入力チェック
-        guard !mail.isEmpty, !password.isEmpty, !passwordConfirmation.isEmpty else {
-            showAlert(message: R.string.localizable.blank())
-            return
         }
         
         // 文字数チェック
         guard mail.count >= minimumLengthOfCharactors, password.count >= minimumLengthOfCharactors else {
-//            showAlert(message: R.string.localizable.())
+            showAlert(message: R.string.localizable.countCharacters())
             return
         }
         

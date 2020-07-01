@@ -131,7 +131,7 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         navigationItem.title = R.string.localizable.resister()
         navigationItem.setRightBarButton(rightBarButton, animated: true)
         navigationItem.setLeftBarButton(leftBarButton, animated: true)
-
+        
         //  アンカー設定
         setAnchor()
         
@@ -188,15 +188,14 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     //  ”完了”ボタンが押された時の処理
     @objc func didSaveButtonTapped(_ sender: UIBarButtonItem) {
+        //  nilチェック
         guard let title = titleTextField.text,
             let price = priceTextField.text,
-            let date = dateTextField.text else {
+            let date = dateTextField.text,
+            //  未入力チェック
+            !title.isEmpty, !price.isEmpty, !date.isEmpty else {
+                showAlert(message: R.string.localizable.blank())
                 return
-        }
-        //  未入力チェック
-        guard !title.isEmpty, !price.isEmpty, !date.isEmpty else {
-            showAlert(message: R.string.localizable.blank())
-            return
         }
     }
     

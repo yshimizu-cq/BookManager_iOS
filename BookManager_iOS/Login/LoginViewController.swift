@@ -24,14 +24,13 @@ final class LoginViewController: UIViewController {
     @IBAction func didLoginButtonTapped(_ sender: UIButton) {
         let minimumLengthOfCharactors = 6
         
+        //  nilチェック
         guard let mail = mailTextField.text,
-            let password = passwordTextField.text else {
+            let password = passwordTextField.text,
+            //　未入力チェック
+            !mail.isEmpty, !password.isEmpty else {
+                showAlert(message: R.string.localizable.blank())
                 return
-        }
-        //　未入力チェック
-        guard !mail.isEmpty, !password.isEmpty else {
-            showAlert(message: R.string.localizable.blank())
-            return
         }
         
         // 文字数チェック

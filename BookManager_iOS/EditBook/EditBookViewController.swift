@@ -90,13 +90,12 @@ final class EditBookViewController: UIViewController {
     
     // ”保存”ボタンが押された時の処理
     @objc func didSaveButtonTapped(_ sender: UIBarButtonItem) {
+        //　nilチェック
         guard let title = titleTextField.text,
             let price = priceTextField.text,
-            let date = dateTextField.text else {
-                return
-        }
+            let date = dateTextField.text,
         //　未入力チェック
-        guard !title.isEmpty, !price.isEmpty, !date.isEmpty else {
+        !title.isEmpty, !price.isEmpty, !date.isEmpty else {
             showAlert(message: R.string.localizable.blank())
             return
         }
