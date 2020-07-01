@@ -76,7 +76,7 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
         return button
     }()
     
-    private lazy var rightBarButton: UIBarButtonItem = { [weak self] in     //  lazy var => 呼び出された時に初期値決定
+    private lazy var rightBarButton: UIBarButtonItem = {    //  lazy var => 呼び出された時に初期値決定
         let rightBarButton = UIBarButtonItem()
         rightBarButton.target = self     //  targetで対象を指定
         rightBarButton.title = R.string.localizable.done()
@@ -85,7 +85,7 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
         return rightBarButton
         }()
     
-    private lazy var leftBarButton: UIBarButtonItem = { [weak self] in
+    private lazy var leftBarButton: UIBarButtonItem = {
         let leftBarButton = UIBarButtonItem()
         leftBarButton.target = self     //  targetで対象を指定
         leftBarButton.title = R.string.localizable.cancel()
@@ -102,22 +102,22 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
         return picker
     }()
     
-    private lazy var toolBar: UIToolbar = { [weak self] in
+    private lazy var toolBar: UIToolbar = {
         let toolbar = UIToolbar()
         toolbar.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35)
         return toolbar
-        }()
+    }()
     
-    private let spacelItem: UIBarButtonItem = {
-        let spacelitem = UIBarButtonItem.init(barButtonSystemItem: .flexibleSpace,
+    private lazy var spacelItem: UIBarButtonItem = {
+        let spacelitem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
                                               target: self,
                                               action: nil
         )
         return spacelitem
     }()
     
-    private let doneItem: UIBarButtonItem = {
-        let doneitem = UIBarButtonItem.init(barButtonSystemItem: .done,
+    private lazy var doneItem: UIBarButtonItem = {
+        let doneitem = UIBarButtonItem(barButtonSystemItem: .done,
                                             target: self,
                                             action: #selector(didDoneButtonTapped)
         )

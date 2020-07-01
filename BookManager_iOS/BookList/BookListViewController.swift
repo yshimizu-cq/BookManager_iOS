@@ -13,7 +13,7 @@ final class BookListViewController: UIViewController {
     //    var addBookButton: UIBarButtonItem!
     private let tableView = UITableView()
     
-    private lazy var rightBarButton: UIBarButtonItem = { [weak self] in     //  lazy var => 呼び出された時に初期値決定
+    private lazy var rightBarButton: UIBarButtonItem = {    //  lazy var => 呼び出された時に初期値決定
         let rightBarButton = UIBarButtonItem()
         rightBarButton.target = self     //  targetで対象を指定
         rightBarButton.title = R.string.localizable.add()
