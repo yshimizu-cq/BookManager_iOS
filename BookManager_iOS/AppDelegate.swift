@@ -16,13 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var navigationController: UINavigationController?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        // NavigationControllerの設定
-        let loginView: LoginViewController = LoginViewController()
-        navigationController = UINavigationController(rootViewController: loginView)
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = navigationController
-        self.window?.makeKeyAndVisible()
         return true
     }
 }
