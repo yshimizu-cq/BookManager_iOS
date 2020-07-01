@@ -83,7 +83,7 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
         rightBarButton.style = .plain
         rightBarButton.action = #selector(didSaveButtonTapped(_:))
         return rightBarButton
-        }()
+    }()
     
     private lazy var leftBarButton: UIBarButtonItem = {
         let leftBarButton = UIBarButtonItem()
@@ -92,7 +92,7 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
         leftBarButton.style = .plain
         leftBarButton.action = #selector(didCancelButtonTapped(_:))
         return leftBarButton
-        }()
+    }()
     
     private let purchaseDate: UIDatePicker = {
         let picker = UIDatePicker()
@@ -110,16 +110,16 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     private lazy var spacelItem: UIBarButtonItem = {
         let spacelitem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
-                                              target: self,
-                                              action: nil
+                                         target: self,
+                                         action: nil
         )
         return spacelitem
     }()
     
     private lazy var doneItem: UIBarButtonItem = {
         let doneitem = UIBarButtonItem(barButtonSystemItem: .done,
-                                            target: self,
-                                            action: #selector(didDoneButtonTapped)
+                                       target: self,
+                                       action: #selector(didDoneButtonTapped)
         )
         return doneitem
     }()

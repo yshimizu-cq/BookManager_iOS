@@ -33,7 +33,7 @@ final class EditBookViewController: UIViewController {
         rightBarButton.style = .plain
         rightBarButton.action = #selector(didSaveButtonTapped(_:))
         return rightBarButton
-        }()
+    }()
     
     private lazy var leftBarButton: UIBarButtonItem = {
         let leftBarButton = UIBarButtonItem()
@@ -42,7 +42,7 @@ final class EditBookViewController: UIViewController {
         leftBarButton.style = .plain
         leftBarButton.action = #selector(didCancelButtonTapped(_:))
         return leftBarButton
-        }()
+    }()
     
     private let purchaseDate: UIDatePicker = {
         let picker = UIDatePicker()
@@ -56,20 +56,20 @@ final class EditBookViewController: UIViewController {
         let toolbar = UIToolbar()
         toolbar.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35)
         return toolbar
-        }()
+    }()
     
     private lazy var spacelItem: UIBarButtonItem = {
         let spacelitem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
-                                              target: self,
-                                              action: nil
+                                         target: self,
+                                         action: nil
         )
         return spacelitem
     }()
     
     private lazy var doneItem: UIBarButtonItem = {
         let doneitem = UIBarButtonItem(barButtonSystemItem: .done,
-                                            target: self,
-                                            action: #selector(didDoneButtonTapped)
+                                       target: self,
+                                       action: #selector(didDoneButtonTapped)
         )
         return doneitem
     }()
