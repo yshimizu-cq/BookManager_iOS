@@ -11,6 +11,10 @@ import UIKit
 //  サインアップ画面
 final class SignupViewController: UIViewController {
     
+    private struct Const {
+        static let minimumLengthOfCharactors: Int = 6
+    }
+    
     @IBOutlet weak var mailTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField! {
@@ -31,8 +35,6 @@ final class SignupViewController: UIViewController {
     }
     
     @IBAction func signupButtonTapped(_ sender: UIButton) {
-        let Minimum_Length_Of_Charactors = 6
-        
         //  nilチェック
         guard let mail = mailTextField.text,
             let password = passwordTextField.text,
@@ -46,8 +48,8 @@ final class SignupViewController: UIViewController {
         }
         
         // 文字数チェック
-        guard mail.count >= Minimum_Length_Of_Charactors,
-            password.count >= Minimum_Length_Of_Charactors else {
+        guard mail.count >= Const.minimumLengthOfCharactors,
+            password.count >= Const.minimumLengthOfCharactors else {
                 showAlert(message: R.string.localizable.countCharacters())
                 return
         }
