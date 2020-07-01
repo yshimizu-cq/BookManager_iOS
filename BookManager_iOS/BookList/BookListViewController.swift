@@ -22,20 +22,24 @@ final class BookListViewController: UIViewController {
         return rightBarButton
         }()
     
+    // tableViewにBookListCellを"cell"という名前で登録する
+    private lazy var bookTableView: UITableView = {
+       let bookTable = UITableView()
+        bookTable.frame = view.bounds
+        bookTable.delegate = self
+        bookTable.dataSource = self
+        bookTable.register(BookListCell.self, forCellReuseIdentifier: "cell")
+        return bookTable
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.addSubview(bookTableView)
         view.backgroundColor = .white
         navigationItem.title = R.string.localizable.booklist()
         navigationItem.hidesBackButton = true
         navigationItem.setRightBarButton(rightBarButton, animated: true)    // バーボタンアイテムの追加
-        
-        // tableViewにBookListCellを"cell"という名前で登録する
-        tableView.frame = view.bounds
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(BookListCell.self, forCellReuseIdentifier: "cell")
-        view.addSubview(tableView)
     }
     
     //  ”追加”ボタンが押された時の処理
