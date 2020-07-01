@@ -38,15 +38,18 @@ final class SignupViewController: UIViewController {
             let password = passwordTextField.text,
             let passwordConfirmation = passwordConfirmationTextField.text,
             //　未入力チェック
-            !mail.isEmpty, !password.isEmpty, !passwordConfirmation.isEmpty else {
+            !mail.isEmpty,
+            !password.isEmpty,
+            !passwordConfirmation.isEmpty else {
                 showAlert(message: R.string.localizable.blank())
                 return
         }
         
         // 文字数チェック
-        guard mail.count >= Minimum_Length_Of_Charactors, password.count >= Minimum_Length_Of_Charactors else {
-            showAlert(message: R.string.localizable.countCharacters())
-            return
+        guard mail.count >= Minimum_Length_Of_Charactors,
+            password.count >= Minimum_Length_Of_Charactors else {
+                showAlert(message: R.string.localizable.countCharacters())
+                return
         }
         
         // パスワード一致チェック

@@ -28,15 +28,17 @@ final class LoginViewController: UIViewController {
         guard let mail = mailTextField.text,
             let password = passwordTextField.text,
             //　未入力チェック
-            !mail.isEmpty, !password.isEmpty else {
+            !mail.isEmpty,
+            !password.isEmpty else {
                 showAlert(message: R.string.localizable.blank())
                 return
         }
         
         // 文字数チェック
-        guard mail.count >= Minimum_Length_Of_Charactors, password.count >= Minimum_Length_Of_Charactors else {
-            showAlert(message: R.string.localizable.countCharacters())
-            return
+        guard mail.count >= Minimum_Length_Of_Charactors,
+            password.count >= Minimum_Length_Of_Charactors else {
+                showAlert(message: R.string.localizable.countCharacters())
+                return
         }
         
         let books: MainTabController = MainTabController()

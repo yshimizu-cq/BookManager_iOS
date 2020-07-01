@@ -95,7 +95,9 @@ final class EditBookViewController: UIViewController {
             let price = priceTextField.text,
             let date = dateTextField.text,
             //　未入力チェック
-            !title.isEmpty, !price.isEmpty, !date.isEmpty else {
+            !title.isEmpty,
+            !price.isEmpty,
+            !date.isEmpty else {
                 showAlert(message: R.string.localizable.blank())
                 return
         }

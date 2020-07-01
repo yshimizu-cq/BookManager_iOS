@@ -15,7 +15,7 @@
 "bookName" = "書籍名";
 "price" = "価格";
 "purchaseDate" = "購入日";
-
+"priceLabel" = "%d円";
 
 //  ボタン
 "attachedImage" = "画像添付";
@@ -36,6 +36,7 @@
 "countCharacters" = "メールアドレスとパスワードは6文字以上で設定してください";
 "notMatch" = "パスワードが一致していません";
 
-//  画像
+//  サンプルデータ
 "sampleImage" = "sample_image";
-
+"sampleName" = "はじめてのSwift";
+"sampleDate" = "2020-06-20";

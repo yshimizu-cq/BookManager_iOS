@@ -9,23 +9,25 @@ import UIKit
 
 final class BookListCell: UITableViewCell {
     
+    static let identifer: String = "BookListCell"   //  BookListCell.identiferで呼び出せるようになる
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = R.string.localizable.bookName()
+        label.text = R.string.localizable.sampleName()
         label.translatesAutoresizingMaskIntoConstraints = false    //   AutosizingのAutoLayoutへの変換をオフ
         return label
     }()
     
     private let priceLabel: UILabel = {
         let label = UILabel()
-        label.text = R.string.localizable.price()
+        label.text = R.string.localizable.priceLabel(1000)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let dateLabel: UILabel = {
         let label = UILabel()
-        label.text = R.string.localizable.purchaseDate()
+        label.text = R.string.localizable.sampleDate().replacingOccurrences(of: "-", with: "/")
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

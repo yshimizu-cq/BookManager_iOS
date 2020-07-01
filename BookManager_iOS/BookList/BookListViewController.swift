@@ -28,7 +28,7 @@ final class BookListViewController: UIViewController {
         bookTable.frame = view.bounds
         bookTable.delegate = self
         bookTable.dataSource = self
-        bookTable.register(BookListCell.self, forCellReuseIdentifier: "cell")
+        bookTable.register(BookListCell.self, forCellReuseIdentifier: BookListCell.identifer)
         return bookTable
     }()
     
@@ -53,7 +53,7 @@ final class BookListViewController: UIViewController {
 extension BookListViewController: UITableViewDataSource {
     //  セルをインスタンス化
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: BookListCell.identifer, for: indexPath)
         cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         return cell
     }
