@@ -187,7 +187,7 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
     }
     
     //  ”完了”ボタンが押された時の処理
-    @objc func didSaveButtonTapped(_ sender: UIBarButtonItem) {
+    @objc private func didSaveButtonTapped(_ sender: UIBarButtonItem) {
         //  nilチェック
         guard let title = titleTextField.text,
             let price = priceTextField.text,
@@ -200,12 +200,12 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
     }
     
     // ”キャンセル”ボタンが押された時の処理
-    @objc func didCancelButtonTapped(_ sender: UIBarButtonItem) {
+    @objc private func didCancelButtonTapped(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true)
     }
     
     // ”画像投稿”ボタンが押された時の処理
-    @objc func didImageUploadButtonTapped(_ sender: UIBarButtonItem) {
+    @objc private func didImageUploadButtonTapped(_ sender: UIBarButtonItem) {
     }
     
     //  returnでキーボードを閉じる
@@ -220,7 +220,7 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    @objc func didDoneButtonTapped() {
+    @objc private func didDoneButtonTapped() {
         dateTextField.endEditing(true)
         // 日付のフォーマット
         let formatter = DateFormatter()
@@ -235,7 +235,7 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
     }
     
     // Notificationを設定
-    func configureObserver() {
+    private func configureObserver() {
         let notification = NotificationCenter.default
         notification.addObserver(self,
                                  selector: #selector(keyboardWillShow(_:)),
@@ -250,7 +250,7 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
     }
     
     // キーボードが現れた時に画面全体をずらす
-    @objc func keyboardWillShow(_ notification: Notification?) {
+    @objc private func keyboardWillShow(_ notification: Notification?) {
         guard let rect = (notification?.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue,
             let duration = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval else { return }
         UIView.animate(withDuration: duration) {
@@ -260,7 +260,7 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
     }
     
     // キーボードが消えたときに、画面を戻す
-    @objc func keyboardWillHide(_ notification: Notification?) {
+    @objc private func keyboardWillHide(_ notification: Notification?) {
         guard let duration = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? TimeInterval else { return }
         UIView.animate(withDuration: duration) {
             self.view.transform = CGAffineTransform.identity

@@ -89,7 +89,7 @@ final class EditBookViewController: UIViewController {
     }
     
     // ”保存”ボタンが押された時の処理
-    @objc func didSaveButtonTapped(_ sender: UIBarButtonItem) {
+    @objc private func didSaveButtonTapped(_ sender: UIBarButtonItem) {
         //　nilチェック
         guard let title = titleTextField.text,
             let price = priceTextField.text,
@@ -102,7 +102,7 @@ final class EditBookViewController: UIViewController {
     }
     
     // ”キャンセル”ボタンが押された時の処理
-    @objc func didCancelButtonTapped(_ sender: UIBarButtonItem) {
+    @objc private func didCancelButtonTapped(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -119,7 +119,7 @@ final class EditBookViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    @objc func didDoneButtonTapped() {
+    @objc private func didDoneButtonTapped() {
         dateTextField.endEditing(true)
         // 日付のフォーマット
         let formatter = DateFormatter()
@@ -134,7 +134,7 @@ final class EditBookViewController: UIViewController {
     }
     
     // Notificationを設定 => キーボードの表示・非表示を検知
-    func configureObserver() {
+    private func configureObserver() {
         let notification = NotificationCenter.default
         notification.addObserver(self,
                                  selector: #selector(keyboardWillShow(_:)),
@@ -149,7 +149,7 @@ final class EditBookViewController: UIViewController {
     }
     
     // キーボードが現れた時に画面全体をずらす
-    @objc func keyboardWillShow(_ notification: Notification?) {
+    @objc private func keyboardWillShow(_ notification: Notification?) {
         guard let rect = (notification?.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue,
             let duration = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval else { return }
         UIView.animate(withDuration: duration) {
@@ -159,7 +159,7 @@ final class EditBookViewController: UIViewController {
     }
     
     // キーボードが消えたときに、画面を戻す
-    @objc func keyboardWillHide(_ notification: Notification?) {
+    @objc private func keyboardWillHide(_ notification: Notification?) {
         guard let duration = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? TimeInterval else { return }
         UIView.animate(withDuration: duration) {
             self.view.transform = CGAffineTransform.identity
