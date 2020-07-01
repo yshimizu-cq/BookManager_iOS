@@ -21,14 +21,11 @@
 		D524F62F249B3AF600646538 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D524F62E249B3AF600646538 /* Assets.xcassets */; };
 		D524F632249B3AF600646538 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D524F630249B3AF600646538 /* LaunchScreen.storyboard */; };
 		D524F641249B43B100646538 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D524F640249B43B100646538 /* Nuke.framework */; };
-		D55280D824A9AF9000D6248D /* APIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D55280D724A9AF8F00D6248D /* APIKit.framework */; };
-		D55280D924A9AF9000D6248D /* APIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D55280D724A9AF8F00D6248D /* APIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D5671BC4249C7EA1003E3BEE /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5671BC3249C7EA1003E3BEE /* Signup.storyboard */; };
 		D5671BC6249C7EBC003E3BEE /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5671BC5249C7EBC003E3BEE /* SignupViewController.swift */; };
 		D5671BC7249CA149003E3BEE /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D524F63A249B410A00646538 /* Rswift.framework */; };
 		D5671BC8249CA149003E3BEE /* Rswift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D524F63A249B410A00646538 /* Rswift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D5671BCA249CA4B6003E3BEE /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5671BC9249CA4B6003E3BEE /* R.generated.swift */; };
-		D5FF0ACD24A9FBB6001640BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FF0ACC24A9FBB6001640BC /* SceneDelegate.swift */; };
 		D5FF0ADD24AB0A1D001640BC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5FF0ADF24AB0A1D001640BC /* Localizable.strings */; };
 		D5FF0AE724AC1F91001640BC /* UIAlertExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FF0AE624AC1F90001640BC /* UIAlertExtension.swift */; };
 /* End PBXBuildFile section */
@@ -40,7 +37,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D55280D924A9AF9000D6248D /* APIKit.framework in Embed Frameworks */,
 				D5671BC8249CA149003E3BEE /* Rswift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -68,7 +64,6 @@
 		D5671BC3249C7EA1003E3BEE /* Signup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
 		D5671BC5249C7EBC003E3BEE /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		D5671BC9249CA4B6003E3BEE /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
-		D5FF0ACC24A9FBB6001640BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D5FF0AE024AB0C7F001640BC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D5FF0AE324AB0F5E001640BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		D5FF0AE424AB0F5E001640BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -81,7 +76,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5671BC7249CA149003E3BEE /* Rswift.framework in Frameworks */,
-				D55280D824A9AF9000D6248D /* APIKit.framework in Frameworks */,
 				D524F641249B43B100646538 /* Nuke.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,7 +161,6 @@
 				D5AB0F00249B596F0056CF2C /* Login */,
 				D524F630249B3AF600646538 /* LaunchScreen.storyboard */,
 				D524F633249B3AF600646538 /* Info.plist */,
-				D5FF0ACC24A9FBB6001640BC /* SceneDelegate.swift */,
 				D5FF0ADF24AB0A1D001640BC /* Localizable.strings */,
 			);
 			path = BookManager_iOS;
@@ -285,7 +278,6 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Rswift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/APIKit.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -347,7 +339,6 @@
 				D5119EB324A04194001DF20C /* AccountViewController.swift in Sources */,
 				D5119EB024A040D7001DF20C /* MainTabController.swift in Sources */,
 				D5671BCA249CA4B6003E3BEE /* R.generated.swift in Sources */,
-				D5FF0ACD24A9FBB6001640BC /* SceneDelegate.swift in Sources */,
 				D5671BC6249C7EBC003E3BEE /* SignupViewController.swift in Sources */,
 				D5119EC324A1AABD001DF20C /* EditBookViewController.swift in Sources */,
 				D5119EAE24A03BE2001DF20C /* BookListViewController.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddBookViewController: UIViewController, UITextFieldDelegate {
+final class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -227,5 +227,43 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
         formatter.dateFormat = "yyyy年MM月dd日"
         //(from: datePicker.date))を指定することでdatePickerで指定した日付が表示される
         dateTextField.text = "\(formatter.string(from: datePicker.date))"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.configureObserver()    //  Notification発行
+    }
+    
+    // Notificationを設定
+    func configureObserver() {
+        let notification = NotificationCenter.default
+        notification.addObserver(self,
+                                 selector: #selector(keyboardWillShow(_:)),
+                                 name: UIResponder.keyboardWillShowNotification,
+                                 object: nil
+        )
+        notification.addObserver(self,
+                                 selector: #selector(keyboardWillHide(_:)),
+                                 name: UIResponder.keyboardWillHideNotification,
+                                 object: nil
+        )
+    }
+    
+    // キーボードが現れた時に画面全体をずらす
+    @objc func keyboardWillShow(_ notification: Notification?) {
+        guard let rect = (notification?.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue,
+            let duration = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval else { return }
+        UIView.animate(withDuration: duration) {
+            let transform = CGAffineTransform(translationX: 0, y: -(rect.size.height))
+            self.view.transform = transform
+        }
+    }
+    
+    // キーボードが消えたときに、画面を戻す
+    @objc func keyboardWillHide(_ notification: Notification?) {
+        guard let duration = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? TimeInterval else { return }
+        UIView.animate(withDuration: duration) {
+            self.view.transform = CGAffineTransform.identity
+        }
     }
 }

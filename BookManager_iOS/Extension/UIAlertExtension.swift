@@ -7,7 +7,7 @@
 //
 import UIKit
 
-public extension UIViewController {
+extension UIViewController {
     
     func showAlert(message: String) {
         let alert = UIAlertController(title: R.string.localizable.error(), message: message, preferredStyle: .alert)
