@@ -12,14 +12,17 @@ import UIKit
 final class SignupViewController: UIViewController {
     
     @IBOutlet weak var mailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var passwordConfirmationTextField: UITextField!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        passwordTextField.isSecureTextEntry = true
-        passwordConfirmationTextField.isSecureTextEntry = true
+    @IBOutlet weak var passwordTextField: UITextField! {
+        didSet {
+            passwordTextField.isSecureTextEntry = true
+        }
+    }
+    
+    @IBOutlet weak var passwordConfirmationTextField: UITextField! {
+        didSet {
+            passwordConfirmationTextField.isSecureTextEntry = true
+        }
     }
     
     @IBAction func returnButtonTapped(_ sender: UIBarButtonItem) {
@@ -62,7 +65,7 @@ final class SignupViewController: UIViewController {
     @IBAction func didTapMailReturn(_ sender: UITextField) {
         mailTextField.text = sender.text
     }
-
+    
     @IBAction func didTapPasswordReturn(_ sender: UITextField) {
         passwordTextField.text = sender.text
     }

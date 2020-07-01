@@ -188,7 +188,6 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     //  ”完了”ボタンが押された時の処理
     @objc func didSaveButtonTapped(_ sender: UIBarButtonItem) {
-        
         guard let title = titleTextField.text,
             let price = priceTextField.text,
             let date = dateTextField.text else {
@@ -208,7 +207,6 @@ class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     // ”画像投稿”ボタンが押された時の処理
     @objc func didImageUploadButtonTapped(_ sender: UIBarButtonItem) {
-        
     }
     
     //  returnでキーボードを閉じる

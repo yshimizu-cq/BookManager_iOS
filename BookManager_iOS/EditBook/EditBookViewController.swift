@@ -11,10 +11,18 @@ import UIKit
 final class EditBookViewController: UIViewController {
     
     @IBOutlet weak var imageUploadButtonTapped: UIButton!
+    
     @IBOutlet weak var titleTextField: UITextField!
+    
     @IBOutlet weak var priceTextField: UITextField!
+    
     @IBOutlet weak var dateTextField: UITextField!
-    @IBOutlet weak var imageView: UIImageView!
+    
+    @IBOutlet weak var imageView: UIImageView! {
+        didSet {
+            imageView.image = R.image.sample_image()
+        }
+    }
     
     private var datePicker: UIDatePicker = UIDatePicker()
     
@@ -73,7 +81,6 @@ final class EditBookViewController: UIViewController {
         navigationItem.title = R.string.localizable.edit()
         navigationItem.setRightBarButton(rightBarButton, animated: true)
         navigationItem.setLeftBarButton(leftBarButton, animated: true)
-        imageView.image = R.image.sample_image()
         
         //  ピッカー設定
         dateTextField.inputView = purchaseDate

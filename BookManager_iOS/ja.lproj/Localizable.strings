@@ -32,7 +32,7 @@
 "blank" = "未入力項目があります";
 "error" = "入力エラー";
 "okay" = "OK";
-"okayQuestion" = "よろしいですか？";
+"noProblem" = "よろしいですか？";
 "mailAndPassword" = "メールアドレスとパスワードは6文字以上で設定してください";
 "notMatch" = "パスワードが一致していません";
 

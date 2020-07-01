@@ -13,18 +13,16 @@ import UIKit
 final class LoginViewController: UIViewController {
     
     @IBOutlet weak var mailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
     
-    //  画面ロード後に実行すること
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // 入力された文字を非表示モードにする.
-        passwordTextField.isSecureTextEntry = true
+    //  IBでプロパティを定義する場合、didSetを使うことで各部品毎に見やすくなる
+    @IBOutlet weak var passwordTextField: UITextField! {
+        didSet {
+            // 入力された文字を非表示モードにする.
+            passwordTextField.isSecureTextEntry = true
+        }
     }
     
     @IBAction func didLoginButtonTapped(_ sender: UIButton) {
-        
         let minimumLengthOfCharactors = 6
         
         guard let mail = mailTextField.text,
@@ -46,7 +44,6 @@ final class LoginViewController: UIViewController {
         let books: MainTabController = MainTabController()
         let window = UIApplication.shared.windows.first { $0.isKeyWindow }
         window?.rootViewController = books
-        
     }
     
     @IBAction func didSignupButtonTapped(_ sender: UIButton) {
