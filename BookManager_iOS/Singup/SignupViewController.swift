@@ -47,7 +47,7 @@ final class SignupViewController: UIViewController {
         
         // 文字数チェック
         guard mail.count >= minimumLengthOfCharactors, password.count >= minimumLengthOfCharactors else {
-            showAlert(message: R.string.localizable.mailAndPassword())
+//            showAlert(message: R.string.localizable.())
             return
         }
         
@@ -76,12 +76,5 @@ final class SignupViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-    }
-    
-    // アラート表示
-    private func showAlert(message: String) {
-        let alert = UIAlertController(title: R.string.localizable.error(), message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: R.string.localizable.okay(), style: .default))
-        present(alert, animated: true)
     }
 }

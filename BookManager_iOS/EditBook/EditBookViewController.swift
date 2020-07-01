@@ -128,11 +128,4 @@ final class EditBookViewController: UIViewController {
         //(from: datePicker.date))を指定してあげることでdatePickerで指定した日付が表示される
         dateTextField.text = "\(formatter.string(from: datePicker.date))"
     }
-    
-    // アラート表示
-    private func showAlert(message: String) {
-        let alert = UIAlertController(title: R.string.localizable.error(), message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: R.string.localizable.okay(), style: .default))
-        present(alert, animated: true)
-    }
 }

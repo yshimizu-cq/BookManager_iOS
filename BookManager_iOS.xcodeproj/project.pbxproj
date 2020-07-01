@@ -30,6 +30,7 @@
 		D5671BCA249CA4B6003E3BEE /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5671BC9249CA4B6003E3BEE /* R.generated.swift */; };
 		D5FF0ACD24A9FBB6001640BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FF0ACC24A9FBB6001640BC /* SceneDelegate.swift */; };
 		D5FF0ADD24AB0A1D001640BC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5FF0ADF24AB0A1D001640BC /* Localizable.strings */; };
+		D5FF0AE724AC1F91001640BC /* UIAlertExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FF0AE624AC1F90001640BC /* UIAlertExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -71,6 +72,7 @@
 		D5FF0AE024AB0C7F001640BC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D5FF0AE324AB0F5E001640BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		D5FF0AE424AB0F5E001640BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D5FF0AE624AC1F90001640BC /* UIAlertExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 		D524F624249B3AF100646538 /* BookManager_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D5FF0AE824AC1FA5001640BC /* Extension */,
 				D5119EC124A1AA9A001DF20C /* EditBook */,
 				D5119EBE24A0A99D001DF20C /* AddBook */,
 				D5119EB124A04168001DF20C /* Account */,
@@ -186,6 +189,14 @@
 				D524F62B249B3AF100646538 /* Login.storyboard */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		D5FF0AE824AC1FA5001640BC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D5FF0AE624AC1F90001640BC /* UIAlertExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,6 +343,7 @@
 				D524F62A249B3AF100646538 /* LoginViewController.swift in Sources */,
 				D5119EC024A0A9E0001DF20C /* AddBookViewController.swift in Sources */,
 				D524F626249B3AF100646538 /* AppDelegate.swift in Sources */,
+				D5FF0AE724AC1F91001640BC /* UIAlertExtension.swift in Sources */,
 				D5119EB324A04194001DF20C /* AccountViewController.swift in Sources */,
 				D5119EB024A040D7001DF20C /* MainTabController.swift in Sources */,
 				D5671BCA249CA4B6003E3BEE /* R.generated.swift in Sources */,
