@@ -15,6 +15,7 @@
 		D5671BC8249CA149003E3BEE /* Rswift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D524F63A249B410A00646538 /* Rswift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D5671BCA249CA4B6003E3BEE /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5671BC9249CA4B6003E3BEE /* R.generated.swift */; };
 		D580528924ADABEA0085FD4C /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D580528824ADABEA0085FD4C /* MainTabController.swift */; };
+		D580528C24ADAEE50085FD4C /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D580528B24ADAEE50085FD4C /* test.swift */; };
 		D597A88A24ADAB6B009490DB /* EditBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D597A87924ADAB6B009490DB /* EditBookViewController.swift */; };
 		D597A88B24ADAB6B009490DB /* EditBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D597A87A24ADAB6B009490DB /* EditBook.storyboard */; };
 		D597A88C24ADAB6B009490DB /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D597A87C24ADAB6B009490DB /* SignupViewController.swift */; };
@@ -54,6 +55,7 @@
 		D55280D724A9AF8F00D6248D /* APIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = APIKit.framework; path = Carthage/Build/iOS/APIKit.framework; sourceTree = "<group>"; };
 		D5671BC9249CA4B6003E3BEE /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		D580528824ADABEA0085FD4C /* MainTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
+		D580528B24ADAEE50085FD4C /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		D597A87924ADAB6B009490DB /* EditBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditBookViewController.swift; sourceTree = "<group>"; };
 		D597A87A24ADAB6B009490DB /* EditBook.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditBook.storyboard; sourceTree = "<group>"; };
 		D597A87C24ADAB6B009490DB /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				D524F630249B3AF600646538 /* LaunchScreen.storyboard */,
 				D524F633249B3AF600646538 /* Info.plist */,
 				D5FF0ADF24AB0A1D001640BC /* Localizable.strings */,
+				D580528B24ADAEE50085FD4C /* test.swift */,
 			);
 			path = BookManager_iOS;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D597A88E24ADAB6B009490DB /* AccountViewController.swift in Sources */,
+				D580528C24ADAEE50085FD4C /* test.swift in Sources */,
 				D580528924ADABEA0085FD4C /* MainTabController.swift in Sources */,
 				D524F626249B3AF100646538 /* AppDelegate.swift in Sources */,
 				D5FF0AE724AC1F91001640BC /* UIAlertExtension.swift in Sources */,
