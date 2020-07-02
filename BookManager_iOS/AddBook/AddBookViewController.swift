@@ -142,14 +142,7 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func setAnchor() {
-        view.addSubview(titleLabel)
-        view.addSubview(titleTextField)
-        view.addSubview(priceLabel)
-        view.addSubview(priceTextField)
-        view.addSubview(dateLabel)
-        view.addSubview(dateTextField)
-        view.addSubview(bookImageView)
-        view.addSubview(imageUploadButton)
+        [titleLabel, titleTextField, priceLabel, priceTextField, dateLabel, dateTextField, bookImageView, imageUploadButton].forEach{ view.addSubview($0) }
         
         bookImageView.leftAnchor.constraint(equalTo: titleTextField.leftAnchor).isActive = true
         bookImageView.centerYAnchor.constraint(equalTo: titleTextField.topAnchor, constant: -150).isActive = true
