@@ -247,7 +247,7 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
         notification.addObserver(self,
                                  selector: #selector(keyboardWillHide(_:)),
                                  name: UIResponder.keyboardWillHideNotification,
-                                 object: nil
+                             object: nil
         )
     }
     

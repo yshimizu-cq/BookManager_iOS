@@ -46,7 +46,7 @@ final class BookListViewController: UIViewController {
     @objc private func didAddBarButtonTapped(_ sender: UIBarButtonItem) {
         let addBook: AddBookViewController = AddBookViewController()
         let addBookViewController = UINavigationController(rootViewController: addBook)
-        self.present(addBookViewController, animated: true)
+        present(addBookViewController, animated: true)
     }
 }
 
