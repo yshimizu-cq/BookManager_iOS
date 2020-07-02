@@ -1,0 +1,18 @@
+# 無効にするルール
+disabled_rules:
+- trailing_whitespace #R.swift導入の警告回避
+- vertical_whitespace #R.swift導入の警告回避
+- type_name #R.swift導入の警告回避
+- identifier_name #R.swift導入の警告回避
+- nesting #R.swift導入の警告回避
+- trailing_newline #R.swift導入の警告回避
+
+# デフォルトルール以外でopt-inから適用させるルールの設定
+opt_in_rules:
+
+excluded:
+- Carthage/
+- R.generated.swift
+
+# 1行あたりの文字数制限を300に変更
+line_length: 300
