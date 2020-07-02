@@ -246,8 +246,10 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     // キーボードが現れた時に画面全体をずらす
     @objc private func keyboardWillShow(_ notification: Notification?) {
+        
         guard let rect = (notification?.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue,
             let duration = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval else { return }
+        
         UIView.animate(withDuration: duration) {
             let transform = CGAffineTransform(translationX: 0, y: -(rect.size.height))
             self.view.transform = transform
@@ -256,7 +258,9 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     // キーボードが消えたときに、画面を戻す
     @objc private func keyboardWillHide(_ notification: Notification?) {
+        
         guard let duration = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? TimeInterval else { return }
+        
         UIView.animate(withDuration: duration) {
             self.view.transform = CGAffineTransform.identity
         }
