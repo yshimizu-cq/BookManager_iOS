@@ -105,20 +105,19 @@ final class EditBookViewController: UIViewController {
     
     // ”キャンセル”ボタンが押された時の処理
     @objc private func didCancelButtonTapped(_ sender: UIBarButtonItem) {
-        self.navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func didTapTitleReturn(_ sender: UITextField) {
         titleTextField.text = sender.text
     }
     
-    
     @IBAction func didTapPriceReturn(_ sender: UITextField) {
         priceTextField.text = sender.text
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     @objc private func didDoneButtonTapped() {
@@ -132,7 +131,7 @@ final class EditBookViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.configureObserver()    //  Notification発行
+        configureObserver()    //  Notification発行
     }
     
     // Notificationを設定 => キーボードの表示・非表示を検知

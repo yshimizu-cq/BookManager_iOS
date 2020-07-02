@@ -31,7 +31,7 @@ final class SignupViewController: UIViewController {
     
     @IBAction func returnButtonTapped(_ sender: UIBarButtonItem) {
         //  自身を破棄して遷移元の画面に戻る
-        self.dismiss(animated: true)
+        dismiss(animated: true)
     }
     
     @IBAction func signupButtonTapped(_ sender: UIButton) {
@@ -78,6 +78,6 @@ final class SignupViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
 }

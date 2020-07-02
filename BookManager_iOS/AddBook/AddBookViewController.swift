@@ -203,7 +203,7 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     // ”キャンセル”ボタンが押された時の処理
     @objc private func didCancelButtonTapped(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true)
+        dismiss(animated: true)
     }
     
     // ”画像投稿”ボタンが押された時の処理
@@ -219,7 +219,7 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     //  画面タップでキーボードを閉じる
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     @objc private func didDoneButtonTapped() {
@@ -233,7 +233,7 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.configureObserver()    //  Notification発行
+        configureObserver()    //  Notification発行
     }
     
     // Notificationを設定

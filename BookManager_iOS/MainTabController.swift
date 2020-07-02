@@ -23,6 +23,6 @@ final class MainTabController: UITabBarController {
         let account = R.storyboard.account.instantiateInitialViewController()!
         account.tabBarItem = UITabBarItem(title: R.string.localizable.account(), image: nil, tag: 2)
         viewControllers.append(account)
-        self.setViewControllers(viewControllers, animated: false)
+        setViewControllers(viewControllers, animated: false)
     }
 }
