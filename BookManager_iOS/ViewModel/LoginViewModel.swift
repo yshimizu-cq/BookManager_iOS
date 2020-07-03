@@ -10,4 +10,45 @@ import Foundation
 
 final class LoginViewModel {
     
+    private struct Const {
+        static let minimumLengthOfCharactors: Int = 6
+    }
+    
+    //  typealias => あとで型変更できる
+    typealias inputValue = (mail: String, password: String)
+    
+    enum LoginError: Error {
+        case empty
+        case count
+        
+        var message: String {
+            switch self {
+            case .empty:
+                return R.string.localizable.blank()
+            case .count:
+                return R.string.localizable.countCharacters()
+            }
+        }
+    }
+    
+    private func isValid(mail: String, password: String) -> LoginError? {
+        //  未入力チェック
+        if mail.isEmpty || password.isEmpty {
+            return .empty
+        }
+        
+        //  文字数チェック
+        if mail.count < Const.minimumLengthOfCharactors || password.count < Const.minimumLengthOfCharactors {
+            return .count
+        }
+        return nil
+    }
+    
+    //  ViewControllerから呼ばれる
+    func login(inputValue: inputValue, successAction: @escaping () -> Void, errorAction: @escaping (LoginError) -> Void) {
+        if let error = isValid(mail: inputValue.mail, password: inputValue.password) {
+            errorAction(error)
+            return
+        }
+    }
 }

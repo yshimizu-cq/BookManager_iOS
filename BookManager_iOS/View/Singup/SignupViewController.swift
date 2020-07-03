@@ -11,9 +11,7 @@ import UIKit
 //  サインアップ画面
 final class SignupViewController: UIViewController {
     
-    private struct Const {
-        static let minimumLengthOfCharactors: Int = 6
-    }
+    private let signupViewModel = SignupViewModel()
     
     @IBOutlet weak var mailTextField: UITextField!
     
@@ -38,31 +36,15 @@ final class SignupViewController: UIViewController {
         //  nilチェック
         guard let mail = mailTextField.text,
             let password = passwordTextField.text,
-            let passwordConfirmation = passwordConfirmationTextField.text,
-            //　未入力チェック
-            !mail.isEmpty,
-            !password.isEmpty,
-            !passwordConfirmation.isEmpty else {
-                showAlert(message: R.string.localizable.blank())
-                return
-        }
+            let passwordConfirmation = passwordConfirmationTextField.text else { return }
         
-        // 文字数チェック
-        guard mail.count >= Const.minimumLengthOfCharactors,
-            password.count >= Const.minimumLengthOfCharactors else {
-                showAlert(message: R.string.localizable.countCharacters())
-                return
+        signupViewModel.signup(inputValue: (mail, password, passwordConfirmation), successAction: {
+            let books: MainTabController = MainTabController()
+            let window = UIApplication.shared.windows.first { $0.isKeyWindow }
+            window?.rootViewController = books
+        }){ error in
+            self.showAlert(message: error.message)
         }
-        
-        // パスワード一致チェック
-        guard password == passwordConfirmation else {
-            showAlert(message: R.string.localizable.notMatch())
-            return
-        }
-        
-        let books: MainTabController = MainTabController()
-        let window = UIApplication.shared.windows.first { $0.isKeyWindow }
-        window?.rootViewController = books
     }
     
     @IBAction func didTapMailReturn(_ sender: UITextField) {

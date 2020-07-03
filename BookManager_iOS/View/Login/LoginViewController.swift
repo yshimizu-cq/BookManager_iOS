@@ -11,9 +11,8 @@ import UIKit
 //  ログイン画面
 final class LoginViewController: UIViewController {
     
-    private struct Const {
-        static let minimumLengthOfCharactors: Int = 6
-    }
+    //  LoginViewCotnrollerがインスタンス化されたときにLoginViewModelもインスタンス化される
+    private let loginViewModel = LoginViewModel()
     
     @IBOutlet weak var mailTextField: UITextField!
     
@@ -28,24 +27,16 @@ final class LoginViewController: UIViewController {
     @IBAction func didLoginButtonTapped(_ sender: UIButton) {
         //  nilチェック
         guard let mail = mailTextField.text,
-            let password = passwordTextField.text,
-            //　未入力チェック
-            !mail.isEmpty,
-            !password.isEmpty else {
-                showAlert(message: R.string.localizable.blank())
-                return
-        }
+            let password = passwordTextField.text else { return }
         
-        // 文字数チェック
-        guard mail.count >= Const.minimumLengthOfCharactors,
-            password.count >= Const.minimumLengthOfCharactors else {
-                showAlert(message: R.string.localizable.countCharacters())
-                return
+        //  入力された値をloginViewModelに渡す
+        loginViewModel.login(inputValue: (mail, password), successAction: {
+            let books: MainTabController = MainTabController()
+            let window = UIApplication.shared.windows.first { $0.isKeyWindow }
+            window?.rootViewController = books
+        }){ error in
+            self.showAlert(message: error.message)
         }
-        
-        let books: MainTabController = MainTabController()
-        let window = UIApplication.shared.windows.first { $0.isKeyWindow }
-        window?.rootViewController = books
     }
     
     @IBAction func didSignupButtonTapped(_ sender: UIButton) {
