@@ -112,7 +112,6 @@
 		D524F619249B3AF100646538 = {
 			isa = PBXGroup;
 			children = (
-				D580529D24AF1B8E0085FD4C /* AddBookViewModel.swift */,
 				D5671BC9249CA4B6003E3BEE /* R.generated.swift */,
 				D524F624249B3AF100646538 /* BookManager_iOS */,
 				D524F623249B3AF100646538 /* Products */,
@@ -147,9 +146,10 @@
 		D580528F24ADBEFA0085FD4C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D580529024ADBF130085FD4C /* LoginViewModel.swift */,
-				D580529924AEFE450085FD4C /* SignupViewModel.swift */,
-				D580529B24AF0CCE0085FD4C /* EditBookViewModel.swift */,
+				D58052A224AF1F6E0085FD4C /* Signup */,
+				D58052A124AF1F660085FD4C /* EditBook */,
+				D58052A024AF1F5D0085FD4C /* AddBook */,
+				D580529F24AF1F3F0085FD4C /* Login */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -168,6 +168,38 @@
 				D580529324ADCA950085FD4C /* LoginRequest.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		D580529F24AF1F3F0085FD4C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D580529024ADBF130085FD4C /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D58052A024AF1F5D0085FD4C /* AddBook */ = {
+			isa = PBXGroup;
+			children = (
+				D580529D24AF1B8E0085FD4C /* AddBookViewModel.swift */,
+			);
+			path = AddBook;
+			sourceTree = "<group>";
+		};
+		D58052A124AF1F660085FD4C /* EditBook */ = {
+			isa = PBXGroup;
+			children = (
+				D580529B24AF0CCE0085FD4C /* EditBookViewModel.swift */,
+			);
+			path = EditBook;
+			sourceTree = "<group>";
+		};
+		D58052A224AF1F6E0085FD4C /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				D580529924AEFE450085FD4C /* SignupViewModel.swift */,
+			);
+			path = Signup;
 			sourceTree = "<group>";
 		};
 		D597A87724ADAB6B009490DB /* View */ = {
