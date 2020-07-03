@@ -20,6 +20,8 @@
 		D580529624ADD90A0085FD4C /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D580529524ADD90A0085FD4C /* KeychainAccess.framework */; };
 		D580529724ADD90A0085FD4C /* KeychainAccess.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D580529524ADD90A0085FD4C /* KeychainAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D580529A24AEFE450085FD4C /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D580529924AEFE450085FD4C /* SignupViewModel.swift */; };
+		D580529C24AF0CCE0085FD4C /* EditBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D580529B24AF0CCE0085FD4C /* EditBookViewModel.swift */; };
+		D580529E24AF1B8E0085FD4C /* AddBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D580529D24AF1B8E0085FD4C /* AddBookViewModel.swift */; };
 		D597A88A24ADAB6B009490DB /* EditBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D597A87924ADAB6B009490DB /* EditBookViewController.swift */; };
 		D597A88B24ADAB6B009490DB /* EditBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D597A87A24ADAB6B009490DB /* EditBook.storyboard */; };
 		D597A88C24ADAB6B009490DB /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D597A87C24ADAB6B009490DB /* SignupViewController.swift */; };
@@ -64,6 +66,8 @@
 		D580529324ADCA950085FD4C /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		D580529524ADD90A0085FD4C /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
 		D580529924AEFE450085FD4C /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		D580529B24AF0CCE0085FD4C /* EditBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBookViewModel.swift; sourceTree = "<group>"; };
+		D580529D24AF1B8E0085FD4C /* AddBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewModel.swift; sourceTree = "<group>"; };
 		D597A87924ADAB6B009490DB /* EditBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditBookViewController.swift; sourceTree = "<group>"; };
 		D597A87A24ADAB6B009490DB /* EditBook.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditBook.storyboard; sourceTree = "<group>"; };
 		D597A87C24ADAB6B009490DB /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 		D524F619249B3AF100646538 = {
 			isa = PBXGroup;
 			children = (
+				D580529D24AF1B8E0085FD4C /* AddBookViewModel.swift */,
 				D5671BC9249CA4B6003E3BEE /* R.generated.swift */,
 				D524F624249B3AF100646538 /* BookManager_iOS */,
 				D524F623249B3AF100646538 /* Products */,
@@ -144,6 +149,7 @@
 			children = (
 				D580529024ADBF130085FD4C /* LoginViewModel.swift */,
 				D580529924AEFE450085FD4C /* SignupViewModel.swift */,
+				D580529B24AF0CCE0085FD4C /* EditBookViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -380,9 +386,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D597A88E24ADAB6B009490DB /* AccountViewController.swift in Sources */,
+				D580529E24AF1B8E0085FD4C /* AddBookViewModel.swift in Sources */,
 				D580528924ADABEA0085FD4C /* MainTabController.swift in Sources */,
 				D524F626249B3AF100646538 /* AppDelegate.swift in Sources */,
 				D5FF0AE724AC1F91001640BC /* UIAlertExtension.swift in Sources */,
+				D580529C24AF0CCE0085FD4C /* EditBookViewModel.swift in Sources */,
 				D597A89024ADAB6B009490DB /* BookListCell.swift in Sources */,
 				D597A89424ADAB6B009490DB /* AddBookViewController.swift in Sources */,
 				D597A88A24ADAB6B009490DB /* EditBookViewController.swift in Sources */,

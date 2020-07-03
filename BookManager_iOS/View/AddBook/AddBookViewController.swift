@@ -10,6 +10,8 @@ import UIKit
 
 final class AddBookViewController: UIViewController, UITextFieldDelegate {
     
+    private let addBookViewModel = AddBookViewModel()
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = R.string.localizable.bookName()
@@ -142,7 +144,7 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func setAnchor() {
-        [titleLabel, titleTextField, priceLabel, priceTextField, dateLabel, dateTextField, bookImageView, imageUploadButton].forEach{ view.addSubview($0) }
+        [titleLabel, titleTextField, priceLabel, priceTextField, dateLabel, dateTextField, bookImageView, imageUploadButton].forEach { view.addSubview($0) }
         
         bookImageView.leftAnchor.constraint(equalTo: titleTextField.leftAnchor).isActive = true
         bookImageView.centerYAnchor.constraint(equalTo: titleTextField.topAnchor, constant: -150).isActive = true
@@ -184,13 +186,12 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
         //  nilチェック
         guard let title = titleTextField.text,
             let price = priceTextField.text,
-            let date = dateTextField.text,
-            //  未入力チェック
-            !title.isEmpty,
-            !price.isEmpty,
-            !date.isEmpty else {
-                showAlert(message: R.string.localizable.blank())
-                return
+            let date = dateTextField.text else { return }
+        
+        addBookViewModel.addBook(inputValue: (title, Int(price)!, date), successAction: {
+            print("成功処理")
+        }) { error in
+            print("失敗処理")
         }
     }
     

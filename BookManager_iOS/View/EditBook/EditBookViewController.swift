@@ -10,6 +10,8 @@ import UIKit
 
 final class EditBookViewController: UIViewController {
     
+    private let editBookViewModel = EditBookViewModel()
+    
     @IBOutlet weak var imageUploadButtonTapped: UIButton!
     
     @IBOutlet weak var titleTextField: UITextField!
@@ -93,13 +95,12 @@ final class EditBookViewController: UIViewController {
         //　nilチェック
         guard let title = titleTextField.text,
             let price = priceTextField.text,
-            let date = dateTextField.text,
-            //　未入力チェック
-            !title.isEmpty,
-            !price.isEmpty,
-            !date.isEmpty else {
-                showAlert(message: R.string.localizable.blank())
-                return
+            let date = dateTextField.text else { return }
+        
+        editBookViewModel.editBook(inputValue: (title, Int(price)!, date), successAction: {
+            print("成功処理")
+        }) { error in
+            print("失敗処理")
         }
     }
     
