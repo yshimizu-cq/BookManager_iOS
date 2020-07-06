@@ -49,6 +49,8 @@ final class LoginViewModel {
     
     //  ViewControllerから呼ばれる
     func login(inputValue: inputValue, successAction: @escaping () -> Void, errorAction: @escaping (LoginError) -> Void) {
+        
+        
         if let error = isValid(mail: inputValue.mail, password: inputValue.password) {
             errorAction(error)
             return

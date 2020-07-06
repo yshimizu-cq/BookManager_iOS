@@ -22,7 +22,6 @@
 		D580529E24AF1B8E0085FD4C /* AddBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D580529D24AF1B8E0085FD4C /* AddBookViewModel.swift */; };
 		D58052A424AF20920085FD4C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052A324AF20920085FD4C /* LoginViewModel.swift */; };
 		D58052A724AF22D00085FD4C /* URLSessionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052A624AF22D00085FD4C /* URLSessionRequest.swift */; };
-		D58052A924AF2AFA0085FD4C /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052A824AF2AFA0085FD4C /* Response.swift */; };
 		D58052AB24B2B28C0085FD4C /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052AA24B2B28C0085FD4C /* APIClient.swift */; };
 		D58052AD24B2D2BE0085FD4C /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052AC24B2D2BE0085FD4C /* UserRequest.swift */; };
 		D58052AF24B2D4E50085FD4C /* BookListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052AE24B2D4E50085FD4C /* BookListRequest.swift */; };
@@ -32,6 +31,7 @@
 		D58052B924B2EF560085FD4C /* UserDefaultsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052B824B2EF560085FD4C /* UserDefaultsUtil.swift */; };
 		D58052BB24B2FF820085FD4C /* BookResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052BA24B2FF820085FD4C /* BookResponse.swift */; };
 		D58052BD24B2FFF70085FD4C /* BookListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052BC24B2FFF70085FD4C /* BookListResponse.swift */; };
+		D58052BF24B309540085FD4C /* KeychainAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052BE24B309540085FD4C /* KeychainAccess.swift */; };
 		D597A88A24ADAB6B009490DB /* EditBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D597A87924ADAB6B009490DB /* EditBookViewController.swift */; };
 		D597A88B24ADAB6B009490DB /* EditBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D597A87A24ADAB6B009490DB /* EditBook.storyboard */; };
 		D597A88C24ADAB6B009490DB /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D597A87C24ADAB6B009490DB /* SignupViewController.swift */; };
@@ -78,7 +78,6 @@
 		D580529D24AF1B8E0085FD4C /* AddBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewModel.swift; sourceTree = "<group>"; };
 		D58052A324AF20920085FD4C /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		D58052A624AF22D00085FD4C /* URLSessionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionRequest.swift; sourceTree = "<group>"; };
-		D58052A824AF2AFA0085FD4C /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Response.swift; path = BookManager_iOS/Model/Response/Response.swift; sourceTree = SOURCE_ROOT; };
 		D58052AA24B2B28C0085FD4C /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		D58052AC24B2D2BE0085FD4C /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		D58052AE24B2D4E50085FD4C /* BookListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListRequest.swift; sourceTree = "<group>"; };
@@ -88,6 +87,7 @@
 		D58052B824B2EF560085FD4C /* UserDefaultsUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefaultsUtil.swift; path = /Users/shimizuyuta/Caraquri/Training/BookManager_iOS/BookManager_iOS/Model/Request/UserDefaultsUtil.swift; sourceTree = "<absolute>"; };
 		D58052BA24B2FF820085FD4C /* BookResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookResponse.swift; sourceTree = "<group>"; };
 		D58052BC24B2FFF70085FD4C /* BookListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListResponse.swift; sourceTree = "<group>"; };
+		D58052BE24B309540085FD4C /* KeychainAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainAccess.swift; sourceTree = "<group>"; };
 		D597A87924ADAB6B009490DB /* EditBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditBookViewController.swift; sourceTree = "<group>"; };
 		D597A87A24ADAB6B009490DB /* EditBook.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditBook.storyboard; sourceTree = "<group>"; };
 		D597A87C24ADAB6B009490DB /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +213,7 @@
 				D58052B624B2EB9B0085FD4C /* Request */,
 				D58052B424B2E7680085FD4C /* JSONEncoder.swift */,
 				D58052B824B2EF560085FD4C /* UserDefaultsUtil.swift */,
+				D58052BE24B309540085FD4C /* KeychainAccess.swift */,
 				D58052AA24B2B28C0085FD4C /* APIClient.swift */,
 			);
 			path = Model;
@@ -232,7 +233,6 @@
 		D58052B724B2EBA30085FD4C /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				D58052A824AF2AFA0085FD4C /* Response.swift */,
 				D58052B224B2E3120085FD4C /* UserResponse.swift */,
 				D58052BA24B2FF820085FD4C /* BookResponse.swift */,
 				D58052BC24B2FFF70085FD4C /* BookListResponse.swift */,
@@ -460,7 +460,6 @@
 				D58052A724AF22D00085FD4C /* URLSessionRequest.swift in Sources */,
 				D58052B524B2E7680085FD4C /* JSONEncoder.swift in Sources */,
 				D580529E24AF1B8E0085FD4C /* AddBookViewModel.swift in Sources */,
-				D58052A924AF2AFA0085FD4C /* Response.swift in Sources */,
 				D58052AD24B2D2BE0085FD4C /* UserRequest.swift in Sources */,
 				D580528924ADABEA0085FD4C /* MainTabController.swift in Sources */,
 				D524F626249B3AF100646538 /* AppDelegate.swift in Sources */,
@@ -481,6 +480,7 @@
 				D58052AB24B2B28C0085FD4C /* APIClient.swift in Sources */,
 				D58052B924B2EF560085FD4C /* UserDefaultsUtil.swift in Sources */,
 				D58052B324B2E3120085FD4C /* UserResponse.swift in Sources */,
+				D58052BF24B309540085FD4C /* KeychainAccess.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
