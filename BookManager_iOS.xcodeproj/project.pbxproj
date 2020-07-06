@@ -15,13 +15,21 @@
 		D5671BC8249CA149003E3BEE /* Rswift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D524F63A249B410A00646538 /* Rswift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D5671BCA249CA4B6003E3BEE /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5671BC9249CA4B6003E3BEE /* R.generated.swift */; };
 		D580528924ADABEA0085FD4C /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D580528824ADABEA0085FD4C /* MainTabController.swift */; };
-		D580529424ADCA950085FD4C /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D580529324ADCA950085FD4C /* LoginRequest.swift */; };
 		D580529624ADD90A0085FD4C /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D580529524ADD90A0085FD4C /* KeychainAccess.framework */; };
 		D580529724ADD90A0085FD4C /* KeychainAccess.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D580529524ADD90A0085FD4C /* KeychainAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D580529A24AEFE450085FD4C /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D580529924AEFE450085FD4C /* SignupViewModel.swift */; };
 		D580529C24AF0CCE0085FD4C /* EditBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D580529B24AF0CCE0085FD4C /* EditBookViewModel.swift */; };
 		D580529E24AF1B8E0085FD4C /* AddBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D580529D24AF1B8E0085FD4C /* AddBookViewModel.swift */; };
 		D58052A424AF20920085FD4C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052A324AF20920085FD4C /* LoginViewModel.swift */; };
+		D58052A724AF22D00085FD4C /* URLSessionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052A624AF22D00085FD4C /* URLSessionRequest.swift */; };
+		D58052A924AF2AFA0085FD4C /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052A824AF2AFA0085FD4C /* Response.swift */; };
+		D58052AB24B2B28C0085FD4C /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052AA24B2B28C0085FD4C /* APIClient.swift */; };
+		D58052AD24B2D2BE0085FD4C /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052AC24B2D2BE0085FD4C /* UserRequest.swift */; };
+		D58052AF24B2D4E50085FD4C /* BookListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052AE24B2D4E50085FD4C /* BookListRequest.swift */; };
+		D58052B124B2D5500085FD4C /* BookRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052B024B2D5500085FD4C /* BookRequest.swift */; };
+		D58052B324B2E3120085FD4C /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052B224B2E3120085FD4C /* UserResponse.swift */; };
+		D58052B524B2E7680085FD4C /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052B424B2E7680085FD4C /* JSONEncoder.swift */; };
+		D58052B924B2EF560085FD4C /* UserDefaultsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052B824B2EF560085FD4C /* UserDefaultsUtil.swift */; };
 		D597A88A24ADAB6B009490DB /* EditBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D597A87924ADAB6B009490DB /* EditBookViewController.swift */; };
 		D597A88B24ADAB6B009490DB /* EditBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D597A87A24ADAB6B009490DB /* EditBook.storyboard */; };
 		D597A88C24ADAB6B009490DB /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D597A87C24ADAB6B009490DB /* SignupViewController.swift */; };
@@ -62,12 +70,20 @@
 		D55280D724A9AF8F00D6248D /* APIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = APIKit.framework; path = Carthage/Build/iOS/APIKit.framework; sourceTree = "<group>"; };
 		D5671BC9249CA4B6003E3BEE /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		D580528824ADABEA0085FD4C /* MainTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
-		D580529324ADCA950085FD4C /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		D580529524ADD90A0085FD4C /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
 		D580529924AEFE450085FD4C /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		D580529B24AF0CCE0085FD4C /* EditBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBookViewModel.swift; sourceTree = "<group>"; };
 		D580529D24AF1B8E0085FD4C /* AddBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewModel.swift; sourceTree = "<group>"; };
 		D58052A324AF20920085FD4C /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		D58052A624AF22D00085FD4C /* URLSessionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionRequest.swift; sourceTree = "<group>"; };
+		D58052A824AF2AFA0085FD4C /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Response.swift; path = BookManager_iOS/Model/Response/Response.swift; sourceTree = SOURCE_ROOT; };
+		D58052AA24B2B28C0085FD4C /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		D58052AC24B2D2BE0085FD4C /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
+		D58052AE24B2D4E50085FD4C /* BookListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListRequest.swift; sourceTree = "<group>"; };
+		D58052B024B2D5500085FD4C /* BookRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRequest.swift; sourceTree = "<group>"; };
+		D58052B224B2E3120085FD4C /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		D58052B424B2E7680085FD4C /* JSONEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONEncoder.swift; sourceTree = "<group>"; };
+		D58052B824B2EF560085FD4C /* UserDefaultsUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefaultsUtil.swift; path = /Users/shimizuyuta/Caraquri/Training/BookManager_iOS/BookManager_iOS/Model/Request/UserDefaultsUtil.swift; sourceTree = "<absolute>"; };
 		D597A87924ADAB6B009490DB /* EditBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditBookViewController.swift; sourceTree = "<group>"; };
 		D597A87A24ADAB6B009490DB /* EditBook.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditBook.storyboard; sourceTree = "<group>"; };
 		D597A87C24ADAB6B009490DB /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -130,7 +146,7 @@
 		D524F624249B3AF100646538 /* BookManager_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				D580529224ADCA830085FD4C /* Model */,
+				D58052A524AF22080085FD4C /* Model */,
 				D580528F24ADBEFA0085FD4C /* ViewModel */,
 				D597A87724ADAB6B009490DB /* View */,
 				D5FF0AE824AC1FA5001640BC /* Extension */,
@@ -152,22 +168,6 @@
 				D580529F24AF1F3F0085FD4C /* Login */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		D580529224ADCA830085FD4C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				D580529824ADDEBC0085FD4C /* Login */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		D580529824ADDEBC0085FD4C /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				D580529324ADCA950085FD4C /* LoginRequest.swift */,
-			);
-			path = Login;
 			sourceTree = "<group>";
 		};
 		D580529F24AF1F3F0085FD4C /* Login */ = {
@@ -200,6 +200,38 @@
 				D580529924AEFE450085FD4C /* SignupViewModel.swift */,
 			);
 			path = Signup;
+			sourceTree = "<group>";
+		};
+		D58052A524AF22080085FD4C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D58052B724B2EBA30085FD4C /* Response */,
+				D58052B624B2EB9B0085FD4C /* Request */,
+				D58052B424B2E7680085FD4C /* JSONEncoder.swift */,
+				D58052B824B2EF560085FD4C /* UserDefaultsUtil.swift */,
+				D58052AA24B2B28C0085FD4C /* APIClient.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D58052B624B2EB9B0085FD4C /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				D58052AE24B2D4E50085FD4C /* BookListRequest.swift */,
+				D58052B024B2D5500085FD4C /* BookRequest.swift */,
+				D58052AC24B2D2BE0085FD4C /* UserRequest.swift */,
+				D58052A624AF22D00085FD4C /* URLSessionRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		D58052B724B2EBA30085FD4C /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				D58052A824AF2AFA0085FD4C /* Response.swift */,
+				D58052B224B2E3120085FD4C /* UserResponse.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 		D597A87724ADAB6B009490DB /* View */ = {
@@ -417,10 +449,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D58052AF24B2D4E50085FD4C /* BookListRequest.swift in Sources */,
 				D597A88E24ADAB6B009490DB /* AccountViewController.swift in Sources */,
+				D58052A724AF22D00085FD4C /* URLSessionRequest.swift in Sources */,
+				D58052B524B2E7680085FD4C /* JSONEncoder.swift in Sources */,
 				D580529E24AF1B8E0085FD4C /* AddBookViewModel.swift in Sources */,
+				D58052A924AF2AFA0085FD4C /* Response.swift in Sources */,
+				D58052AD24B2D2BE0085FD4C /* UserRequest.swift in Sources */,
 				D580528924ADABEA0085FD4C /* MainTabController.swift in Sources */,
 				D524F626249B3AF100646538 /* AppDelegate.swift in Sources */,
+				D58052B124B2D5500085FD4C /* BookRequest.swift in Sources */,
 				D5FF0AE724AC1F91001640BC /* UIAlertExtension.swift in Sources */,
 				D580529C24AF0CCE0085FD4C /* EditBookViewModel.swift in Sources */,
 				D597A89024ADAB6B009490DB /* BookListCell.swift in Sources */,
@@ -430,9 +468,11 @@
 				D5671BCA249CA4B6003E3BEE /* R.generated.swift in Sources */,
 				D597A88C24ADAB6B009490DB /* SignupViewController.swift in Sources */,
 				D580529A24AEFE450085FD4C /* SignupViewModel.swift in Sources */,
-				D580529424ADCA950085FD4C /* LoginRequest.swift in Sources */,
 				D597A89324ADAB6B009490DB /* LoginViewController.swift in Sources */,
 				D597A89124ADAB6B009490DB /* BookListViewController.swift in Sources */,
+				D58052AB24B2B28C0085FD4C /* APIClient.swift in Sources */,
+				D58052B924B2EF560085FD4C /* UserDefaultsUtil.swift in Sources */,
+				D58052B324B2E3120085FD4C /* UserResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

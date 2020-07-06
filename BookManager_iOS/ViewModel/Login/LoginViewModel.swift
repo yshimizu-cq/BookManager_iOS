@@ -20,6 +20,7 @@ final class LoginViewModel {
     enum LoginError: Error {
         case empty
         case count
+        case notUserFound
         
         var message: String {
             switch self {
@@ -27,7 +28,10 @@ final class LoginViewModel {
                 return R.string.localizable.blank()
             case .count:
                 return R.string.localizable.countCharacters()
+            case .notUserFound:
+                return R.string.localizable.notUserFound()
             }
+            
         }
     }
     
@@ -36,7 +40,6 @@ final class LoginViewModel {
         if mail.isEmpty || password.isEmpty {
             return .empty
         }
-        
         //  文字数チェック
         if mail.count < Const.minimumLengthOfCharactors || password.count < Const.minimumLengthOfCharactors {
             return .count
@@ -49,6 +52,17 @@ final class LoginViewModel {
         if let error = isValid(mail: inputValue.mail, password: inputValue.password) {
             errorAction(error)
             return
+        }
+        let inputValue = UserRequest(mail: inputValue.mail, password: inputValue.password)
+        APIClient.sendRequest(type: .login(inputValue), entity: UserResponse.self) { (result) in
+            switch result {
+            case .success(let response):
+                let token = response.result.token
+                UserDefaultsUtil.set(value: token, forKey: "token")
+                successAction()
+            case .failure:
+                errorAction(.notUserFound)
+            }
         }
     }
 }

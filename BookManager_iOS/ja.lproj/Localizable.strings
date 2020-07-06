@@ -40,3 +40,7 @@
 "sampleImage" = "sample_image";
 "sampleName" = "はじめてのSwift";
 "sampleDate" = "2020-06-20";
+
+
+// エラーメッセージ
+"notUserFound" = "ユーザーが見つかりません";
