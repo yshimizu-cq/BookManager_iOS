@@ -20,6 +20,7 @@ final class SignupViewModel {
         case empty
         case count
         case mismatch
+        case notUniqueMail
         
         var message: String {
             switch self {
@@ -29,6 +30,8 @@ final class SignupViewModel {
                 return R.string.localizable.countCharacters()
             case .mismatch:
                 return R.string.localizable.notMatch()
+            case .notUniqueMail:
+                return R.string.localizable.notUniqueMail()
             }
         }
     }
@@ -53,6 +56,18 @@ final class SignupViewModel {
         if let error = isValid(mail: inputValue.mail, password: inputValue.password, passwordConfirmation: inputValue.passwordConfirmation) {
             errorAction(error)
             return
+        }
+        
+        let inputValue = UserRequest(mail: inputValue.mail, password: inputValue.password)
+        APIClient.sendRequest(type: .signup(inputValue), entity: UserResponse.self) { (result) in
+            switch result {
+            case .success(let response):
+                let token = response.result.token
+                UserDefaultsUtil.set(value: token, forKey: "token")
+                successAction()
+            case .failure:
+                errorAction(.notUniqueMail)
+            }
         }
     }
 }

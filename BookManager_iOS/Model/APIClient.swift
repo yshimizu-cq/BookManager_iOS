@@ -21,7 +21,7 @@ struct APIClient {
             
             guard let data = data else {
                 print("データがありません")
-                return
+            return
             }
             
             do {

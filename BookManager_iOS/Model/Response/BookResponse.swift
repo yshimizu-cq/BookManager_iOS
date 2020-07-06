@@ -1,5 +1,5 @@
 //
-//  BookRequest.swift
+//  BookResponse.swift
 //  BookManager_iOS
 //
 //  Created by 清水雄大 on 2020/07/06.
@@ -8,11 +8,14 @@
 
 import Foundation
 
-//  structは値型, 比較的単純なデータをカプセル化
-struct BookRequest: Encodable {
+struct BookResponse: Decodable {
+    var result: Book
+}
+
+struct Book: Decodable {
     var id: Int
     var title: String
     var price: Int
     var date: String
-    var image: String?  //  nilを許容
+    var image: String?
 }
