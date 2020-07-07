@@ -31,6 +31,7 @@
 		D58052B924B2EF560085FD4C /* UserDefaultsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052B824B2EF560085FD4C /* UserDefaultsUtil.swift */; };
 		D58052BB24B2FF820085FD4C /* BookResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052BA24B2FF820085FD4C /* BookResponse.swift */; };
 		D58052BD24B2FFF70085FD4C /* BookListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052BC24B2FFF70085FD4C /* BookListResponse.swift */; };
+		D58052C224B428480085FD4C /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052C124B428470085FD4C /* AccountViewModel.swift */; };
 		D597A88A24ADAB6B009490DB /* EditBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D597A87924ADAB6B009490DB /* EditBookViewController.swift */; };
 		D597A88B24ADAB6B009490DB /* EditBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D597A87A24ADAB6B009490DB /* EditBook.storyboard */; };
 		D597A88C24ADAB6B009490DB /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D597A87C24ADAB6B009490DB /* SignupViewController.swift */; };
@@ -86,6 +87,7 @@
 		D58052B824B2EF560085FD4C /* UserDefaultsUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefaultsUtil.swift; path = /Users/shimizuyuta/Caraquri/Training/BookManager_iOS/BookManager_iOS/Model/Request/UserDefaultsUtil.swift; sourceTree = "<absolute>"; };
 		D58052BA24B2FF820085FD4C /* BookResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookResponse.swift; sourceTree = "<group>"; };
 		D58052BC24B2FFF70085FD4C /* BookListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListResponse.swift; sourceTree = "<group>"; };
+		D58052C124B428470085FD4C /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		D597A87924ADAB6B009490DB /* EditBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditBookViewController.swift; sourceTree = "<group>"; };
 		D597A87A24ADAB6B009490DB /* EditBook.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditBook.storyboard; sourceTree = "<group>"; };
 		D597A87C24ADAB6B009490DB /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 		D580528F24ADBEFA0085FD4C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D58052C024B428230085FD4C /* Account */,
 				D58052A224AF1F6E0085FD4C /* Signup */,
 				D58052A124AF1F660085FD4C /* EditBook */,
 				D58052A024AF1F5D0085FD4C /* AddBook */,
@@ -235,6 +238,14 @@
 				D58052BC24B2FFF70085FD4C /* BookListResponse.swift */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		D58052C024B428230085FD4C /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				D58052C124B428470085FD4C /* AccountViewModel.swift */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 		D597A87724ADAB6B009490DB /* View */ = {
@@ -476,6 +487,7 @@
 				D597A89124ADAB6B009490DB /* BookListViewController.swift in Sources */,
 				D58052AB24B2B28C0085FD4C /* APIClient.swift in Sources */,
 				D58052B924B2EF560085FD4C /* UserDefaultsUtil.swift in Sources */,
+				D58052C224B428480085FD4C /* AccountViewModel.swift in Sources */,
 				D58052B324B2E3120085FD4C /* UserResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,6 +10,8 @@ import UIKit
 
 final class AccountViewController: UIViewController {
     
+    private let accountViewModel = AccountViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,18 +20,22 @@ final class AccountViewController: UIViewController {
     }
     
     @IBAction func didLogoutButtonTapped(_ sender: UIButton) {
-        //  ダイアログ設定
-        let logoutDialog = UIAlertController(title: R.string.localizable.logout(), message: R.string.localizable.noProblem(), preferredStyle: .alert)
-        logoutDialog.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .cancel))
-        logoutDialog.addAction(UIAlertAction(title: R.string.localizable.okay(),
-                                             style: .default,
-                                             handler: { _ in
-                                                //  rootにlogin storyboardを設定して遷移
-                                                let storyboard = R.storyboard.login().instantiateInitialViewController()
-                                                guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return }
-                                                window.rootViewController = storyboard
-        }))
-        present(logoutDialog, animated: true)
+        
+        accountViewModel.account(successAction: {
+            //  ダイアログ設定
+            let logoutDialog = UIAlertController(title: R.string.localizable.logout(), message: R.string.localizable.noProblem(), preferredStyle: .alert)
+            logoutDialog.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .cancel))
+            logoutDialog.addAction(UIAlertAction(title: R.string.localizable.okay(),
+                                                 style: .default,
+                                                 handler: { _ in
+                                                    //  rootにlogin storyboardを設定して遷移
+                                                    let storyboard = R.storyboard.login().instantiateInitialViewController()
+                                                    guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return }
+                                                    window.rootViewController = storyboard
+            }))
+            self.present(logoutDialog, animated: true)
+        }) { error in
+        }
     }
 }
 

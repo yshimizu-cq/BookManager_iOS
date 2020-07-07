@@ -14,27 +14,40 @@ final class EditBookViewModel {
     
     enum EditBookError: Error {
         case empty
+        case failToEditBook
         
         var message: String {
             switch self {
             case .empty:
                 return R.string.localizable.blank()
+            case .failToEditBook:
+                return R.string.localizable.faliToEditBook()
             }
         }
     }
     
-    private func isValid(title: String, price: Int, date: String) -> EditBookError? {
+    private func isValid(title: String, price: Int, purchaseDate: String) -> EditBookError? {
         //  未入力チェック
-        if title.isEmpty || price.description.isEmpty || date.isEmpty {
+        if title.isEmpty || price.description.isEmpty || purchaseDate.isEmpty {
             return .empty
         }
         return nil
     }
     
     func editBook(inputValue: inputValue, successAction: @escaping () -> Void, errorAction: @escaping(EditBookError) -> Void) {
-        if let error = isValid(title: inputValue.title, price: inputValue.price, date: inputValue.date) {
+        if let error = isValid(title: inputValue.title, price: inputValue.price, purchaseDate: inputValue.date) {
             errorAction(error)
             return
+        }
+        
+        let inputValue = BookRequest(name: inputValue.title, price: inputValue.price, purchaseDate: inputValue.date)
+        APIClient.sendRequest(type: .editBook(inputValue), entity: BookResponse.self) { (result) in
+            switch result {
+            case .success:
+                successAction()
+            case .failure:
+                errorAction(.failToEditBook)
+            }
         }
     }
 }
