@@ -182,7 +182,7 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
         dateLabel.leftAnchor.constraint(equalTo: dateTextField.leftAnchor).isActive = true
         dateLabel.bottomAnchor.constraint(equalTo: dateTextField.topAnchor).isActive = true
     }
-    
+     
     //  ”完了”ボタンが押された時の処理
     @objc private func didSaveButtonTapped(_ sender: UIBarButtonItem) {
         //  nilチェック

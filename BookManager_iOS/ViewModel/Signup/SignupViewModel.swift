@@ -65,7 +65,7 @@ final class SignupViewModel {
             return
         }
         
-        let inputValue = UserRequest(mail: inputValue.mail, password: inputValue.password)
+        let inputValue = UserRequest(email: inputValue.mail, password: inputValue.password)
         APIClient.sendRequest(type: .signup(inputValue), entity: UserResponse.self) { (result) in
             switch result {
             case .success(let response):

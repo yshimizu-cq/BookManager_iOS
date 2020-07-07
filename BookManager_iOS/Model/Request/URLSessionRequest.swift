@@ -31,11 +31,11 @@ enum URLSessionRequest {
     
     var query: [URLQueryItem] {
         switch self {
-        case .bookList(let bookParams):
+        case .bookList(let bookValue):
             //  https://baseURL?name=value
             let query = [
-                URLQueryItem(name: "name", value: String(bookParams.limit)),
-                URLQueryItem(name: "name", value: String(bookParams.page))
+                URLQueryItem(name: "name", value: String(bookValue.limit)),
+                URLQueryItem(name: "name", value: String(bookValue.page))
             ]
             return query
         default:

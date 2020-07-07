@@ -10,6 +10,6 @@ import Foundation
 
 //  structは値型, 比較的単純なデータをカプセル化
 struct UserRequest: Encodable {
-    var mail: String
+    var email: String
     var password: String
 }
