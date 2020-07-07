@@ -20,7 +20,7 @@ struct APIClient {
             }
             
             guard let data = data else {
-                print("データがありません")
+                print(R.string.localizable.noData())
                 return
             }
 

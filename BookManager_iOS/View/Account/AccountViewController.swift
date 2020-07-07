@@ -32,3 +32,4 @@ final class AccountViewController: UIViewController {
         present(logoutDialog, animated: true)
     }
 }
+

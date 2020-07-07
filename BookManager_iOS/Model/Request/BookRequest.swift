@@ -10,9 +10,9 @@ import Foundation
 
 //  structは値型, 比較的単純なデータをカプセル化
 struct BookRequest: Encodable {
-    var id: Int
-    var title: String
+    var id: Int?
+    var name: String
     var price: Int
-    var date: String
+    var purchaseDate: String
     var image: String?  //  nilを許容
 }

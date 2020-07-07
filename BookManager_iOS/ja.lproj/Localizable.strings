@@ -45,6 +45,9 @@
 //  エラーメッセージ
 "notUserFound" = "ユーザーが見つかりません";
 "notUniqueMail" = "そのメールアドレスは既に登録されています";
+"faliToAddBook" = "書籍登録に失敗しました";
+"noData" = "データがありません";
+
 
 //  フォーマット
 "dateFormat" = "yyyy/MM/dd";

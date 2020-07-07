@@ -13,9 +13,9 @@ struct BookResponse: Decodable {
 }
 
 struct Book: Decodable {
-    var id: Int
-    var title: String
+    var id: Int?
+    var name: String
     var price: Int
-    var date: String
+    var purchaseDate: String
     var image: String?
 }

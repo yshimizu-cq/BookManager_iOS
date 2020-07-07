@@ -227,7 +227,7 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
         dateTextField.endEditing(true)
         // 日付のフォーマット
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy年MM月dd日"
+        formatter.dateFormat = "yyyy-MM-dd"
         //(from: datePicker.date))を指定することでdatePickerで指定した日付が表示される
         dateTextField.text = "\(formatter.string(from: datePicker.date))"
     }
