@@ -32,6 +32,7 @@
 		D58052BB24B2FF820085FD4C /* BookResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052BA24B2FF820085FD4C /* BookResponse.swift */; };
 		D58052BD24B2FFF70085FD4C /* BookListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052BC24B2FFF70085FD4C /* BookListResponse.swift */; };
 		D58052C224B428480085FD4C /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052C124B428470085FD4C /* AccountViewModel.swift */; };
+		D58052C524B43A7B0085FD4C /* BookListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052C424B43A7A0085FD4C /* BookListViewModel.swift */; };
 		D597A88A24ADAB6B009490DB /* EditBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D597A87924ADAB6B009490DB /* EditBookViewController.swift */; };
 		D597A88B24ADAB6B009490DB /* EditBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D597A87A24ADAB6B009490DB /* EditBook.storyboard */; };
 		D597A88C24ADAB6B009490DB /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D597A87C24ADAB6B009490DB /* SignupViewController.swift */; };
@@ -88,6 +89,7 @@
 		D58052BA24B2FF820085FD4C /* BookResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookResponse.swift; sourceTree = "<group>"; };
 		D58052BC24B2FFF70085FD4C /* BookListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListResponse.swift; sourceTree = "<group>"; };
 		D58052C124B428470085FD4C /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		D58052C424B43A7A0085FD4C /* BookListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewModel.swift; sourceTree = "<group>"; };
 		D597A87924ADAB6B009490DB /* EditBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditBookViewController.swift; sourceTree = "<group>"; };
 		D597A87A24ADAB6B009490DB /* EditBook.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditBook.storyboard; sourceTree = "<group>"; };
 		D597A87C24ADAB6B009490DB /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 		D580528F24ADBEFA0085FD4C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D58052C324B43A630085FD4C /* BookList */,
 				D58052C024B428230085FD4C /* Account */,
 				D58052A224AF1F6E0085FD4C /* Signup */,
 				D58052A124AF1F660085FD4C /* EditBook */,
@@ -246,6 +249,14 @@
 				D58052C124B428470085FD4C /* AccountViewModel.swift */,
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		D58052C324B43A630085FD4C /* BookList */ = {
+			isa = PBXGroup;
+			children = (
+				D58052C424B43A7A0085FD4C /* BookListViewModel.swift */,
+			);
+			path = BookList;
 			sourceTree = "<group>";
 		};
 		D597A87724ADAB6B009490DB /* View */ = {
@@ -468,6 +479,7 @@
 				D58052A724AF22D00085FD4C /* URLSessionRequest.swift in Sources */,
 				D58052B524B2E7680085FD4C /* JSONEncoder.swift in Sources */,
 				D580529E24AF1B8E0085FD4C /* AddBookViewModel.swift in Sources */,
+				D58052C524B43A7B0085FD4C /* BookListViewModel.swift in Sources */,
 				D58052AD24B2D2BE0085FD4C /* UserRequest.swift in Sources */,
 				D580528924ADABEA0085FD4C /* MainTabController.swift in Sources */,
 				D524F626249B3AF100646538 /* AppDelegate.swift in Sources */,

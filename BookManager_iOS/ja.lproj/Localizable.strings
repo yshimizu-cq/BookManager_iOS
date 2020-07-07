@@ -16,6 +16,7 @@
 "price" = "価格";
 "purchaseDate" = "購入日";
 "priceLabel" = "%d円";
+"yen" = "円";
 
 //  ボタン
 "attachedImage" = "画像添付";

@@ -10,8 +10,11 @@ import UIKit
 
 final class BookListViewController: UIViewController {
     
-    //    var addBookButton: UIBarButtonItem!
+    var addBookButton: UIBarButtonItem!
+    
     private let tableView = UITableView()
+    
+    private let bookListViewModel = BookListViewModel()
     
     private lazy var rightBarButton: UIBarButtonItem = {    //  lazy var => 呼び出された時に初期値決定
         let rightBarButton = UIBarButtonItem()
@@ -22,13 +25,14 @@ final class BookListViewController: UIViewController {
         return rightBarButton
     }()
     
-    // tableViewにBookListCellを"cell"という名前で登録する
+    // tableViewにBookListCellを登録する
     private lazy var bookTableView: UITableView = {
         let bookTable = UITableView()
         bookTable.frame = view.bounds
         bookTable.delegate = self
         bookTable.dataSource = self
         bookTable.register(BookListCell.self, forCellReuseIdentifier: BookListCell.identifer)
+        bookTable.rowHeight = 150
         return bookTable
     }()
     
@@ -42,6 +46,21 @@ final class BookListViewController: UIViewController {
         navigationItem.setRightBarButton(rightBarButton, animated: true)    // バーボタンアイテムの追加
     }
     
+    //  viewWillAppear => 一度だけ処理を実行
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        bookListViewModel.update(books: [])
+        sendBookListRequest(initial: true)
+    }
+    
+    //  API処理
+    private func sendBookListRequest(initial: Bool) {
+        bookListViewModel.setBookList(initial: initial, successAction: {
+            self.bookTableView.reloadData()
+        }) { _ in
+        }
+    }
+    
     //  ”追加”ボタンが押された時の処理
     @objc private func didAddBarButtonTapped(_ sender: UIBarButtonItem) {
         let addBook: AddBookViewController = AddBookViewController()
@@ -53,28 +72,28 @@ final class BookListViewController: UIViewController {
 extension BookListViewController: UITableViewDataSource {
     //  セルをインスタンス化
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: BookListCell.identifer, for: indexPath)
+        guard let cell: BookListCell =
+            (tableView.dequeueReusableCell(withIdentifier: BookListCell.identifer) as? BookListCell)
+                   else { return UITableViewCell() }
         cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+        cell.configure(book: bookListViewModel.books[indexPath.row])
         return cell
     }
     
     //  表示するセルの数を指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return bookListViewModel.books.count
     }
 }
 
 extension BookListViewController: UITableViewDelegate {
-    //    セルの高さを指定
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // セルの選択を解除
         tableView.deselectRow(at: indexPath, animated: true)
+        let book = bookListViewModel.books[indexPath.row]
         //  Rswiftを使ってstoryboardのインスタンス取得し、遷移先ViewControllerのインスタンス取得
-        let editBookViewController = R.storyboard.editBook.instantiateInitialViewController()!
+        let editBookViewController = EditBookViewController.constructor(book: book)
         //  画面遷移
         navigationController?.pushViewController(editBookViewController, animated: true)
     }

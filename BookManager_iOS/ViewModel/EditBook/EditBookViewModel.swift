@@ -10,7 +10,9 @@ import Foundation
 
 final class EditBookViewModel {
     
-    typealias inputValue = (title: String, price: Int, date: String)
+    typealias inputValue = (id: Int?, title: String, price: Int, date: String, image: String?)
+    
+    var selectedBook: Book?
     
     enum EditBookError: Error {
         case empty
@@ -40,10 +42,11 @@ final class EditBookViewModel {
             return
         }
         
-        let inputValue = BookRequest(name: inputValue.title, price: inputValue.price, purchaseDate: inputValue.date)
+        let inputValue = BookRequest(id: inputValue.id, name: inputValue.title, price: inputValue.price, purchaseDate: inputValue.date, image: inputValue.image)
         APIClient.sendRequest(type: .editBook(inputValue), entity: BookResponse.self) { (result) in
             switch result {
             case .success:
+                UserDefaultsUtil.set(value: inputValue.id ?? 0, forKey: "book")
                 successAction()
             case .failure:
                 errorAction(.failToEditBook)
@@ -51,3 +54,4 @@ final class EditBookViewModel {
         }
     }
 }
+

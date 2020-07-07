@@ -7,10 +7,17 @@
 //
 
 import UIKit
+import Nuke
 
 final class EditBookViewController: UIViewController {
     
     private let editBookViewModel = EditBookViewModel()
+    
+    static func constructor(book: Book) -> EditBookViewController {
+        let editView = R.storyboard.editBook.instantiateInitialViewController()!
+        editView.editBookViewModel.selectedBook = book
+        return editView
+    }
     
     @IBOutlet weak var imageUploadButtonTapped: UIButton!
     
@@ -20,11 +27,7 @@ final class EditBookViewController: UIViewController {
     
     @IBOutlet weak var dateTextField: UITextField!
     
-    @IBOutlet weak var imageView: UIImageView! {
-        didSet {
-            imageView.image = R.image.sample_image()
-        }
-    }
+    @IBOutlet weak var imageView: UIImageView!
     
     private var datePicker: UIDatePicker = UIDatePicker()
     
@@ -78,6 +81,7 @@ final class EditBookViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setEditBookInfo()
         
         view.backgroundColor = .white
         navigationItem.title = R.string.localizable.edit()
@@ -95,9 +99,14 @@ final class EditBookViewController: UIViewController {
         //　nilチェック
         guard let title = titleTextField.text,
             let price = priceTextField.text,
-            let date = dateTextField.text else { return }
+            let date = dateTextField.text,
+            let image = imageView.image,
+            let imageData = image.pngData() else { return }
         
-        editBookViewModel.editBook(inputValue: (title, Int(price)!, date), successAction: {
+        let id = editBookViewModel.selectedBook?.id
+        let imageStr: String = imageData.base64EncodedString()
+        
+        editBookViewModel.editBook(inputValue: (id, title, Int(price)!, date, imageStr), successAction: {
             self.dismiss(animated: true)
         }) { error in
             self.showAlert(message: error.message)
@@ -135,6 +144,19 @@ final class EditBookViewController: UIViewController {
         configureObserver()    //  Notification発行
     }
     
+    //  書籍一覧からの書籍情報を編集画面にセット
+    private func setEditBookInfo() {
+        //  画像情報セット
+        guard let bookImageData = editBookViewModel.selectedBook?.image,
+            let url = URL(string: bookImageData) else { return }
+        
+        Nuke.loadImage(with: url, into: imageView)
+        titleTextField.text = editBookViewModel.selectedBook?.name
+        let price = editBookViewModel.selectedBook?.price ?? 0
+        priceTextField.text = String(price)
+        dateTextField.text = editBookViewModel.selectedBook?.purchaseDate
+    }
+    
     // Notificationを設定 => キーボードの表示・非表示を検知
     private func configureObserver() {
         let notification = NotificationCenter.default
@@ -170,5 +192,19 @@ final class EditBookViewController: UIViewController {
         UIView.animate(withDuration: duration) {
             self.view.transform = CGAffineTransform.identity
         }
+    }
+}
+
+extension EditBookViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    //  画像選択されたときの処理
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        imageView.image = image
+        dismiss(animated: true)
+    }
+    
+    //  画像選択がキャンセルされたときの処理
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true)
     }
 }

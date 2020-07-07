@@ -7,8 +7,15 @@
 //
 
 import Foundation
+import KeychainAccess
 
 enum URLSessionRequest {
+    
+    var keychain: Keychain {
+        guard let identifier = Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") as? String else { return Keychain(service: "") }
+        return Keychain(service: identifier)
+    }
+    
     case login(UserRequest)
     case signup(UserRequest)
     case bookList(BookListRequest)
@@ -34,8 +41,8 @@ enum URLSessionRequest {
         case .bookList(let bookValue):
             //  https://baseURL?name=value
             let query = [
-                URLQueryItem(name: "name", value: String(bookValue.limit)),
-                URLQueryItem(name: "name", value: String(bookValue.page))
+                URLQueryItem(name: "limit", value: String(bookValue.limit)),
+                URLQueryItem(name: "page", value: String(bookValue.page))
             ]
             return query
         default:
@@ -53,7 +60,7 @@ enum URLSessionRequest {
         case .bookList, .addBook:
             return "books"
         case .editBook(let params):
-            return "books/\(params.id)"
+            return "books/\(params.id ?? 0)"
         case .account:
             return "logout"
         }
@@ -64,7 +71,11 @@ enum URLSessionRequest {
         case .login, .signup:
             return nil
         case .bookList, .addBook, .editBook, .account:
-            return UserDefaultsUtil.token
+            do {
+                return try keychain.get("token")
+            } catch {
+                return nil
+            }
         }
     }
     
@@ -91,7 +102,7 @@ enum URLSessionRequest {
         request.httpBody = type.body
         //  ヘッダーにcontent-typeを設定(JSONを送るのでapplication/json)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(type.header, forHTTPHeaderField: "Authorization")
+        request.setValue(type.header, forHTTPHeaderField: "access_token")
         return request
     }
 }

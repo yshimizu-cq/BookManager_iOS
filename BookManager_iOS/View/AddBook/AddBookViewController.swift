@@ -182,15 +182,19 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
         dateLabel.leftAnchor.constraint(equalTo: dateTextField.leftAnchor).isActive = true
         dateLabel.bottomAnchor.constraint(equalTo: dateTextField.topAnchor).isActive = true
     }
-     
+    
     //  ”完了”ボタンが押された時の処理
     @objc private func didSaveButtonTapped(_ sender: UIBarButtonItem) {
         //  nilチェック
         guard let title = titleTextField.text,
             let price = priceTextField.text,
-            let date = dateTextField.text else { return }
+            let date = dateTextField.text,
+            let image = bookImageView.image,
+            let imageData = image.pngData() else { return }
         
-        addBookViewModel.addBook(inputValue: (title, Int(price)!, date), successAction: {
+        let imageStr: String = imageData.base64EncodedString()
+        
+        addBookViewModel.addBook(inputValue: (title, Int(price)!, date, imageStr), successAction: {
             self.dismiss(animated: true)
         }) { error in
             self.showAlert(message: error.message)
@@ -248,7 +252,7 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
         notification.addObserver(self,
                                  selector: #selector(keyboardWillHide(_:)),
                                  name: UIResponder.keyboardWillHideNotification,
-                             object: nil
+                                 object: nil
         )
     }
     

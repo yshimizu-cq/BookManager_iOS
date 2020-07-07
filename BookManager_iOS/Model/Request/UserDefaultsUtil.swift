@@ -8,8 +8,6 @@
 import Foundation
 struct UserDefaultsUtil {
     
-    static var token = UserDefaults.standard.string(forKey: "token")
-    
     static var isFirstLaunch: Bool {
         let isFirstLaunch = UserDefaults.standard.bool(forKey: "isFirstLaunch")
         return isFirstLaunch
@@ -21,9 +19,5 @@ struct UserDefaultsUtil {
     
     static func register(defaults: [String: Any]) {
         UserDefaults.standard.register(defaults: defaults)
-    }
-    
-    static func removeToken() {
-        UserDefaults.standard.removeObject(forKey: "token")
     }
 }
