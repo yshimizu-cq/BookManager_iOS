@@ -19,9 +19,9 @@ final class AccountViewController: UIViewController {
     
     @IBAction func didLogoutButtonTapped(_ sender: UIButton) {
         //  ダイアログ設定
-        let logoutDialog = UIAlertController(title: R.string.localizable.logout(), message: R.string.localizable.okay(), preferredStyle: .alert)
+        let logoutDialog = UIAlertController(title: R.string.localizable.logout(), message: R.string.localizable.noProblem(), preferredStyle: .alert)
         logoutDialog.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .cancel))
-        logoutDialog.addAction(UIAlertAction(title: R.string.localizable.noProblem(),
+        logoutDialog.addAction(UIAlertAction(title: R.string.localizable.okay(),
                                              style: .default,
                                              handler: { _ in
                                                 //  rootにlogin storyboardを設定して遷移
