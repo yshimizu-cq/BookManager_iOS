@@ -19,12 +19,11 @@ struct UserDefaultsUtil {
         UserDefaults.standard.set(value, forKey: forKey)
     }
     
-    static func register(defaults : [String : Any]) {
+    static func register(defaults: [String: Any]) {
         UserDefaults.standard.register(defaults: defaults)
     }
     
     static func removeToken() {
         UserDefaults.standard.removeObject(forKey: "token")
     }
-    
 }

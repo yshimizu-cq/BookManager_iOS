@@ -98,9 +98,9 @@ final class EditBookViewController: UIViewController {
             let date = dateTextField.text else { return }
         
         editBookViewModel.editBook(inputValue: (title, Int(price)!, date), successAction: {
-            print("成功処理")
+            self.dismiss(animated: true)
         }) { error in
-            print("失敗処理")
+            self.showAlert(message: error.message)
         }
     }
     

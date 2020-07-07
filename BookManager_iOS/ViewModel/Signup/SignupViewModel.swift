@@ -7,11 +7,17 @@
 //
 
 import Foundation
+import KeychainAccess
 
 final class SignupViewModel {
     
     private struct Const {
         static let minimumLengthOfCharactors: Int = 6
+    }
+    
+    var keychain: Keychain {
+        guard let identifier = Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") as? String else { return Keychain(service: "") }
+        return Keychain(service: identifier)
     }
     
     typealias inputValue = (mail: String, password: String, passwordConfirmation: String)
@@ -29,7 +35,7 @@ final class SignupViewModel {
             case .count:
                 return R.string.localizable.countCharacters()
             case .mismatch:
-                return R.string.localizable.notMatch()
+                return R.string.localizable.mismatch()
             case .notUniqueMail:
                 return R.string.localizable.notUniqueMail()
             }
@@ -42,7 +48,8 @@ final class SignupViewModel {
             return .empty
         }
         //  文字数チェック
-        if mail.count < Const.minimumLengthOfCharactors || password.count < Const.minimumLengthOfCharactors || passwordConfirmation.count < Const.minimumLengthOfCharactors {
+        if mail.count < Const.minimumLengthOfCharactors || password.count < Const.minimumLengthOfCharactors
+            || passwordConfirmation.count < Const.minimumLengthOfCharactors {
             return .count
         }
         //  パスワード一致チェック
@@ -63,7 +70,7 @@ final class SignupViewModel {
             switch result {
             case .success(let response):
                 let token = response.result.token
-                UserDefaultsUtil.set(value: token, forKey: "token")
+                try? self.keychain.set(token, key: "token")  //  keychainで値を保存
                 successAction()
             case .failure:
                 errorAction(.notUniqueMail)

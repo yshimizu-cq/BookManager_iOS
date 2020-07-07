@@ -9,7 +9,7 @@
 import Foundation
 import KeychainAccess
 
-struct KeychainAccess {
+class KeychainManager {
     var keychain: Keychain {
         guard let identifier = Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") as? String else { return Keychain(service: "") }
         return Keychain(service: identifier)

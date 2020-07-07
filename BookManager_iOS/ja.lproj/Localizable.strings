@@ -34,7 +34,7 @@
 "okay" = "OK";
 "noProblem" = "よろしいですか？";
 "countCharacters" = "メールアドレスとパスワードは6文字以上で設定してください";
-"notMatch" = "パスワードが一致していません";
+"mismatch" = "パスワードが一致していません";
 
 //  サンプルデータ
 "sampleImage" = "sample_image";
@@ -42,6 +42,9 @@
 "sampleDate" = "2020-06-20";
 
 
-// エラーメッセージ
+//  エラーメッセージ
 "notUserFound" = "ユーザーが見つかりません";
 "notUniqueMail" = "そのメールアドレスは既に登録されています";
+
+//  フォーマット
+"dateFormat" = "yyyy/MM/dd";

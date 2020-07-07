@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import KeychainAccess
 
 final class LoginViewModel {
     
@@ -14,6 +15,11 @@ final class LoginViewModel {
         static let minimumLengthOfCharactors: Int = 6
     }
     
+    var keychain: Keychain {
+        guard let identifier = Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") as? String else { return Keychain(service: "") }
+        return Keychain(service: identifier)
+    }
+        
     //  typealias => あとで型変更できる
     typealias inputValue = (mail: String, password: String)
     
@@ -31,7 +37,6 @@ final class LoginViewModel {
             case .notUserFound:
                 return R.string.localizable.notUserFound()
             }
-            
         }
     }
     
@@ -50,17 +55,17 @@ final class LoginViewModel {
     //  ViewControllerから呼ばれる
     func login(inputValue: inputValue, successAction: @escaping () -> Void, errorAction: @escaping (LoginError) -> Void) {
         
-        
         if let error = isValid(mail: inputValue.mail, password: inputValue.password) {
             errorAction(error)
             return
         }
+        
         let inputValue = UserRequest(mail: inputValue.mail, password: inputValue.password)
         APIClient.sendRequest(type: .login(inputValue), entity: UserResponse.self) { (result) in
             switch result {
             case .success(let response):
                 let token = response.result.token
-                UserDefaultsUtil.set(value: token, forKey: "token")
+                try? self.keychain.set(token, key: "token")  //  keychainで値を保存
                 successAction()
             case .failure:
                 errorAction(.notUserFound)

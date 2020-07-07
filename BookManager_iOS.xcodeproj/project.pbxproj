@@ -31,7 +31,6 @@
 		D58052B924B2EF560085FD4C /* UserDefaultsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052B824B2EF560085FD4C /* UserDefaultsUtil.swift */; };
 		D58052BB24B2FF820085FD4C /* BookResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052BA24B2FF820085FD4C /* BookResponse.swift */; };
 		D58052BD24B2FFF70085FD4C /* BookListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052BC24B2FFF70085FD4C /* BookListResponse.swift */; };
-		D58052BF24B309540085FD4C /* KeychainAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58052BE24B309540085FD4C /* KeychainAccess.swift */; };
 		D597A88A24ADAB6B009490DB /* EditBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D597A87924ADAB6B009490DB /* EditBookViewController.swift */; };
 		D597A88B24ADAB6B009490DB /* EditBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D597A87A24ADAB6B009490DB /* EditBook.storyboard */; };
 		D597A88C24ADAB6B009490DB /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D597A87C24ADAB6B009490DB /* SignupViewController.swift */; };
@@ -87,7 +86,6 @@
 		D58052B824B2EF560085FD4C /* UserDefaultsUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefaultsUtil.swift; path = /Users/shimizuyuta/Caraquri/Training/BookManager_iOS/BookManager_iOS/Model/Request/UserDefaultsUtil.swift; sourceTree = "<absolute>"; };
 		D58052BA24B2FF820085FD4C /* BookResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookResponse.swift; sourceTree = "<group>"; };
 		D58052BC24B2FFF70085FD4C /* BookListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListResponse.swift; sourceTree = "<group>"; };
-		D58052BE24B309540085FD4C /* KeychainAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainAccess.swift; sourceTree = "<group>"; };
 		D597A87924ADAB6B009490DB /* EditBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditBookViewController.swift; sourceTree = "<group>"; };
 		D597A87A24ADAB6B009490DB /* EditBook.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditBook.storyboard; sourceTree = "<group>"; };
 		D597A87C24ADAB6B009490DB /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -213,7 +211,6 @@
 				D58052B624B2EB9B0085FD4C /* Request */,
 				D58052B424B2E7680085FD4C /* JSONEncoder.swift */,
 				D58052B824B2EF560085FD4C /* UserDefaultsUtil.swift */,
-				D58052BE24B309540085FD4C /* KeychainAccess.swift */,
 				D58052AA24B2B28C0085FD4C /* APIClient.swift */,
 			);
 			path = Model;
@@ -480,7 +477,6 @@
 				D58052AB24B2B28C0085FD4C /* APIClient.swift in Sources */,
 				D58052B924B2EF560085FD4C /* UserDefaultsUtil.swift in Sources */,
 				D58052B324B2E3120085FD4C /* UserResponse.swift in Sources */,
-				D58052BF24B309540085FD4C /* KeychainAccess.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

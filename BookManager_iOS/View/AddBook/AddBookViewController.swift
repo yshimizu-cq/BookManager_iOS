@@ -78,6 +78,8 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
         return button
     }()
     
+    private let imagePicker: UIImagePickerController = UIImagePickerController()
+    
     private lazy var rightBarButton: UIBarButtonItem = {    //  lazy var => 呼び出された時に初期値決定
         let rightBarButton = UIBarButtonItem()
         rightBarButton.target = self     //  targetで対象を指定
@@ -189,9 +191,9 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
             let date = dateTextField.text else { return }
         
         addBookViewModel.addBook(inputValue: (title, Int(price)!, date), successAction: {
-            print("成功処理")
+            self.dismiss(animated: true)
         }) { error in
-            print("失敗処理")
+            self.showAlert(message: error.message)
         }
     }
     
@@ -202,6 +204,11 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     // ”画像投稿”ボタンが押された時の処理
     @objc private func didImageUploadButtonTapped(_ sender: UIBarButtonItem) {
+        //  PhotoLibraryから画像選択
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        //  ピッカー表示
+        present(imagePicker, animated: true)
     }
     
     //  returnでキーボードを閉じる
@@ -265,5 +272,19 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
         UIView.animate(withDuration: duration) {
             self.view.transform = CGAffineTransform.identity
         }
+    }
+}
+
+extension AddBookViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    //  画像選択されたときの処理
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        bookImageView.image = image
+        dismiss(animated: true)
+    }
+    
+    //  画像選択がキャンセルされたときの処理
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true)
     }
 }

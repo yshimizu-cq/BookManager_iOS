@@ -49,13 +49,13 @@ enum URLSessionRequest {
         case .login:
             return "login"
         case .signup:
-            return "signup"
+            return "sign_up"
         case .bookList, .addBook:
             return "books"
         case .editBook(let params):
             return "books/\(params.id)"
         case .account:
-            return "account"
+            return "logout"
         }
     }
     
@@ -70,11 +70,12 @@ enum URLSessionRequest {
     
     var body: Data? {
         switch self {
-        case .login(let userParams), .signup(let userParams):
-            let body = JSONEncoder().encode(value: userParams)
+        case .login(let userInputValue), .signup(let userInputValue):
+            let body = JSONEncoder().encode(value: userInputValue)
             return body
-        case .addBook(let bookParams), .editBook(let bookParams):
-            let body = JSONEncoder().encode(value: bookParams)
+        case .addBook(let bookInputValue), .editBook(let bookInputValue):
+            let body = JSONEncoder().encode(value: bookInputValue)
+            return body
         default:
             break
         }
@@ -89,7 +90,7 @@ enum URLSessionRequest {
         request.httpMethod = type.method
         request.httpBody = type.body
         //  ヘッダーにcontent-typeを設定(JSONを送るのでapplication/json)
-        request.setValue("application/json", forHTTPHeaderField: "content-type")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(type.header, forHTTPHeaderField: "Authorization")
         return request
     }

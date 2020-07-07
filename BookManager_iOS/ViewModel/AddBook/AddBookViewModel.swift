@@ -11,7 +11,7 @@ import Foundation
 final class AddBookViewModel {
     
     typealias inputValue = (title: String, price: Int, date: String)
-    
+        
     enum AddBookError: Error {
         case empty
         
