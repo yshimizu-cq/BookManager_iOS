@@ -10,6 +10,6 @@ import Foundation
 
 //  structは値型, 比較的単純なデータをカプセル化
 struct BookListRequest: Encodable {
-    var limit: Int
     var page: Int
+    var limit: Int
 }

@@ -15,7 +15,7 @@ struct BookResponse: Decodable {
 struct Book: Decodable {
     var id: Int?
     var name: String
+    var image: String?
     var price: Int
     var purchaseDate: String
-    var image: String?
 }

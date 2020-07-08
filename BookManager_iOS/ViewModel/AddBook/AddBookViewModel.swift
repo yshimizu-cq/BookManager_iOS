@@ -10,7 +10,7 @@ import Foundation
 
 final class AddBookViewModel {
     
-    typealias inputValue = (title: String, price: Int, date: String, image: String?)
+    typealias inputValue = (title: String, image: String?, price: Int, date: String)
         
     enum AddBookError: Error {
         case empty
@@ -40,7 +40,7 @@ final class AddBookViewModel {
             return
         }
         
-        let inputValue = BookRequest(name: inputValue.title, price: inputValue.price, purchaseDate: inputValue.date, image: inputValue.image)
+        let inputValue = BookRequest(name: inputValue.title, image: inputValue.image, price: inputValue.price, purchaseDate: inputValue.date)
         APIClient.sendRequest(type: .addBook(inputValue), entity: BookResponse.self) { (result) in
             switch result {
             case .success:

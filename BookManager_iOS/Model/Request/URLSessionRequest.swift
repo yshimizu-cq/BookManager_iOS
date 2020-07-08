@@ -41,8 +41,8 @@ enum URLSessionRequest {
         case .bookList(let bookValue):
             //  https://baseURL?name=value
             let query = [
-                URLQueryItem(name: "limit", value: String(bookValue.limit)),
-                URLQueryItem(name: "page", value: String(bookValue.page))
+                URLQueryItem(name: "page", value: String(bookValue.page)),
+                URLQueryItem(name: "limit", value: String(bookValue.limit))
             ]
             return query
         default:

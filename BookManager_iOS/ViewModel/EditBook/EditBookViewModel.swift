@@ -42,7 +42,7 @@ final class EditBookViewModel {
             return
         }
         
-        let inputValue = BookRequest(id: inputValue.id, name: inputValue.title, price: inputValue.price, purchaseDate: inputValue.date, image: inputValue.image)
+        let inputValue = BookRequest(id: inputValue.id, name: inputValue.title, image: inputValue.image, price: inputValue.price, purchaseDate: inputValue.date)
         APIClient.sendRequest(type: .editBook(inputValue), entity: BookResponse.self) { (result) in
             switch result {
             case .success:

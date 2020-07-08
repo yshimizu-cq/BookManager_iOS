@@ -22,7 +22,7 @@ final class BookListViewModel {
             currentPage += 1
         }
         
-        let values = BookListRequest(limit: 20, page: currentPage)
+        let values = BookListRequest(page: currentPage, limit: 20)
         APIClient.sendRequest(type: .bookList(values), entity: BookListResponse.self) { (result) in
             switch result {
             case .success(let response):

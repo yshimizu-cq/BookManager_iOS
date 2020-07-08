@@ -194,7 +194,7 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
         
         let imageStr: String = imageData.base64EncodedString()
         
-        addBookViewModel.addBook(inputValue: (title, Int(price)!, date, imageStr), successAction: {
+        addBookViewModel.addBook(inputValue: (title, imageStr, Int(price)!, date), successAction: {
             self.dismiss(animated: true)
         }) { error in
             self.showAlert(message: error.message)
