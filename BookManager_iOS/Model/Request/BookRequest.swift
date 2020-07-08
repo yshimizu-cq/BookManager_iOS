@@ -13,6 +13,6 @@ struct BookRequest: Encodable {
     var id: Int?
     var name: String
     var image: String?  //  nilを許容
-    var price: Int
-    var purchaseDate: String
+    var price: Int?
+    var purchaseDate: String?
 }

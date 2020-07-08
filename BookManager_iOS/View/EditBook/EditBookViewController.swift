@@ -19,7 +19,13 @@ final class EditBookViewController: UIViewController {
         return editView
     }
     
-    @IBOutlet weak var imageUploadButtonTapped: UIButton!
+    @IBAction func imageUploadButtonTapped(_ sender: UIButton) {
+        //  PhotoLibraryから画像選択
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        //  ピッカー表示
+        present(imagePicker, animated: true)
+    }
     
     @IBOutlet weak var titleTextField: UITextField!
     
@@ -30,6 +36,8 @@ final class EditBookViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     private var datePicker: UIDatePicker = UIDatePicker()
+    
+    private let imagePicker: UIImagePickerController = UIImagePickerController()
     
     private lazy var rightBarButton: UIBarButtonItem = {    //  lazy var => 呼び出された時に初期値決定
         let rightBarButton = UIBarButtonItem()
@@ -106,8 +114,8 @@ final class EditBookViewController: UIViewController {
         let id = editBookViewModel.selectedBook?.id
         let imageStr: String = imageData.base64EncodedString()
         
-        editBookViewModel.editBook(inputValue: (id, title, Int(price)!, date, imageStr), successAction: {
-            self.dismiss(animated: true)
+        editBookViewModel.editBook(inputValue: (id, title, imageStr, Int(price)!, date), successAction: {
+            self.navigationController?.popViewController(animated: true)
         }) { error in
             self.showAlert(message: error.message)
         }
@@ -125,7 +133,7 @@ final class EditBookViewController: UIViewController {
     @IBAction func didTapPriceReturn(_ sender: UITextField) {
         priceTextField.text = sender.text
     }
-    
+        
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }

@@ -26,6 +26,9 @@
                                 <state key="normal" title="画像添付">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="imageUploadButtonTapped:" destination="LZu-Kw-MAc" eventType="touchUpInside" id="jF1-FX-sOn"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DBe-mq-DVz">
                                 <rect key="frame" x="57" y="167" width="120" height="120"/>
@@ -150,7 +153,6 @@
                     </view>
                     <connections>
                         <outlet property="dateTextField" destination="of1-Ql-isD" id="YFK-Av-I3G"/>
-                        <outlet property="imageUploadButtonTapped" destination="J9F-Yx-9Ge" id="rC5-mW-mpM"/>
                         <outlet property="imageView" destination="DBe-mq-DVz" id="kX6-kh-TvJ"/>
                         <outlet property="priceTextField" destination="cJD-9c-lcp" id="l0p-o3-MwU"/>
                         <outlet property="titleTextField" destination="iKp-t3-8Wc" id="Koy-4C-PDg"/>

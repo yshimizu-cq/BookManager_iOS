@@ -10,7 +10,7 @@ import Foundation
 
 final class EditBookViewModel {
     
-    typealias inputValue = (id: Int?, title: String, price: Int, date: String, image: String?)
+    typealias inputValue = (id: Int?, image: String?, title: String, price: Int?, date: String?)
     
     var selectedBook: Book?
     
@@ -37,7 +37,7 @@ final class EditBookViewModel {
     }
     
     func editBook(inputValue: inputValue, successAction: @escaping () -> Void, errorAction: @escaping(EditBookError) -> Void) {
-        if let error = isValid(title: inputValue.title, price: inputValue.price, purchaseDate: inputValue.date) {
+        if let error = isValid(title: inputValue.title, price: inputValue.price ?? 0, purchaseDate: inputValue.date ?? String(2020-07-01)) {
             errorAction(error)
             return
         }

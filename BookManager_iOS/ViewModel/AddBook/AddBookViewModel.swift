@@ -10,7 +10,7 @@ import Foundation
 
 final class AddBookViewModel {
     
-    typealias inputValue = (title: String, image: String?, price: Int, date: String)
+    typealias inputValue = (title: String, image: String?, price: Int?, date: String?)
         
     enum AddBookError: Error {
         case empty
@@ -35,7 +35,7 @@ final class AddBookViewModel {
     }
     
     func addBook(inputValue: inputValue, successAction: @escaping () -> Void, errorAction: @escaping (AddBookError) -> Void) {
-        if let error = isValid(title: inputValue.title, price: inputValue.price, purchaseDate: inputValue.date) {
+        if let error = isValid(title: inputValue.title, price: inputValue.price ?? 0, purchaseDate: inputValue.date ?? String(2020-07-01)) {
             errorAction(error)
             return
         }

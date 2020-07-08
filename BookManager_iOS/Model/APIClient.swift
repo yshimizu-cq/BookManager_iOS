@@ -23,7 +23,7 @@ struct APIClient {
                 print(R.string.localizable.noData())
                 return
             }
-
+            
             do {
                 let jsonDecoder = JSONDecoder()
                 jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase

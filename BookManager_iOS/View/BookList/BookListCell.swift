@@ -64,8 +64,14 @@ final class BookListCell: UITableViewCell {
     
     func configure(book: Book) {
         titleLabel.text = book.name
-        priceLabel.text = "\(String(book.price))\(R.string.localizable.yen())"
-        dateLabel.text = book.purchaseDate
+        
+        if let price = book.price {
+            priceLabel.text = "\(String(price))\(R.string.localizable.yen())"
+        }
+        
+        if let purchaseDate = book.purchaseDate {
+            dateLabel.text = purchaseDate
+        }
         
         if let imageURL = book.image, let url = URL(string: imageURL) {
             Nuke.loadImage(with: url, into: bookImageView)
