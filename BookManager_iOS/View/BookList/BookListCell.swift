@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Nuke
 
 final class BookListCell: UITableViewCell {
     
@@ -31,7 +32,6 @@ final class BookListCell: UITableViewCell {
     
     private let bookImageView: UIImageView = {
         var imageView = UIImageView()
-        imageView.image = UIImage(named: R.string.localizable.sampleImage())
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -66,5 +66,9 @@ final class BookListCell: UITableViewCell {
         titleLabel.text = book.name
         priceLabel.text = "\(String(book.price))\(R.string.localizable.yen())"
         dateLabel.text = book.purchaseDate
+        
+        if let imageURL = book.image, let url = URL(string: imageURL) {
+            Nuke.loadImage(with: url, into: bookImageView)
+        }
     }
 }
