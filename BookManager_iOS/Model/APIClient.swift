@@ -10,7 +10,7 @@ import Foundation
 
 struct APIClient {
     
-    static func sendRequest<T: Decodable>(type request: URLSessionRequest, entity: T.Type, completionAction: @escaping (Result<T, Error>) -> Void) -> Void {
+    static func sendRequest<T: Decodable>(type request: URLSessionRequest, entity: T.Type, completionAction: @escaping (Result<T, Error>) -> Void) {
         
         guard let request = URLSessionRequest.createRequest(type: request) else { return }
         
