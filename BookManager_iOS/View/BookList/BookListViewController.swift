@@ -67,6 +67,13 @@ final class BookListViewController: UIViewController {
         let addBookViewController = UINavigationController(rootViewController: addBook)
         present(addBookViewController, animated: true)
     }
+    
+    //  下スクロール時にAPI通信実施
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if bookListViewModel.books.count >= 20 && indexPath.row == ( bookListViewModel.books.count - 10) {
+            sendBookListRequest(initial: false)
+        }
+    }
 }
 
 extension BookListViewController: UITableViewDataSource {
