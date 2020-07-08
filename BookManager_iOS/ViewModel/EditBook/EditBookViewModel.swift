@@ -10,7 +10,7 @@ import Foundation
 
 final class EditBookViewModel {
     
-    typealias inputValue = (id: Int?, image: String?, title: String, price: Int?, date: String?)
+    typealias inputValue = (id: Int?, title: String, image: String?, price: Int?, date: String?)
     
     var selectedBook: Book?
     
