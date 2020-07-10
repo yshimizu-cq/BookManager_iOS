@@ -10,61 +10,39 @@ import Foundation
 import KeychainAccess
 
 final class LoginViewModel {
-    
-    private struct Const {
-        static let minimumLengthOfCharactors: Int = 6
-    }
-    
+
     var keychain: Keychain {
         guard let identifier = Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") as? String else { return Keychain(service: "") }
         return Keychain(service: identifier)
     }
-        
+    
     //  typealias => あとで型変更できる
     typealias inputValue = (mail: String, password: String)
     
-    enum LoginError: Error {
-        case empty
-        case count
-        case notUserFound
+    func extractLoginValidationErrors(mail: String, password: String) -> [ValidationError]? {
+        let validationResults = [EmailValidator().validate(mail),
+                                 PasswordValidator().validate(password)]
         
-        var message: String {
-            switch self {
-            case .empty:
-                return R.string.localizable.blank()
-                
-            case .count:
-                return R.string.localizable.countCharacters()
-                
-            case .notUserFound:
-                return R.string.localizable.notUserFound()
-            }
-        }
+        if validationResults.filter({ !$0.isValid }).count > 0 {
+            return validationResults.filter({ !$0.isValid }).compactMap { $0.error }
+        } else { return nil }
     }
     
-    private func isValid(mail: String, password: String) -> LoginError? {
-        //  未入力チェック
-        if mail.isEmpty || password.isEmpty {
-            return .empty
-        }
-        
-        //  文字数チェック
-        if mail.count < Const.minimumLengthOfCharactors || password.count < Const.minimumLengthOfCharactors {
-            return .count
-        }
-        return nil
+    func generateErrorMessage(by errors: [ValidationError]) -> String {
+        var messages = [String]()
+        errors.forEach { messages.append($0.description!) }
+        return messages.joined(separator: "\n")
     }
     
-    //  ViewControllerから呼ばれる
-    func login(inputValue: inputValue, successAction: @escaping () -> Void, errorAction: @escaping (LoginError) -> Void) {
-        
-        if let error = isValid(mail: inputValue.mail, password: inputValue.password) {
-            errorAction(error)
+    func login(inputValue: inputValue, successAction: @escaping () -> Void, errorAction: @escaping (String) -> Void) {
+        if let error: [ValidationError] = extractLoginValidationErrors(mail: inputValue.mail,
+                                                                       password: inputValue.password) {
+            errorAction(generateErrorMessage(by: error))
             return
         }
         
         let inputValue = UserRequest(email: inputValue.mail, password: inputValue.password)
-
+        
         APIClient.sendRequest(type: .login(inputValue), entity: UserResponse.self) { (result) in
             switch result {
             case .success(let response):
@@ -73,7 +51,7 @@ final class LoginViewModel {
                 successAction()
                 
             case .failure:
-                errorAction(.notUserFound)
+                errorAction(R.string.localizable.notUserFound())
             }
         }
     }

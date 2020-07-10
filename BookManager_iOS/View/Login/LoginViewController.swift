@@ -25,18 +25,18 @@ final class LoginViewController: UIViewController {
     }
     
     @IBAction func didLoginButtonTapped(_ sender: UIButton) {
-        //  nilチェック
         guard let mail = mailTextField.text,
             let password = passwordTextField.text else { return }
         
-        //  入力された値をloginViewModelに渡す
-        loginViewModel.login(inputValue: (mail, password), successAction: {
-            let books: MainTabController = MainTabController()
-            let window = UIApplication.shared.windows.first { $0.isKeyWindow }
-            window?.rootViewController = books
-        }) { [unowned self] error in
-            self.showAlert(message: error.message)
-        }
+        loginViewModel.login(
+            inputValue: (mail, password),
+            successAction: {
+                let books: MainTabController = MainTabController()
+                let window = UIApplication.shared.windows.first { $0.isKeyWindow }
+                window?.rootViewController = books },
+            errorAction: { [unowned self] error in
+                self.showAlert(message: error) }
+        )
     }
     
     @IBAction func didSignupButtonTapped(_ sender: UIButton) {

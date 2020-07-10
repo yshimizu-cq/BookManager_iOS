@@ -23,17 +23,16 @@ final class SignupViewModel {
     typealias inputValue = (mail: String, password: String, passwordConfirmation: String)
     
     func extractSignupValidationErrors(mail: String, password: String, passwordConfirmation: String) -> [ValidationError]? {
-        
         let validationResults = [EmailValidator().validate(mail),
                                  PasswordValidator().validate(password),
                                  PasswordComrimationValidator(password: password).validate(passwordConfirmation)]
+        
         if validationResults.filter({ !$0.isValid }).count > 0 {
             return validationResults.filter({ !$0.isValid }).compactMap { $0.error }
         } else { return nil }
     }
     
     func generateErrorMessage(by errors: [ValidationError]) -> String {
-        
         var messages = [String]()
         errors.forEach { messages.append($0.description!) }
         return messages.joined(separator: "\n")
@@ -46,6 +45,7 @@ final class SignupViewModel {
             errorAction(generateErrorMessage(by: error))
             return
         }
+        
         let inputValue = UserRequest(email: inputValue.mail, password: inputValue.password)
         
         APIClient.sendRequest(type: .signup(inputValue), entity: UserResponse.self) { (result) in
