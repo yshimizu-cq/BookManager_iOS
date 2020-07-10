@@ -22,6 +22,7 @@ final class AccountViewModel {
             case .success:
                 try? self.keychain.remove("token")
                 successAction()
+                
             case .failure(let error):
                 errorAction(error)
             }

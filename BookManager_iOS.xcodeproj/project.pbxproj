@@ -11,6 +11,7 @@
 		D524F62F249B3AF600646538 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D524F62E249B3AF600646538 /* Assets.xcassets */; };
 		D524F632249B3AF600646538 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D524F630249B3AF600646538 /* LaunchScreen.storyboard */; };
 		D524F641249B43B100646538 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D524F640249B43B100646538 /* Nuke.framework */; };
+		D54F1D8224B71B1400E98ACB /* ValidatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F1D8124B71B1400E98ACB /* ValidatorProtocol.swift */; };
 		D5671BC7249CA149003E3BEE /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D524F63A249B410A00646538 /* Rswift.framework */; };
 		D5671BC8249CA149003E3BEE /* Rswift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D524F63A249B410A00646538 /* Rswift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D5671BCA249CA4B6003E3BEE /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5671BC9249CA4B6003E3BEE /* R.generated.swift */; };
@@ -70,6 +71,7 @@
 		D524F633249B3AF600646538 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D524F63A249B410A00646538 /* Rswift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rswift.framework; path = Carthage/Build/iOS/Rswift.framework; sourceTree = "<group>"; };
 		D524F640249B43B100646538 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
+		D54F1D8124B71B1400E98ACB /* ValidatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorProtocol.swift; sourceTree = "<group>"; };
 		D55280D724A9AF8F00D6248D /* APIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = APIKit.framework; path = Carthage/Build/iOS/APIKit.framework; sourceTree = "<group>"; };
 		D5671BC9249CA4B6003E3BEE /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		D580528824ADABEA0085FD4C /* MainTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 		D524F624249B3AF100646538 /* BookManager_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D54F1D8024B71ADA00E98ACB /* Protocol */,
 				D58052A524AF22080085FD4C /* Model */,
 				D580528F24ADBEFA0085FD4C /* ViewModel */,
 				D597A87724ADAB6B009490DB /* View */,
@@ -163,6 +166,14 @@
 				D5FF0ADF24AB0A1D001640BC /* Localizable.strings */,
 			);
 			path = BookManager_iOS;
+			sourceTree = "<group>";
+		};
+		D54F1D8024B71ADA00E98ACB /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				D54F1D8124B71B1400E98ACB /* ValidatorProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		D580528F24ADBEFA0085FD4C /* ViewModel */ = {
@@ -484,6 +495,7 @@
 				D580528924ADABEA0085FD4C /* MainTabController.swift in Sources */,
 				D524F626249B3AF100646538 /* AppDelegate.swift in Sources */,
 				D58052B124B2D5500085FD4C /* BookRequest.swift in Sources */,
+				D54F1D8224B71B1400E98ACB /* ValidatorProtocol.swift in Sources */,
 				D5FF0AE724AC1F91001640BC /* UIAlertExtension.swift in Sources */,
 				D58052BD24B2FFF70085FD4C /* BookListResponse.swift in Sources */,
 				D58052BB24B2FF820085FD4C /* BookResponse.swift in Sources */,

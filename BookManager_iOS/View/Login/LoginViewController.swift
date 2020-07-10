@@ -34,7 +34,7 @@ final class LoginViewController: UIViewController {
             let books: MainTabController = MainTabController()
             let window = UIApplication.shared.windows.first { $0.isKeyWindow }
             window?.rootViewController = books
-        }) { error in
+        }) { [unowned self] error in
             self.showAlert(message: error.message)
         }
     }

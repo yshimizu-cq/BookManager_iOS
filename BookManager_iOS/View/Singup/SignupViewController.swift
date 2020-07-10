@@ -38,13 +38,14 @@ final class SignupViewController: UIViewController {
             let password = passwordTextField.text,
             let passwordConfirmation = passwordConfirmationTextField.text else { return }
         
-        signupViewModel.signup(inputValue: (mail, password, passwordConfirmation), successAction: {
-            let books: MainTabController = MainTabController()
-            let window = UIApplication.shared.windows.first { $0.isKeyWindow }
-            window?.rootViewController = books
-        }) { error in
-            self.showAlert(message: error.message)
-        }
+        signupViewModel.signup(
+            inputValue: (mail, password, passwordConfirmation),
+            successAction: {
+                let books: MainTabController = MainTabController()
+                let window = UIApplication.shared.windows.first { $0.isKeyWindow }
+                window?.rootViewController = books },
+            errorAction: { [unowned self] error in
+                self.showAlert(message: error)})
     }
     
     @IBAction func didTapMailReturn(_ sender: UITextField) {

@@ -22,6 +22,7 @@ final class EditBookViewModel {
             switch self {
             case .empty:
                 return R.string.localizable.blank()
+                
             case .failToEditBook:
                 return R.string.localizable.faliToEditBook()
             }
@@ -48,6 +49,7 @@ final class EditBookViewModel {
             case .success:
                 UserDefaultsUtil.set(value: inputValue.id ?? 0, forKey: "book")
                 successAction()
+                
             case .failure:
                 errorAction(.failToEditBook)
             }

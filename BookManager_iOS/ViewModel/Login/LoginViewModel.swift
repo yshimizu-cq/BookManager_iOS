@@ -32,8 +32,10 @@ final class LoginViewModel {
             switch self {
             case .empty:
                 return R.string.localizable.blank()
+                
             case .count:
                 return R.string.localizable.countCharacters()
+                
             case .notUserFound:
                 return R.string.localizable.notUserFound()
             }
@@ -45,6 +47,7 @@ final class LoginViewModel {
         if mail.isEmpty || password.isEmpty {
             return .empty
         }
+        
         //  文字数チェック
         if mail.count < Const.minimumLengthOfCharactors || password.count < Const.minimumLengthOfCharactors {
             return .count
@@ -61,12 +64,14 @@ final class LoginViewModel {
         }
         
         let inputValue = UserRequest(email: inputValue.mail, password: inputValue.password)
+
         APIClient.sendRequest(type: .login(inputValue), entity: UserResponse.self) { (result) in
             switch result {
             case .success(let response):
                 let token = response.result.token
                 try? self.keychain.set(token, key: "token")  //  keychainで値を保存
                 successAction()
+                
             case .failure:
                 errorAction(.notUserFound)
             }

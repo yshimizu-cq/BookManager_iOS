@@ -20,6 +20,7 @@ final class AddBookViewModel {
             switch self {
             case .empty:
                 return R.string.localizable.blank()
+                
             case .failToAddBook:
                 return R.string.localizable.faliToAddBook()
             }
@@ -41,6 +42,7 @@ final class AddBookViewModel {
         }
         
         let inputValue = BookRequest(name: inputValue.title, image: inputValue.image, price: inputValue.price, purchaseDate: inputValue.date)
+        
         APIClient.sendRequest(type: .addBook(inputValue), entity: BookResponse.self) { (result) in
             switch result {
             case .success:

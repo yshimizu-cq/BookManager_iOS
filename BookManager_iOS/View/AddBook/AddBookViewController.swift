@@ -193,9 +193,9 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
         
         let imageStr: String = imageData.base64EncodedString()
         
-        addBookViewModel.addBook(inputValue: (title, imageStr, Int(price), date), successAction: {
+        addBookViewModel.addBook(inputValue: (title, imageStr, Int(price), date), successAction: { [unowned self] in
             self.dismiss(animated: true)
-        }) { error in
+        }) { [unowned self] error in
             self.showAlert(message: error.message)
         }
     }
@@ -257,7 +257,6 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     // キーボードが現れた時に画面全体をずらす
     @objc private func keyboardWillShow(_ notification: Notification?) {
-        
         guard let rect = (notification?.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue,
             let duration = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval else { return }
         
@@ -269,7 +268,6 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     // キーボードが消えたときに、画面を戻す
     @objc private func keyboardWillHide(_ notification: Notification?) {
-        
         guard let duration = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? TimeInterval else { return }
         
         UIView.animate(withDuration: duration) {

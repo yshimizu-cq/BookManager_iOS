@@ -27,14 +27,17 @@ enum URLSessionRequest {
         switch self {
         case .bookList:
             return "GET"
+            
         case .login, .signup, .addBook:
             return "POST"
+            
         case .editBook:
             return "PATCH"
+            
         case .account:
             return "DELETE"
         }
-    }
+}
     
     var query: [URLQueryItem] {
         switch self {
@@ -45,6 +48,7 @@ enum URLSessionRequest {
                 URLQueryItem(name: "limit", value: String(bookValue.limit))
             ]
             return query
+
         default:
             break
         }
@@ -55,21 +59,26 @@ enum URLSessionRequest {
         switch self {
         case .login:
             return "login"
+            
         case .signup:
             return "sign_up"
+            
         case .bookList, .addBook:
             return "books"
+            
         case .editBook(let params):
             return "books/\(params.id ?? 0)"
+            
         case .account:
             return "logout"
         }
-    }
+}
     
     var header: String? {
         switch self {
         case .login, .signup:
             return nil
+            
         case .bookList, .addBook, .editBook, .account:
             do {
                 return try keychain.get("token")
@@ -84,9 +93,11 @@ enum URLSessionRequest {
         case .login(let userInputValue), .signup(let userInputValue):
             let body = JSONEncoder().encode(value: userInputValue)
             return body
+
         case .addBook(let bookInputValue), .editBook(let bookInputValue):
             let body = JSONEncoder().encode(value: bookInputValue)
             return body
+
         default:
             break
         }
@@ -96,10 +107,12 @@ enum URLSessionRequest {
     static func createRequest(type: URLSessionRequest) -> URLRequest? {
         var components = URLComponents(string: "http://54.250.239.8/\(type.path)")
         components?.queryItems = type.query
+
         let url = components?.url
         var request = URLRequest(url: url!)
         request.httpMethod = type.method
         request.httpBody = type.body
+
         //  ヘッダーにcontent-typeを設定(JSONを送るのでapplication/json)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(type.header, forHTTPHeaderField: "access_token")

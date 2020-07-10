@@ -20,8 +20,7 @@ final class AccountViewController: UIViewController {
     }
     
     @IBAction func didLogoutButtonTapped(_ sender: UIButton) {
-        
-        accountViewModel.account(successAction: {
+        accountViewModel.account(successAction: { [unowned self] in
             //  ダイアログ設定
             let logoutDialog = UIAlertController(title: R.string.localizable.logout(), message: R.string.localizable.noProblem(), preferredStyle: .alert)
             logoutDialog.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .cancel))
@@ -38,4 +37,3 @@ final class AccountViewController: UIViewController {
         }
     }
 }
-

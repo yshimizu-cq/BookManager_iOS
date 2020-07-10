@@ -22,58 +22,41 @@ final class SignupViewModel {
     
     typealias inputValue = (mail: String, password: String, passwordConfirmation: String)
     
-    enum SignupError: Error {
-        case empty
-        case count
-        case mismatch
-        case notUniqueMail
+    func extractSignupValidationErrors(mail: String, password: String, passwordConfirmation: String) -> [ValidationError]? {
         
-        var message: String {
-            switch self {
-            case .empty:
-                return R.string.localizable.blank()
-            case .count:
-                return R.string.localizable.countCharacters()
-            case .mismatch:
-                return R.string.localizable.mismatch()
-            case .notUniqueMail:
-                return R.string.localizable.notUniqueMail()
-            }
-        }
+        let validationResults = [EmailValidator().validate(mail),
+                                 PasswordValidator().validate(password),
+                                 PasswordComrimationValidator(password: password).validate(passwordConfirmation)]
+        if validationResults.filter({ !$0.isValid }).count > 0 {
+            return validationResults.filter({ !$0.isValid }).compactMap { $0.error }
+        } else { return nil }
     }
     
-    private func isValid(mail: String, password: String, passwordConfirmation: String) -> SignupError? {
-        //  未入力チェック
-        if mail.isEmpty || password.isEmpty || passwordConfirmation.isEmpty {
-            return .empty
-        }
-        //  文字数チェック
-        if mail.count < Const.minimumLengthOfCharactors || password.count < Const.minimumLengthOfCharactors
-            || passwordConfirmation.count < Const.minimumLengthOfCharactors {
-            return .count
-        }
-        //  パスワード一致チェック
-        if password != passwordConfirmation {
-            return .mismatch
-        }
-        return nil
+    func generateErrorMessage(by errors: [ValidationError]) -> String {
+        
+        var messages = [String]()
+        errors.forEach { messages.append($0.description!) }
+        return messages.joined(separator: "\n")
     }
     
-    func signup(inputValue: inputValue, successAction: @escaping () -> Void, errorAction: @escaping (SignupError) -> Void) {
-        if let error = isValid(mail: inputValue.mail, password: inputValue.password, passwordConfirmation: inputValue.passwordConfirmation) {
-            errorAction(error)
+    func signup(inputValue: inputValue, successAction: @escaping () -> Void, errorAction: @escaping (String) -> Void) {
+        if let error: [ValidationError] = extractSignupValidationErrors(mail: inputValue.mail,
+                                                                        password: inputValue.password,
+                                                                        passwordConfirmation: inputValue.passwordConfirmation) {
+            errorAction(generateErrorMessage(by: error))
             return
         }
-        
         let inputValue = UserRequest(email: inputValue.mail, password: inputValue.password)
+        
         APIClient.sendRequest(type: .signup(inputValue), entity: UserResponse.self) { (result) in
             switch result {
             case .success(let response):
                 let token = response.result.token
                 try? self.keychain.set(token, key: "token")  //  keychainで値を保存
                 successAction()
+                
             case .failure:
-                errorAction(.notUniqueMail)
+                errorAction(R.string.localizable.notUniqueMail())
             }
         }
     }

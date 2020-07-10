@@ -114,12 +114,16 @@ final class EditBookViewController: UIViewController {
         let id = editBookViewModel.selectedBook?.id
         let imageStr: String = imageData.base64EncodedString()
         
-        editBookViewModel.editBook(inputValue: (id, title, imageStr, Int(price)!, date), successAction: {
-            self.navigationController?.popViewController(animated: true)
-        }) { error in
-            self.showAlert(message: error.message)
-        }
+        editBookViewModel.editBook(
+            inputValue: (id, title, imageStr, Int(price)!, date),
+            successAction: { [unowned self] in
+                self.navigationController?.popViewController(animated: true)},
+            errorAction: { [unowned self] error in
+                self.showAlert(message: error.message)
+            }
+        )
     }
+    
     
     // ”キャンセル”ボタンが押された時の処理
     @objc private func didCancelButtonTapped(_ sender: UIBarButtonItem) {
@@ -133,7 +137,7 @@ final class EditBookViewController: UIViewController {
     @IBAction func didTapPriceReturn(_ sender: UITextField) {
         priceTextField.text = sender.text
     }
-        
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
@@ -182,7 +186,6 @@ final class EditBookViewController: UIViewController {
     
     // キーボードが現れた時に画面全体をずらす
     @objc private func keyboardWillShow(_ notification: Notification?) {
-        
         guard let rect = (notification?.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue,
             let duration = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval else { return }
         
@@ -194,7 +197,6 @@ final class EditBookViewController: UIViewController {
     
     // キーボードが消えたときに、画面を戻す
     @objc private func keyboardWillHide(_ notification: Notification?) {
-        
         guard let duration = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? TimeInterval else { return }
         
         UIView.animate(withDuration: duration) {

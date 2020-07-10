@@ -55,7 +55,7 @@ final class BookListViewController: UIViewController {
     
     //  API処理
     private func sendBookListRequest(initial: Bool) {
-        bookListViewModel.setBookList(initial: initial, successAction: {
+        bookListViewModel.setBookList(initial: initial, successAction: { [unowned self] in
             self.bookTableView.reloadData()
         }) { _ in
         }
@@ -94,7 +94,6 @@ extension BookListViewController: UITableViewDataSource {
 }
 
 extension BookListViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // セルの選択を解除
         tableView.deselectRow(at: indexPath, animated: true)
