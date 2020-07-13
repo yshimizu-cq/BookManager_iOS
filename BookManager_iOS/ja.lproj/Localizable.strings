@@ -48,6 +48,7 @@
 "notUniqueMail" = "そのメールアドレスは既に登録されています";
 "faliToAddBook" = "書籍登録に失敗しました";
 "faliToEditBook" = "書籍編集に失敗しました";
+"failToLogout" = "ログアウトに失敗しました";
 "noData" = "データがありません";
 
 

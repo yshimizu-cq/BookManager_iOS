@@ -24,6 +24,7 @@ final class SignupViewModel {
     
     func extractSignupValidationErrors(mail: String, password: String, passwordConfirmation: String) -> [ValidationError]? {
         let validationResults = [EmailValidator().validate(mail),
+             
                                  PasswordValidator().validate(password),
                                  PasswordComrimationValidator(password: password).validate(passwordConfirmation)]
         

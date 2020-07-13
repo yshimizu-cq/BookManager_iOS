@@ -16,15 +16,15 @@ final class AccountViewModel {
         return Keychain(service: identifier)
     }
     
-    func account(successAction: @escaping () -> Void, errorAction: @escaping (Error) -> Void) {
+    func account(successAction: @escaping () -> Void, errorAction: @escaping (String) -> Void) {
         APIClient.sendRequest(type: .account, entity: AccountResponse.self) { (result) in
             switch result {
             case .success:
                 try? self.keychain.remove("token")
                 successAction()
                 
-            case .failure(let error):
-                errorAction(error)
+            case .failure:
+                errorAction(R.string.localizable.failToLogout())
             }
         }
     }
