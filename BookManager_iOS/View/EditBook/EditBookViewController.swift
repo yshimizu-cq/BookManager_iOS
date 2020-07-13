@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Nuke
 
 final class EditBookViewController: UIViewController {
     
@@ -161,7 +160,7 @@ final class EditBookViewController: UIViewController {
         guard let bookImageData = editBookViewModel.selectedBook?.image,
             let url = URL(string: bookImageData) else { return }
         
-        Nuke.loadImage(with: url, into: imageView)
+        UIImageView.showImage(url: url, imageView: imageView)
         titleTextField.text = editBookViewModel.selectedBook?.name
         let price = editBookViewModel.selectedBook?.price ?? 0
         priceTextField.text = String(price)

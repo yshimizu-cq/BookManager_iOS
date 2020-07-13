@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Nuke
 
 final class BookListCell: UITableViewCell {
     
@@ -74,7 +73,7 @@ final class BookListCell: UITableViewCell {
         }
         
         if let imageURL = book.image, let url = URL(string: imageURL) {
-            Nuke.loadImage(with: url, into: bookImageView)
+            UIImageView.showImage(url: url, imageView: bookImageView)
         }
     }
 }
