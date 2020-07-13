@@ -23,7 +23,7 @@ enum URLSessionRequest {
     case bookList(BookListRequest)
     case addBook(BookRequest)
     case editBook(BookRequest)
-    case account
+    case logout
     
     var method: String {
         switch self {
@@ -36,7 +36,7 @@ enum URLSessionRequest {
         case .editBook:
             return "PATCH"
             
-        case .account:
+        case .logout:
             return "DELETE"
         }
     }
@@ -71,7 +71,7 @@ enum URLSessionRequest {
         case .editBook(let params):
             return "books/\(params.id ?? 0)"
             
-        case .account:
+        case .logout:
             return "logout"
         }
     }
@@ -81,7 +81,7 @@ enum URLSessionRequest {
         case .login, .signup:
             return nil
             
-        case .bookList, .addBook, .editBook, .account:
+        case .bookList, .addBook, .editBook, .logout:
             do {
                 return try keychain.get("token")
             } catch {
