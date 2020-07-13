@@ -38,7 +38,6 @@ final class EditBookViewModel {
         APIClient.sendRequest(type: .editBook(inputValue), entity: BookResponse.self) { (result) in
             switch result {
             case .success:
-                UserDefaultsUtil.set(value: inputValue.id ?? 0, forKey: "book")
                 successAction()
                 
             case .failure:
