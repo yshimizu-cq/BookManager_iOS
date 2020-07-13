@@ -97,11 +97,11 @@ enum URLSessionRequest {
     }
     
     static func createRequest(type: URLSessionRequest) -> URLRequest? {
-        var components = URLComponents(string: "\(BaseURL)\(type.path)")
-        components?.queryItems = type.query
+        guard var components = URLComponents(string: "\(BaseURL)\(type.path)") else { return  nil}
+        components.queryItems = type.query
         
-        let url = components?.url
-        var request = URLRequest(url: url!)
+        guard let url = components.url else { return nil}
+        var request = URLRequest(url: url)
         request.httpMethod = type.method
         request.httpBody = type.body
         
