@@ -7,17 +7,11 @@
 //
 
 import Foundation
-import KeychainAccess
 
 final class SignupViewModel {
     
     private struct Const {
         static let minimumLengthOfCharactors: Int = 6
-    }
-    
-    var keychain: Keychain {
-        guard let identifier = Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") as? String else { return Keychain(service: "") }
-        return Keychain(service: identifier)
     }
     
     typealias inputValue = (mail: String, password: String, passwordConfirmation: String)
@@ -53,7 +47,7 @@ final class SignupViewModel {
             switch result {
             case .success(let response):
                 let token = response.result.token
-                try? self.keychain.set(token, key: "token")  //  keychainで値を保存
+                KeychainManager.set(token: token)
                 successAction()
                 
             case .failure:

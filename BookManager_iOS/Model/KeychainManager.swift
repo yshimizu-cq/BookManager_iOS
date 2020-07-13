@@ -18,4 +18,8 @@ struct KeychainManager {
     static func set(token: String) {
         try? self.keychain.set(token, key: "token")  //  keychainで値を保存
     }
+    
+    static func remove() {
+        try? self.keychain.remove("token")
+    }
 }

@@ -7,20 +7,14 @@
 //
 
 import Foundation
-import KeychainAccess
 
 final class AccountViewModel {
-    
-    var keychain: Keychain {
-        guard let identifier = Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") as? String else { return Keychain(service: "") }
-        return Keychain(service: identifier)
-    }
     
     func logout(successAction: @escaping () -> Void, errorAction: @escaping (String) -> Void) {
         APIClient.sendRequest(type: .logout, entity: AccountResponse.self) { (result) in
             switch result {
             case .success:
-                try? self.keychain.remove("token")
+                KeychainManager.remove()
                 successAction()
                 
             case .failure:
