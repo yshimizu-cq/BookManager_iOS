@@ -124,7 +124,6 @@ final class EditBookViewController: UIViewController {
         )
     }
     
-    
     // ”キャンセル”ボタンが押された時の処理
     @objc private func didCancelButtonTapped(_ sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)

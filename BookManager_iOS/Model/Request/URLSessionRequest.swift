@@ -11,6 +11,8 @@ import KeychainAccess
 
 enum URLSessionRequest {
     
+    static let BaseURL: String = "http://54.250.239.8/"
+    
     var keychain: Keychain {
         guard let identifier = Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") as? String else { return Keychain(service: "") }
         return Keychain(service: identifier)
@@ -37,7 +39,7 @@ enum URLSessionRequest {
         case .account:
             return "DELETE"
         }
-}
+    }
     
     var query: [URLQueryItem] {
         switch self {
@@ -48,7 +50,7 @@ enum URLSessionRequest {
                 URLQueryItem(name: "limit", value: String(bookValue.limit))
             ]
             return query
-
+            
         default:
             break
         }
@@ -72,7 +74,7 @@ enum URLSessionRequest {
         case .account:
             return "logout"
         }
-}
+    }
     
     var header: String? {
         switch self {
@@ -93,11 +95,11 @@ enum URLSessionRequest {
         case .login(let userInputValue), .signup(let userInputValue):
             let body = JSONEncoder().encode(value: userInputValue)
             return body
-
+            
         case .addBook(let bookInputValue), .editBook(let bookInputValue):
             let body = JSONEncoder().encode(value: bookInputValue)
             return body
-
+            
         default:
             break
         }
@@ -105,14 +107,14 @@ enum URLSessionRequest {
     }
     
     static func createRequest(type: URLSessionRequest) -> URLRequest? {
-        var components = URLComponents(string: "http://54.250.239.8/\(type.path)")
+        var components = URLComponents(string: "\(BaseURL)\(type.path)")
         components?.queryItems = type.query
-
+        
         let url = components?.url
         var request = URLRequest(url: url!)
         request.httpMethod = type.method
         request.httpBody = type.body
-
+        
         //  ヘッダーにcontent-typeを設定(JSONを送るのでapplication/json)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(type.header, forHTTPHeaderField: "access_token")
