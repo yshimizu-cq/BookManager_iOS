@@ -13,6 +13,7 @@
 		D524F641249B43B100646538 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D524F640249B43B100646538 /* Nuke.framework */; };
 		D54F1D8224B71B1400E98ACB /* ValidatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F1D8124B71B1400E98ACB /* ValidatorProtocol.swift */; };
 		D559F74724BC00A800983B44 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D559F74624BC00A800983B44 /* UIImageExtension.swift */; };
+		D559F74924BC2DAB00983B44 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D559F74824BC2DAB00983B44 /* KeychainManager.swift */; };
 		D5671BC7249CA149003E3BEE /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D524F63A249B410A00646538 /* Rswift.framework */; };
 		D5671BC8249CA149003E3BEE /* Rswift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D524F63A249B410A00646538 /* Rswift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D5671BCA249CA4B6003E3BEE /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5671BC9249CA4B6003E3BEE /* R.generated.swift */; };
@@ -75,6 +76,7 @@
 		D54F1D8124B71B1400E98ACB /* ValidatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorProtocol.swift; sourceTree = "<group>"; };
 		D55280D724A9AF8F00D6248D /* APIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = APIKit.framework; path = Carthage/Build/iOS/APIKit.framework; sourceTree = "<group>"; };
 		D559F74624BC00A800983B44 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		D559F74824BC2DAB00983B44 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		D5671BC9249CA4B6003E3BEE /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		D580528824ADABEA0085FD4C /* MainTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 		D580529524ADD90A0085FD4C /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				D58052B424B2E7680085FD4C /* JSONEncoder.swift */,
 				D58052B824B2EF560085FD4C /* UserDefaultsUtil.swift */,
 				D58052AA24B2B28C0085FD4C /* APIClient.swift */,
+				D559F74824BC2DAB00983B44 /* KeychainManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				D597A89424ADAB6B009490DB /* AddBookViewController.swift in Sources */,
 				D597A88A24ADAB6B009490DB /* EditBookViewController.swift in Sources */,
 				D58052A424AF20920085FD4C /* LoginViewModel.swift in Sources */,
+				D559F74924BC2DAB00983B44 /* KeychainManager.swift in Sources */,
 				D559F74724BC00A800983B44 /* UIImageExtension.swift in Sources */,
 				D5671BCA249CA4B6003E3BEE /* R.generated.swift in Sources */,
 				D597A88C24ADAB6B009490DB /* SignupViewController.swift in Sources */,
