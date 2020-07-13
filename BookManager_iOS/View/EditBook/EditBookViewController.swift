@@ -13,7 +13,7 @@ final class EditBookViewController: UIViewController {
     
     private let editBookViewModel = EditBookViewModel()
     
-    static func constructor(book: Book) -> EditBookViewController {
+    static func makeInstance(book: Book) -> EditBookViewController {
         let editView = R.storyboard.editBook.instantiateInitialViewController()!
         editView.editBookViewModel.selectedBook = book
         return editView

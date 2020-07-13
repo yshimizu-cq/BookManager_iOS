@@ -101,7 +101,7 @@ extension BookListViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let book = bookListViewModel.books[indexPath.row]
         //  Rswiftを使ってstoryboardのインスタンス取得し、遷移先ViewControllerのインスタンス取得
-        let editBookViewController = EditBookViewController.constructor(book: book)
+        let editBookViewController = EditBookViewController.makeInstance(book: book)
         //  画面遷移
         navigationController?.pushViewController(editBookViewController, animated: true)
     }
