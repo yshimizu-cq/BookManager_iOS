@@ -16,10 +16,14 @@ struct KeychainManager {
     }
     
     static func set(token: String) {
-        try? self.keychain.set(token, key: "token")  //  keychainで値を保存
+        try? keychain.set(token, key: "token")  //  keychainで値を保存
+    }
+    
+    static func get() -> String? {
+        try? keychain.get("token")
     }
     
     static func remove() {
-        try? self.keychain.remove("token")
+        try? keychain.remove("token")
     }
 }

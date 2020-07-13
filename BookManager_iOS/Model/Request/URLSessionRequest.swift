@@ -7,16 +7,10 @@
 //
 
 import Foundation
-import KeychainAccess
 
 enum URLSessionRequest {
     
     static let BaseURL: String = "http://54.250.239.8/"
-    
-    var keychain: Keychain {
-        guard let identifier = Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") as? String else { return Keychain(service: "") }
-        return Keychain(service: identifier)
-    }
     
     case login(UserRequest)
     case signup(UserRequest)
@@ -82,11 +76,7 @@ enum URLSessionRequest {
             return nil
             
         case .bookList, .addBook, .editBook, .logout:
-            do {
-                return try keychain.get("token")
-            } catch {
-                return nil
-            }
+            return KeychainManager.get()
         }
     }
     
