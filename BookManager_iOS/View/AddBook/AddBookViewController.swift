@@ -182,7 +182,7 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
         dateLabel.bottomAnchor.constraint(equalTo: dateTextField.topAnchor).isActive = true
     }
     
-    //  ”完了”ボタンが押された時の処理
+//  ”完了”ボタンが押された時の処理
     @objc private func didSaveButtonTapped(_ sender: UIBarButtonItem) {
         //  nilチェック
         guard let title = titleTextField.text,
@@ -190,14 +190,16 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
             let date = dateTextField.text,
             let image = bookImageView.image,
             let imageData = image.pngData() else { return }
-        
+
         let imageStr: String = imageData.base64EncodedString()
         
-        addBookViewModel.addBook(inputValue: (title, imageStr, Int(price), date), successAction: { [unowned self] in
-            self.dismiss(animated: true)
-        }) { [unowned self] error in
-            self.showAlert(message: error.message)
-        }
+        addBookViewModel.addBook(
+            inputValue: (title, imageStr, Int(price), date),
+            successAction: { [unowned self] in
+                self.dismiss(animated: true) },
+            errorAction: { [unowned self] error in
+                self.showAlert(message: error)}
+        )
     }
     
     // ”キャンセル”ボタンが押された時の処理

@@ -55,10 +55,12 @@ final class BookListViewController: UIViewController {
     
     //  API処理
     private func sendBookListRequest(initial: Bool) {
-        bookListViewModel.setBookList(initial: initial, successAction: { [unowned self] in
-            self.bookTableView.reloadData()
-        }) { _ in
-        }
+        bookListViewModel.setBookList(
+            initial: initial,
+            successAction: { [unowned self] in
+                self.bookTableView.reloadData() },
+            errorAction: { _ in }
+        )
     }
     
     //  ”追加”ボタンが押された時の処理
@@ -81,7 +83,7 @@ extension BookListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: BookListCell =
             (tableView.dequeueReusableCell(withIdentifier: BookListCell.identifer) as? BookListCell)
-                   else { return UITableViewCell() }
+            else { return UITableViewCell() }
         cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         cell.configure(book: bookListViewModel.books[indexPath.row])
         return cell

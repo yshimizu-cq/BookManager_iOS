@@ -45,7 +45,8 @@ final class SignupViewController: UIViewController {
                 let window = UIApplication.shared.windows.first { $0.isKeyWindow }
                 window?.rootViewController = books },
             errorAction: { [unowned self] error in
-                self.showAlert(message: error)})
+                self.showAlert(message: error)}
+        )
     }
     
     @IBAction func didTapMailReturn(_ sender: UITextField) {

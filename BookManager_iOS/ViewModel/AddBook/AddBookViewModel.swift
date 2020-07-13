@@ -11,33 +11,24 @@ import Foundation
 final class AddBookViewModel {
     
     typealias inputValue = (title: String, image: String?, price: Int?, date: String?)
+    
+    func extractAddBookValidationErrors(title: String) -> [ValidationError]? {
+        let validationResults = [BookNameValidator().validate(title)]
         
-    enum AddBookError: Error {
-        case empty
-        case failToAddBook
-        
-        var message: String {
-            switch self {
-            case .empty:
-                return R.string.localizable.blank()
-                
-            case .failToAddBook:
-                return R.string.localizable.faliToAddBook()
-            }
-        }
+        if validationResults.filter({ !$0.isValid }).count > 0 {
+            return validationResults.filter({ !$0.isValid }).compactMap { $0.error }
+        } else { return nil }
     }
     
-    private func isValid(title: String, price: Int, purchaseDate: String) -> AddBookError? {
-        //  未入力チェック
-        if title.isEmpty || price.description.isEmpty || purchaseDate.isEmpty {
-            return .empty
-        }
-        return nil
+    func generateErrorMessage(by errors: [ValidationError]) -> String {
+        var messages = [String]()
+        errors.forEach { messages.append($0.description!) }
+        return messages.joined(separator: "\n")
     }
     
-    func addBook(inputValue: inputValue, successAction: @escaping () -> Void, errorAction: @escaping (AddBookError) -> Void) {
-        if let error = isValid(title: inputValue.title, price: inputValue.price ?? 0, purchaseDate: inputValue.date ?? String(2020-07-01)) {
-            errorAction(error)
+    func addBook(inputValue: inputValue, successAction: @escaping () -> Void, errorAction: @escaping (String) -> Void) {
+        if let error: [ValidationError] = extractAddBookValidationErrors(title: inputValue.title) {
+            errorAction(generateErrorMessage(by: error))
             return
         }
         
@@ -48,7 +39,7 @@ final class AddBookViewModel {
             case .success:
                 successAction()
             case .failure:
-                errorAction(.failToAddBook)
+                errorAction(R.string.localizable.faliToAddBook())
             }
         }
     }

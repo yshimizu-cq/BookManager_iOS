@@ -14,32 +14,23 @@ final class EditBookViewModel {
     
     var selectedBook: Book?
     
-    enum EditBookError: Error {
-        case empty
-        case failToEditBook
+    func extracteditBookValidationErrors(title: String) -> [ValidationError]? {
+        let validationResults = [BookNameValidator().validate(title)]
         
-        var message: String {
-            switch self {
-            case .empty:
-                return R.string.localizable.blank()
-                
-            case .failToEditBook:
-                return R.string.localizable.faliToEditBook()
-            }
-        }
+        if validationResults.filter({ !$0.isValid }).count > 0 {
+            return validationResults.filter({ !$0.isValid }).compactMap { $0.error }
+        } else { return nil }
     }
     
-    private func isValid(title: String, price: Int, purchaseDate: String) -> EditBookError? {
-        //  未入力チェック
-        if title.isEmpty || price.description.isEmpty || purchaseDate.isEmpty {
-            return .empty
-        }
-        return nil
+    func generateErrorMessage(by errors: [ValidationError]) -> String {
+        var messages = [String]()
+        errors.forEach { messages.append($0.description!) }
+        return messages.joined(separator: "\n")
     }
     
-    func editBook(inputValue: inputValue, successAction: @escaping () -> Void, errorAction: @escaping(EditBookError) -> Void) {
-        if let error = isValid(title: inputValue.title, price: inputValue.price ?? 0, purchaseDate: inputValue.date ?? String(2020-07-01)) {
-            errorAction(error)
+    func editBook(inputValue: inputValue, successAction: @escaping () -> Void, errorAction: @escaping (String) -> Void) {
+        if let error: [ValidationError] = extracteditBookValidationErrors(title: inputValue.title) {
+            errorAction(generateErrorMessage(by: error))
             return
         }
         
@@ -51,7 +42,7 @@ final class EditBookViewModel {
                 successAction()
                 
             case .failure:
-                errorAction(.failToEditBook)
+                errorAction(R.string.localizable.faliToEditBook())
             }
         }
     }

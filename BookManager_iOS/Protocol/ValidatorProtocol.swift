@@ -98,6 +98,7 @@ enum ValidationError: Error {
     }
 }
 
+
 //  CompositeVaidatorStruct
 
 //  メールアドレス検証用バリデーター
@@ -128,6 +129,12 @@ struct PasswordComrimationValidator: CompositeValidator {
                       MatchPasswordValidator(password: password)]
     }
 }
+
+//  書籍名用バリデーター
+struct BookNameValidator: CompositeValidator {
+    var validators: [ValidatorProtocol] = [EmptyValidator(formName: "書籍名")]
+}
+
 
 //  ValidatorStruct
 

@@ -119,7 +119,7 @@ final class EditBookViewController: UIViewController {
             successAction: { [unowned self] in
                 self.navigationController?.popViewController(animated: true)},
             errorAction: { [unowned self] error in
-                self.showAlert(message: error.message)
+                self.showAlert(message: error)
             }
         )
     }
