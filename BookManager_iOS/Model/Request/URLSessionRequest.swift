@@ -48,7 +48,7 @@ struct Request {
     }
     
     struct Logout: APIRequestProtocol {
-        typealias Responses = UserResponse
+        typealias Responses = AccountResponse
         typealias Parameters = UserRequest
         
         let path = "/logout"
@@ -72,7 +72,7 @@ struct Request {
     }
     
     struct AddBook: APIRequestProtocol {
-        typealias Responses = BookListResponse
+        typealias Responses = BookResponse
         typealias Parameters = BookRequest
         
         let path = "/books"
