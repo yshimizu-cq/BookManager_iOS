@@ -15,6 +15,7 @@ struct APIClient {
         
         func createRequest() -> URLRequest? {
             guard var components = URLComponents(string: "\(BaseURL)\(type.path)") else { return  nil}
+            
             if type.method == "GET" {
                 let queryItems = type.params?.makeQueryItems()
                 components.queryItems = queryItems
