@@ -17,6 +17,6 @@ struct UserResponse: Decodable {
     }
 }
 
-struct AccountResponse: Decodable {
+struct LogoutResponse: Decodable {
     var status: Int
 }

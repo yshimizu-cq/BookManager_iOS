@@ -48,7 +48,7 @@ struct Request {
     }
     
     struct Logout: APIRequestProtocol {
-        typealias Responses = AccountResponse
+        typealias Responses = LogoutResponse
         typealias Parameters = UserRequest
         
         let path = "/logout"
