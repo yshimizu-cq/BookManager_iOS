@@ -10,6 +10,8 @@ import Foundation
 
 final class BookListViewModel {
     
+    typealias request = Request.BookList
+    
     private var currentPage = 1
     
     private(set) var books: [Book] = []
@@ -22,9 +24,9 @@ final class BookListViewModel {
             currentPage += 1
         }
         
-        let values = BookListRequest(page: currentPage, limit: 20)
+        let params = request.Parameters(page: currentPage, limit: 20)
         
-        APIClient.sendRequest(type: .bookList(values), entity: BookListResponse.self) { (result) in
+        APIClient.sendRequest(from: request(params: params)) { (result) in
             switch result {
             case .success(let response):
                 self.books.append(contentsOf: response.result)  //  resultをハッシュ形式でbooksに追加

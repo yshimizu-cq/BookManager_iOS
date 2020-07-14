@@ -10,6 +10,8 @@ import Foundation
 
 final class EditBookViewModel {
     
+    typealias request = Request.EditBook
+    
     typealias inputValue = (id: Int?, title: String, image: String?, price: Int?, date: String?)
     
     var selectedBook: Book?
@@ -34,8 +36,15 @@ final class EditBookViewModel {
             return
         }
         
-        let inputValue = BookRequest(id: inputValue.id, name: inputValue.title, image: inputValue.image, price: inputValue.price, purchaseDate: inputValue.date)
-        APIClient.sendRequest(type: .editBook(inputValue), entity: BookResponse.self) { (result) in
+        let params = request.Parameters(
+            id: inputValue.id,
+            name: inputValue.title,
+            image: inputValue.image,
+            price: inputValue.price,
+            purchaseDate: inputValue.date
+        )
+        
+        APIClient.sendRequest(from: request(id: inputValue.id, params: params)) { (result) in
             switch result {
             case .success:
                 successAction()

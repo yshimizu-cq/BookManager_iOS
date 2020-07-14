@@ -5,109 +5,88 @@
 //  Created by 清水雄大 on 2020/07/03.
 //  Copyright © 2020 Yuta Shimizu. All rights reserved.
 //
-
 import Foundation
 
-enum URLSessionRequest {
-    
-    static let BaseURL: String = "http://54.250.239.8/"
-    
-    case login(UserRequest)
-    case signup(UserRequest)
-    case bookList(BookListRequest)
-    case addBook(BookRequest)
-    case editBook(BookRequest)
-    case logout
-    
-    var method: String {
-        switch self {
-        case .bookList:
-            return "GET"
-            
-        case .login, .signup, .addBook:
-            return "POST"
-            
-        case .editBook:
-            return "PATCH"
-            
-        case .logout:
-            return "DELETE"
-        }
+protocol APIRequestProtocol {
+    associatedtype Responses: Decodable
+    associatedtype Parameters: Encodable
+    var path: String { get }    //  { get } =>読み込み専用
+    var method: String { get }
+    var headers: String? { get }
+    var params: Parameters? { get set }   //  { get set } =>読み込み専用・代入が可能なプロパティ
+}
+ 
+struct Request {
+    struct Login: APIRequestProtocol {
+        typealias Responses = UserResponse
+        typealias Parameters = UserRequest
+                
+        let path = "/login"
+        let method = "POST"
+        let headers: String? = nil
+        var params: Parameters?
     }
     
-    var query: [URLQueryItem] {
-        switch self {
-        case .bookList(let bookValue):
-            //  https://baseURL?name=value
-            let query = [
-                URLQueryItem(name: "page", value: String(bookValue.page)),
-                URLQueryItem(name: "limit", value: String(bookValue.limit))
-            ]
-            return query
-            
-        default:
-            break
-        }
-        return []
+    struct Signup: APIRequestProtocol {
+        typealias Responses = UserResponse
+        typealias Parameters = UserRequest
+
+        let path = "/sign_up"
+        let method = "POST"
+        let headers: String? = nil
+        var params: Parameters?
     }
     
-    var path: String {
-        switch self {
-        case .login:
-            return "login"
-            
-        case .signup:
-            return "sign_up"
-            
-        case .bookList, .addBook:
-            return "books"
-            
-        case .editBook(let params):
-            return "books/\(params.id ?? 0)"
-            
-        case .logout:
-            return "logout"
-        }
+    struct BookList: APIRequestProtocol {
+        typealias Responses = BookListResponse
+        typealias Parameters = BookListRequest
+
+        let path = "/books"
+        let method = "GET"
+        let headers = KeychainManager.get()
+        var params: Parameters?
     }
     
-    var header: String? {
-        switch self {
-        case .login, .signup:
-            return nil
-            
-        case .bookList, .addBook, .editBook, .logout:
-            return KeychainManager.get()
-        }
-    }
-    
-    var body: Data? {
-        switch self {
-        case .login(let userInputValue), .signup(let userInputValue):
-            let body = JSONEncoder().encode(value: userInputValue)
-            return body
-            
-        case .addBook(let bookInputValue), .editBook(let bookInputValue):
-            let body = JSONEncoder().encode(value: bookInputValue)
-            return body
-            
-        default:
-            break
-        }
-        return nil
-    }
-    
-    static func createRequest(type: URLSessionRequest) -> URLRequest? {
-        guard var components = URLComponents(string: "\(BaseURL)\(type.path)") else { return  nil}
-        components.queryItems = type.query
+    struct Logout: APIRequestProtocol {
+        typealias Responses = UserResponse
+        typealias Parameters = UserRequest
         
-        guard let url = components.url else { return nil}
-        var request = URLRequest(url: url)
-        request.httpMethod = type.method
-        request.httpBody = type.body
+        let path = "/logout"
+        let method = "DELETE"
+        let headers = KeychainManager.get()
+        var params: Parameters?
+    }
+    
+    struct EditBook: APIRequestProtocol {
         
-        //  ヘッダーにcontent-typeを設定(JSONを送るのでapplication/json)
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(type.header, forHTTPHeaderField: "access_token")
-        return request
+        typealias Responses = BookResponse
+        typealias Parameters = BookRequest
+        
+        let id: Int?
+        var path: String {
+            return "/books/" + id!.description
+        }
+        let method = "PATCH"
+        let headers = KeychainManager.get()
+        var params: Parameters?
+    }
+    
+    struct AddBook: APIRequestProtocol {
+        typealias Responses = BookListResponse
+        typealias Parameters = BookRequest
+        
+        let path = "/books"
+        let method = "POST"
+        let headers = KeychainManager.get()
+        var params: Parameters?
+    }
+}
+
+extension Encodable {
+    func makeQueryItems() -> [URLQueryItem] {
+        return Mirror(reflecting: self).children.compactMap { child -> URLQueryItem in
+            return URLQueryItem(name: child.label ?? "",
+                                value: child.value as? String ?? "")
+        }
     }
 }

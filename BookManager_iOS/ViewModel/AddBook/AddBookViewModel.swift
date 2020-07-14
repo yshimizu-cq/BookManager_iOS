@@ -10,6 +10,8 @@ import Foundation
 
 final class AddBookViewModel {
     
+    typealias request = Request.AddBook
+    
     typealias inputValue = (title: String, image: String?, price: Int?, date: String?)
     
     func extractAddBookValidationErrors(title: String) -> [ValidationError]? {
@@ -32,9 +34,14 @@ final class AddBookViewModel {
             return
         }
         
-        let inputValue = BookRequest(name: inputValue.title, image: inputValue.image, price: inputValue.price, purchaseDate: inputValue.date)
+        let params = request.Parameters(
+            name: inputValue.title,
+            image: inputValue.image,
+            price: inputValue.price,
+            purchaseDate: inputValue.date
+        )
         
-        APIClient.sendRequest(type: .addBook(inputValue), entity: BookResponse.self) { (result) in
+        APIClient.sendRequest(from: request(params: params)) { (result) in
             switch result {
             case .success:
                 successAction()

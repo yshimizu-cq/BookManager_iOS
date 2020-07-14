@@ -10,6 +10,8 @@ import Foundation
 
 final class SignupViewModel {
     
+    typealias request = Request.Signup
+    
     private struct Const {
         static let minimumLengthOfCharactors: Int = 6
     }
@@ -40,9 +42,9 @@ final class SignupViewModel {
             return
         }
         
-        let inputValue = UserRequest(email: inputValue.mail, password: inputValue.password)
+        let params = request.Parameters(email: inputValue.mail, password: inputValue.password)
         
-        APIClient.sendRequest(type: .signup(inputValue), entity: UserResponse.self) { (result) in
+        APIClient.sendRequest(from: request(params: params)) { (result) in
             switch result {
             case .success(let response):
                 let token = response.result.token
