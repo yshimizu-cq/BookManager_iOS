@@ -6,8 +6,6 @@
 	<string></string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>YES</string>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>YES</string>
 	<key>CFBundleDisplayName</key>
 	<string></string>
 	<key>CFBundleDevelopmentRegion</key>

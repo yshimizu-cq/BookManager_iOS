@@ -15,12 +15,12 @@ protocol APIRequestProtocol {
     var headers: String? { get }
     var params: Parameters? { get set }   //  { get set } =>読み込み専用・代入が可能なプロパティ
 }
- 
+
 struct Request {
     struct Login: APIRequestProtocol {
         typealias Responses = UserResponse
         typealias Parameters = UserRequest
-                
+        
         let path = "/login"
         let method = "POST"
         let headers: String? = nil
@@ -30,7 +30,7 @@ struct Request {
     struct Signup: APIRequestProtocol {
         typealias Responses = UserResponse
         typealias Parameters = UserRequest
-
+        
         let path = "/sign_up"
         let method = "POST"
         let headers: String? = nil
@@ -40,7 +40,7 @@ struct Request {
     struct BookList: APIRequestProtocol {
         typealias Responses = BookListResponse
         typealias Parameters = BookListRequest
-
+        
         let path = "/books"
         let method = "GET"
         let headers = KeychainManager.get()
