@@ -188,10 +188,9 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
         guard let title = titleTextField.text,
             let price = priceTextField.text,
             let date = dateTextField.text,
-            let image = bookImageView.image,
-            let imageData = image.pngData() else { return }
+            let image = bookImageView.image else { return }
         
-        let imageStr: String = imageData.base64EncodedString()
+        let imageStr: String? = image.asBase64EncodedString
         
         addBookViewModel.addBook(
             inputValue: (title, imageStr, Int(price), date),
