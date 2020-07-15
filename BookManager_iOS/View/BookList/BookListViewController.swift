@@ -10,7 +10,7 @@ import UIKit
 
 final class BookListViewController: UIViewController {
     
-    var addBookButton: UIBarButtonItem!
+    private var addBookButton: UIBarButtonItem!
     
     private let tableView = UITableView()
     
