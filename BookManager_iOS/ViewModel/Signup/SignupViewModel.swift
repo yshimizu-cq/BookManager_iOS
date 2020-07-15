@@ -16,9 +16,17 @@ final class SignupViewModel {
         static let minimumLengthOfCharactors: Int = 6
     }
     
-    typealias inputValue = (mail: String, password: String, passwordConfirmation: String)
+    typealias inputValue = (
+        mail: String,
+        password: String,
+        passwordConfirmation: String
+    )
     
-    func extractSignupValidationErrors(mail: String, password: String, passwordConfirmation: String) -> [ValidationError]? {
+    func extractSignupValidationErrors(
+        mail: String,
+        password: String,
+        passwordConfirmation: String) -> [ValidationError]? {
+        
         let validationResults = [EmailValidator().validate(mail),
                                  PasswordValidator().validate(password),
                                  PasswordComrimationValidator(password: password).validate(passwordConfirmation)]
@@ -34,15 +42,24 @@ final class SignupViewModel {
         return messages.joined(separator: "\n")
     }
     
-    func signup(inputValue: inputValue, successAction: @escaping () -> Void, errorAction: @escaping (String) -> Void) {
-        if let error: [ValidationError] = extractSignupValidationErrors(mail: inputValue.mail,
-                                                                        password: inputValue.password,
-                                                                        passwordConfirmation: inputValue.passwordConfirmation) {
+    func signup(
+        inputValue: inputValue,
+        successAction: @escaping () -> Void,
+        errorAction: @escaping (String) -> Void) {
+        
+        if let error: [ValidationError] = extractSignupValidationErrors(
+            mail: inputValue.mail,
+            password: inputValue.password,
+            passwordConfirmation: inputValue.passwordConfirmation) {
+            
             errorAction(generateErrorMessage(by: error))
             return
         }
         
-        let params = request.Parameters(email: inputValue.mail, password: inputValue.password)
+        let params = request.Parameters(
+            email: inputValue.mail,
+            password: inputValue.password
+        )
         
         APIClient.sendRequest(from: request(params: params)) { (result) in
             switch result {

@@ -12,7 +12,10 @@ final class AccountViewModel {
     
     typealias request = Request.Logout
     
-    func logout(successAction: @escaping () -> Void, errorAction: @escaping (String) -> Void) {
+    func logout(
+        successAction: @escaping () -> Void,
+        errorAction: @escaping (String) -> Void) {
+        
         APIClient.sendRequest(from: request()) { (result) in
             switch result {
             case .success:

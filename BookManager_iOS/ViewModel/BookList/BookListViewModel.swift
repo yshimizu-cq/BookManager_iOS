@@ -16,7 +16,10 @@ final class BookListViewModel {
     
     private(set) var books: [Book] = []
     
-    func setBookList(initial: Bool, successAction: @escaping () -> Void, errorAction: @escaping(Error) -> Void) {
+    func setBookList(
+        initial: Bool,
+        successAction: @escaping () -> Void,
+        errorAction: @escaping(Error) -> Void) {
         
         if initial {
             currentPage = 1

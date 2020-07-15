@@ -11,7 +11,8 @@ import KeychainAccess
 
 struct KeychainManager {
     static var keychain: Keychain {
-        guard let identifier = Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") as? String else { return Keychain(service: "") }
+        guard let identifier = Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier")
+            as? String else { return Keychain(service: "") }
         return Keychain(service: identifier)
     }
     

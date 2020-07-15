@@ -12,7 +12,12 @@ final class AddBookViewModel {
     
     typealias request = Request.AddBook
     
-    typealias inputValue = (title: String, image: String?, price: Int?, date: String?)
+    typealias inputValue = (
+        title: String,
+        image: String?,
+        price: Int?,
+        date: String?
+    )
     
     func extractAddBookValidationErrors(title: String) -> [ValidationError]? {
         let validationResults = [BookNameValidator().validate(title)]
@@ -28,7 +33,11 @@ final class AddBookViewModel {
         return messages.joined(separator: "\n")
     }
     
-    func addBook(inputValue: inputValue, successAction: @escaping () -> Void, errorAction: @escaping (String) -> Void) {
+    func addBook(
+        inputValue: inputValue,
+        successAction: @escaping () -> Void,
+        errorAction: @escaping (String) -> Void) {
+        
         if let error: [ValidationError] = extractAddBookValidationErrors(title: inputValue.title) {
             errorAction(generateErrorMessage(by: error))
             return

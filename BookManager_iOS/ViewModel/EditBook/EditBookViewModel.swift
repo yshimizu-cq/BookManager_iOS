@@ -12,7 +12,13 @@ final class EditBookViewModel {
     
     typealias request = Request.EditBook
     
-    typealias inputValue = (id: Int?, title: String, image: String?, price: Int?, date: String?)
+    typealias inputValue = (
+        id: Int?,
+        title: String,
+        image: String?,
+        price: Int?,
+        date: String?
+    )
     
     var selectedBook: Book?
     
@@ -30,8 +36,14 @@ final class EditBookViewModel {
         return messages.joined(separator: "\n")
     }
     
-    func editBook(inputValue: inputValue, successAction: @escaping () -> Void, errorAction: @escaping (String) -> Void) {
-        if let error: [ValidationError] = extracteditBookValidationErrors(title: inputValue.title) {
+    func editBook(
+        inputValue: inputValue,
+        successAction: @escaping () -> Void,
+        errorAction: @escaping (String) -> Void) {
+        
+        if let error: [ValidationError] = extracteditBookValidationErrors(
+            title: inputValue.title) {
+            
             errorAction(generateErrorMessage(by: error))
             return
         }

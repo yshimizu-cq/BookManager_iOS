@@ -71,7 +71,10 @@ final class BookListViewController: UIViewController {
     }
     
     //  下スクロール時にAPI通信実施
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView,
+                   willDisplay cell: UITableViewCell,
+                   forRowAt indexPath: IndexPath) {
+        
         if bookListViewModel.books.count >= 20 && indexPath.row == ( bookListViewModel.books.count - 10) {
             sendBookListRequest(initial: false)
         }
@@ -80,7 +83,9 @@ final class BookListViewController: UIViewController {
 
 extension BookListViewController: UITableViewDataSource {
     //  セルをインスタンス化
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         guard let cell: BookListCell =
             (tableView.dequeueReusableCell(withIdentifier: BookListCell.identifer) as? BookListCell)
             else { return UITableViewCell() }

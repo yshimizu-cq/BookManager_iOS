@@ -9,7 +9,9 @@
 import Foundation
 
 struct APIClient {
-    static func sendRequest<T: APIRequestProtocol>(from type: T, completionAction: @escaping (Result<T.Responses, Error>) -> Void) {
+    static func sendRequest<T: APIRequestProtocol>(
+        from type: T,
+        completionAction: @escaping (Result<T.Responses, Error>) -> Void) {
         
         let BaseURL: String = "http://54.250.239.8"
         

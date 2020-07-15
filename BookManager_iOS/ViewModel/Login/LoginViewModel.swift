@@ -15,7 +15,10 @@ final class LoginViewModel {
     //  typealias => あとで型変更できる
     typealias inputValue = (mail: String, password: String)
     
-    func extractLoginValidationErrors(mail: String, password: String) -> [ValidationError]? {
+    func extractLoginValidationErrors(
+        mail: String,
+        password: String) -> [ValidationError]? {
+        
         let validationResults = [EmailValidator().validate(mail),
                                  PasswordValidator().validate(password)]
         
@@ -30,14 +33,23 @@ final class LoginViewModel {
         return messages.joined(separator: "\n")
     }
     
-    func login(inputValue: inputValue, successAction: @escaping () -> Void, errorAction: @escaping (String) -> Void) {
-        if let error: [ValidationError] = extractLoginValidationErrors(mail: inputValue.mail,
-                                                                       password: inputValue.password) {
+    func login(
+        inputValue: inputValue,
+        successAction: @escaping () -> Void,
+        errorAction: @escaping (String) -> Void) {
+        
+        if let error: [ValidationError] = extractLoginValidationErrors(
+            mail: inputValue.mail,
+            password: inputValue.password) {
+            
             errorAction(generateErrorMessage(by: error))
             return
         }
         
-        let params = request.Parameters(email: inputValue.mail, password: inputValue.password)
+        let params = request.Parameters(
+            email: inputValue.mail,
+            password: inputValue.password
+        )
         
         APIClient.sendRequest(from: request(params: params)) { (result) in
             switch result {
