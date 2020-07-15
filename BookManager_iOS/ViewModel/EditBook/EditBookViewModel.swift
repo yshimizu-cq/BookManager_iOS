@@ -22,6 +22,10 @@ final class EditBookViewModel {
     
     var selectedBook: Book?
     
+    init(selectedBook: Book?) {
+        self.selectedBook = selectedBook
+    }
+    
     func extracteditBookValidationErrors(title: String) -> [ValidationError]? {
         let validationResults = [BookNameValidator().validate(title)]
         

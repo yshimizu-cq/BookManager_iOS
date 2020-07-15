@@ -31,26 +31,23 @@ final class BookListViewController: UIViewController {
         bookTable.frame = view.bounds
         bookTable.delegate = self
         bookTable.dataSource = self
-        bookTable.register(BookListCell.self, forCellReuseIdentifier: BookListCell.identifer)
+        bookTable.register(BookListCell.self,
+                           forCellReuseIdentifier: BookListCell.identifer)
         bookTable.rowHeight = 150
         return bookTable
     }()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        bookListViewModel.update(books: [])
+        sendBookListRequest(initial: true)
         
         view.addSubview(bookTableView)
         view.backgroundColor = .white
         navigationItem.title = R.string.localizable.booklist()
         navigationItem.hidesBackButton = true
-        navigationItem.setRightBarButton(rightBarButton, animated: true)    // バーボタンアイテムの追加
-    }
-    
-    //  viewWillAppear => 一度だけ処理を実行
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        bookListViewModel.update(books: [])
-        sendBookListRequest(initial: true)
+        navigationItem.setRightBarButton(rightBarButton, animated: true)
     }
     
     //  API処理
@@ -75,7 +72,9 @@ final class BookListViewController: UIViewController {
                    willDisplay cell: UITableViewCell,
                    forRowAt indexPath: IndexPath) {
         
-        if bookListViewModel.books.count >= 20 && indexPath.row == ( bookListViewModel.books.count - 10) {
+        if bookListViewModel.books.count >= 20 &&
+            indexPath.row == ( bookListViewModel.books.count - 10) {
+            
             sendBookListRequest(initial: false)
         }
     }
@@ -86,9 +85,9 @@ extension BookListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell: BookListCell =
-            (tableView.dequeueReusableCell(withIdentifier: BookListCell.identifer) as? BookListCell)
-            else { return UITableViewCell() }
+        guard let cell: BookListCell = (tableView.dequeueReusableCell(
+            withIdentifier: BookListCell.identifer) as? BookListCell) else { return UITableViewCell() }
+        
         cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         cell.configure(book: bookListViewModel.books[indexPath.row])
         return cell

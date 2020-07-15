@@ -82,6 +82,7 @@ struct Request {
     }
 }
 
+//  Mirror
 extension Encodable {
     func makeQueryItems() -> [URLQueryItem] {
         return Mirror(reflecting: self).children.compactMap { child -> URLQueryItem in

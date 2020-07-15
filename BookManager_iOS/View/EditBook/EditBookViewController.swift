@@ -10,11 +10,12 @@ import UIKit
 
 final class EditBookViewController: UIViewController {
     
-    private let editBookViewModel = EditBookViewModel()
+    private var editBookViewModel: EditBookViewModel?
     
     static func makeInstance(book: Book) -> EditBookViewController {
         let editView = R.storyboard.editBook.instantiateInitialViewController()!
-        editView.editBookViewModel.selectedBook = book
+        //  イニシャライザで宣言したselectedBookにBookListの値を渡す
+        editView.editBookViewModel = EditBookViewModel(selectedBook: book)
         return editView
     }
     
@@ -110,10 +111,10 @@ final class EditBookViewController: UIViewController {
             let image = imageView.image,
             let imageData = image.pngData() else { return }
         
-        let id = editBookViewModel.selectedBook?.id
+        let id = editBookViewModel?.selectedBook?.id
         let imageStr: String = imageData.base64EncodedString()
         
-        editBookViewModel.editBook(
+        editBookViewModel?.editBook(
             inputValue: (id, title, imageStr, Int(price)!, date),
             successAction: { [unowned self] in
                 self.navigationController?.popViewController(animated: true)},
@@ -157,14 +158,14 @@ final class EditBookViewController: UIViewController {
     //  書籍一覧からの書籍情報を編集画面にセット
     private func setEditBookInfo() {
         //  画像情報セット
-        guard let bookImageData = editBookViewModel.selectedBook?.image,
+        guard let bookImageData = editBookViewModel?.selectedBook?.image,
             let url = URL(string: bookImageData) else { return }
         
         UIImageView.showImage(url: url, imageView: imageView)
-        titleTextField.text = editBookViewModel.selectedBook?.name
-        let price = editBookViewModel.selectedBook?.price ?? 0
+        titleTextField.text = editBookViewModel?.selectedBook?.name
+        let price = editBookViewModel?.selectedBook?.price ?? 0
         priceTextField.text = String(price)
-        dateTextField.text = editBookViewModel.selectedBook?.purchaseDate
+        dateTextField.text = editBookViewModel?.selectedBook?.purchaseDate
     }
     
     // Notificationを設定 => キーボードの表示・非表示を検知

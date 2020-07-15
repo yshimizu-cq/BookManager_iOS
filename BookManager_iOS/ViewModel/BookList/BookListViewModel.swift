@@ -27,7 +27,7 @@ final class BookListViewModel {
             currentPage += 1
         }
         
-        let params = request.Parameters(page: currentPage, limit: 20)
+        let params = request.Parameters(page: String(currentPage), limit: "20")
         
         APIClient.sendRequest(from: request(params: params)) { (result) in
             switch result {

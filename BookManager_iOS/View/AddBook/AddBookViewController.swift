@@ -259,8 +259,10 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     // キーボードが現れた時に画面全体をずらす
     @objc private func keyboardWillShow(_ notification: Notification?) {
-        guard let rect = (notification?.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue,
-            let duration = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval else { return }
+        guard let rect = (notification?.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey]
+            as? NSValue)?.cgRectValue,
+            let duration = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey]
+                as? TimeInterval else { return }
         
         UIView.animate(withDuration: duration) {
             let transform = CGAffineTransform(translationX: 0, y: -(rect.size.height))
@@ -270,7 +272,8 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     // キーボードが消えたときに、画面を戻す
     @objc private func keyboardWillHide(_ notification: Notification?) {
-        guard let duration = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? TimeInterval else { return }
+        guard let duration = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey]
+            as? TimeInterval else { return }
         
         UIView.animate(withDuration: duration) {
             self.view.transform = CGAffineTransform.identity
@@ -280,8 +283,11 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
 
 extension AddBookViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     //  画像選択されたときの処理
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        
+        guard let image = info[UIImagePickerController.InfoKey.originalImage]
+            as? UIImage else { return }
         bookImageView.image = image
         dismiss(animated: true)
     }
