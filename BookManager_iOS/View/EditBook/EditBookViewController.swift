@@ -108,11 +108,10 @@ final class EditBookViewController: UIViewController {
         guard let title = titleTextField.text,
             let price = priceTextField.text,
             let date = dateTextField.text,
-            let image = imageView.image,
-            let imageData = image.pngData() else { return }
+            let image = imageView.image else { return }
         
         let id = editBookViewModel?.selectedBook?.id
-        let imageStr: String = imageData.base64EncodedString()
+        let imageStr: String? = image.asBase64EncodedString
         
         editBookViewModel?.editBook(
             inputValue: (id, title, imageStr, Int(price)!, date),

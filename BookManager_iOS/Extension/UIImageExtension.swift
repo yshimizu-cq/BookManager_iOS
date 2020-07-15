@@ -10,7 +10,15 @@ import UIKit
 import Nuke
 
 extension UIImageView {
+    
     static func showImage(url: URL, imageView: UIImageView) {
         Nuke.loadImage(with: url, into: imageView)
+    }
+}
+
+extension UIImage {
+    
+    var asBase64EncodedString: String? {
+        self.pngData()?.base64EncodedString()
     }
 }

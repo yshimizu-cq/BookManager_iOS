@@ -85,8 +85,8 @@ extension BookListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell: BookListCell = (tableView.dequeueReusableCell(
-            withIdentifier: BookListCell.identifer) as? BookListCell) else { return UITableViewCell() }
+        guard let cell: BookListCell = tableView.dequeueReusableCell(
+            withIdentifier: BookListCell.identifer) as? BookListCell else { return UITableViewCell() }
         
         cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         cell.configure(book: bookListViewModel.books[indexPath.row])
