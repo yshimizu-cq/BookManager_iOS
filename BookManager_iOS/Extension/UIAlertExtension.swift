@@ -24,7 +24,7 @@ extension UIViewController {
         present(alert, animated: true)
     }
     
-    func showSelectiveAlert() {
+    func showSelectiveAlert(handler: ((UIAlertAction) -> Void)? = nil) {
         
         let alert = UIAlertController(
             title: R.string.localizable.logout(),
@@ -40,15 +40,8 @@ extension UIViewController {
         alert.addAction(UIAlertAction(
             title: R.string.localizable.okay(),
             style: .default,
-            handler: { _ in
-                //  rootにlogin storyboardを設定して遷移
-                let storyboard = R.storyboard.login().instantiateInitialViewController()
-                
-                guard let window =
-                    UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return }
-                
-                window.rootViewController = storyboard
-        }))
+            handler: handler)
+        )
         
         present(alert, animated: true)
     }

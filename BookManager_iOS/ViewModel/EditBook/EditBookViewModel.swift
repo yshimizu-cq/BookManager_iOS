@@ -13,16 +13,16 @@ final class EditBookViewModel {
     typealias request = Request.EditBook
     
     typealias inputValue = (
-        id: Int?,
+        id: Int,
         title: String,
         image: String?,
         price: Int?,
         date: String?
     )
     
-    var selectedBook: Book?
+    var selectedBook: Book
     
-    init(selectedBook: Book?) {
+    init(selectedBook: Book) {
         self.selectedBook = selectedBook
     }
     
@@ -53,14 +53,14 @@ final class EditBookViewModel {
         }
         
         let params = request.Parameters(
-            id: selectedBook!.id,
+            id: selectedBook.id,
             name: inputValue.title,
             image: inputValue.image,
             price: inputValue.price,
             purchaseDate: inputValue.date
         )
         
-        APIClient.sendRequest(from: request(id: selectedBook!.id, params: params)) { (result) in
+        APIClient.sendRequest(from: request(id: selectedBook.id, params: params)) { (result) in
             switch result {
             case .success:
                 successAction()

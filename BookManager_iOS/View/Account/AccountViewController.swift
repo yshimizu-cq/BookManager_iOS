@@ -20,10 +20,20 @@ final class AccountViewController: UIViewController {
     }
     
     @IBAction func didLogoutButtonTapped(_ sender: UIButton) {
+        
+        let handler: ((UIAlertAction) -> Void)? = { _ in
+            let storyboard = R.storyboard.login().instantiateInitialViewController()
+            
+            guard let window =
+                UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return }
+            
+            window.rootViewController = storyboard
+        }
+        //  rootにlogin storyboardを設定して遷移
         accountViewModel.logout(
             successAction: { [unowned self] in
                 //  ダイアログ設定
-                self.showSelectiveAlert()},
+                self.showSelectiveAlert(handler: handler)},
             errorAction: { [unowned self] error in
                 self.showAlert(message: error) }
         )
