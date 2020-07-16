@@ -82,9 +82,10 @@ enum ValidationError: Error {
             return "\(formName)を入力してください"
             
         case .count(let formName, let min):
-            var errorMessage = "\(formName)は"
-            if min != nil { errorMessage += "\(Const.minimumLengthOfCharactors)文字以上" }
-            return errorMessage + "で入力してください"
+            var errorMessage = R.string.localizable.nameNotFound(formName)
+            if min != nil { errorMessage +=
+                R.string.localizable.moreThanCharactors(Const.minimumLengthOfCharactors) }
+            return R.string.localizable.needToInput(errorMessage)
             
         case .unmatchConfirmPassword:
             return R.string.localizable.unmatch()

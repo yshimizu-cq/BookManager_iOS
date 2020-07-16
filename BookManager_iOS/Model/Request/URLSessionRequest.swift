@@ -62,9 +62,9 @@ struct Request {
         typealias Responses = BookResponse
         typealias Parameters = BookRequest
         
-        let id: Int?
+        let id: Int
         var path: String {
-            return "/books/" + id!.description
+            return "/books/\(id.description)"
         }
         let method = "PATCH"
         let headers = KeychainManager.get()

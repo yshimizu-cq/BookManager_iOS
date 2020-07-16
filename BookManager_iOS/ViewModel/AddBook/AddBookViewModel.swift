@@ -44,6 +44,7 @@ final class AddBookViewModel {
         }
         
         let params = request.Parameters(
+            id: -1,
             name: inputValue.title,
             image: inputValue.image,
             price: inputValue.price,
@@ -55,7 +56,7 @@ final class AddBookViewModel {
             case .success:
                 successAction()
             case .failure:
-                errorAction(R.string.localizable.faliToAddBook())
+                errorAction(R.string.localizable.failToAddBook())
             }
         }
     }

@@ -53,20 +53,20 @@ final class EditBookViewModel {
         }
         
         let params = request.Parameters(
-            id: inputValue.id,
+            id: selectedBook!.id,
             name: inputValue.title,
             image: inputValue.image,
             price: inputValue.price,
             purchaseDate: inputValue.date
         )
         
-        APIClient.sendRequest(from: request(id: inputValue.id, params: params)) { (result) in
+        APIClient.sendRequest(from: request(id: selectedBook!.id, params: params)) { (result) in
             switch result {
             case .success:
                 successAction()
                 
             case .failure:
-                errorAction(R.string.localizable.faliToEditBook())
+                errorAction(R.string.localizable.failToEditBook())
             }
         }
     }
