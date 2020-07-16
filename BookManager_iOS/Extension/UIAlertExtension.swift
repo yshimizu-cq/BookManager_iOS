@@ -23,4 +23,33 @@ extension UIViewController {
         
         present(alert, animated: true)
     }
+    
+    func showSelectiveAlert() {
+        
+        let alert = UIAlertController(
+            title: R.string.localizable.logout(),
+            message: R.string.localizable.noProblem(),
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(
+            title: R.string.localizable.cancel(),
+            style: .cancel)
+        )
+        
+        alert.addAction(UIAlertAction(
+            title: R.string.localizable.okay(),
+            style: .default,
+            handler: { _ in
+                //  rootにlogin storyboardを設定して遷移
+                let storyboard = R.storyboard.login().instantiateInitialViewController()
+                
+                guard let window =
+                    UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return }
+                
+                window.rootViewController = storyboard
+        }))
+        
+        present(alert, animated: true)
+    }
 }

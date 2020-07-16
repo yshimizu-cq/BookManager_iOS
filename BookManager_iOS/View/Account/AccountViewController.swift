@@ -23,27 +23,7 @@ final class AccountViewController: UIViewController {
         accountViewModel.logout(
             successAction: { [unowned self] in
                 //  ダイアログ設定
-                let logoutDialog = UIAlertController(
-                    title: R.string.localizable.logout(),
-                    message: R.string.localizable.noProblem(),
-                    preferredStyle: .alert
-                )
-                
-                logoutDialog.addAction(UIAlertAction(
-                    title: R.string.localizable.cancel(),
-                    style: .cancel)
-                )
-                
-                logoutDialog.addAction(UIAlertAction(
-                    title: R.string.localizable.okay(),
-                    style: .default,
-                    handler: { _ in
-                        //  rootにlogin storyboardを設定して遷移
-                        let storyboard = R.storyboard.login().instantiateInitialViewController()
-                        guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return }
-                        window.rootViewController = storyboard
-                }))
-                self.present(logoutDialog, animated: true)},
+                self.showSelectiveAlert()},
             errorAction: { [unowned self] error in
                 self.showAlert(message: error) }
         )
