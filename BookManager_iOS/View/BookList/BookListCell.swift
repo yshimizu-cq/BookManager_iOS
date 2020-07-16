@@ -73,7 +73,7 @@ final class BookListCell: UITableViewCell {
         }
         
         if let imageURL = book.image, let url = URL(string: imageURL) {
-            UIImageView.showImage(url: url, imageView: bookImageView)
+            bookImageView.showImage(url: url)
         }
     }
 }

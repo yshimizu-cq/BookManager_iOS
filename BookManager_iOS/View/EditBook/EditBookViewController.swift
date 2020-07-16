@@ -160,7 +160,7 @@ final class EditBookViewController: UIViewController {
         guard let bookImageData = editBookViewModel?.selectedBook?.image,
             let url = URL(string: bookImageData) else { return }
         
-        UIImageView.showImage(url: url, imageView: imageView)
+        imageView.showImage(url: url)
         titleTextField.text = editBookViewModel?.selectedBook?.name
         let price = editBookViewModel?.selectedBook?.price ?? 0
         priceTextField.text = String(price)

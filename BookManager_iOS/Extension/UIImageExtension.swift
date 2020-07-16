@@ -11,8 +11,9 @@ import Nuke
 
 extension UIImageView {
     
-    static func showImage(url: URL, imageView: UIImageView) {
-        Nuke.loadImage(with: url, into: imageView)
+    //  呼び出し元のimageViewはUIImageView型、selfで呼び出せる
+    func showImage(url: URL) {
+        Nuke.loadImage(with: url, into: self)
     }
 }
 
