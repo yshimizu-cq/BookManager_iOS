@@ -12,7 +12,7 @@ final class AddBookViewModel {
     
     typealias request = Request.AddBook
     
-    typealias inputValue = (
+    typealias InputValue = (
         title: String,
         image: String?,
         price: Int?,
@@ -42,7 +42,7 @@ final class AddBookViewModel {
     }
     
     func addBook(
-        inputValue: inputValue,
+        inputValue: InputValue,
         successAction: @escaping () -> Void,
         errorAction: @escaping (String) -> Void) {
         
