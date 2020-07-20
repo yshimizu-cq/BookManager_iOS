@@ -16,3 +16,10 @@ struct BookRequest: Encodable {
     var price: Int?
     var purchaseDate: String?
 }
+
+struct AddBookRequest: Encodable {
+    var name: String
+    var image: String?
+    var price: Int?
+    var purchaseDate: String?
+}

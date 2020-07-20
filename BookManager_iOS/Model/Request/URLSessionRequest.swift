@@ -73,7 +73,7 @@ struct Request {
     
     struct AddBook: APIRequestProtocol {
         typealias Responses = BookResponse
-        typealias Parameters = BookRequest
+        typealias Parameters = AddBookRequest
         
         let path = "/books"
         let method = "POST"

@@ -10,11 +10,11 @@ import Foundation
 import KeychainAccess
 
 struct KeychainManager {
-    static var keychain: Keychain {
+    static var keychain: Keychain = {
         guard let identifier = Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier")
             as? String else { return Keychain(service: "") }
         return Keychain(service: identifier)
-    }
+    }()
     
     static func set(token: String) {
         try? keychain.set(token, key: "token")  //  keychainで値を保存

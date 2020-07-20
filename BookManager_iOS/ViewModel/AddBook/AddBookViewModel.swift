@@ -51,7 +51,6 @@ final class AddBookViewModel {
         }
         
         let params = BookRequest.Parameters(
-            id: -1,
             name: inputValue.title,
             image: inputValue.image,
             price: inputValue.price,
