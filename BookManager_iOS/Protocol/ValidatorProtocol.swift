@@ -105,16 +105,18 @@ enum ValidationError: Error {
 //  メールアドレス検証用バリデーター
 struct EmailValidator: CompositeValidator {
     var validators: [ValidatorProtocol] = [
-        EmptyValidator(formName: "メールアドレス"),
-        LengthValidator(formName: "メールアドレス", min: Const.minimumLengthOfCharactors)
+        EmptyValidator(formName: R.string.localizable.email()),
+        LengthValidator(formName: R.string.localizable.email(),
+                        min: Const.minimumLengthOfCharactors)
     ]
 }
 
 //  パスワード検証用バリデーター
 struct PasswordValidator: CompositeValidator {
     var validators: [ValidatorProtocol] = [
-        EmptyValidator(formName: "パスワード"),
-        LengthValidator(formName: "パスワード", min: Const.minimumLengthOfCharactors)
+        EmptyValidator(formName: R.string.localizable.password()),
+        LengthValidator(formName: R.string.localizable.password(),
+                        min: Const.minimumLengthOfCharactors)
     ]
 }
 
@@ -125,15 +127,16 @@ struct PasswordComrimationValidator: CompositeValidator {
     
     init(password: String) {
         self.password = password
-        validators = [EmptyValidator(formName: "パスワード確認"),
-                      LengthValidator(formName: "パスワード確認", min: Const.minimumLengthOfCharactors),
+        validators = [EmptyValidator(formName: R.string.localizable.passwordConfirmation()),
+                      LengthValidator(formName: R.string.localizable.passwordConfirmation(),
+                                      min: Const.minimumLengthOfCharactors),
                       MatchPasswordValidator(password: password)]
     }
 }
 
 //  書籍名用バリデーター
 struct BookNameValidator: CompositeValidator {
-    var validators: [ValidatorProtocol] = [EmptyValidator(formName: "書籍名")]
+    var validators: [ValidatorProtocol] = [EmptyValidator(formName: R.string.localizable.bookName())]
 }
 
 

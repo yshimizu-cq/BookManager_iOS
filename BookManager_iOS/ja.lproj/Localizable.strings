@@ -18,6 +18,11 @@
 "priceLabel" = "%d円";
 "yen" = "円";
 
+//  バリデーション
+"email" = "メールアドレス";
+"password" = "パスワード";
+"passwordConfirmation" = "パスワード確認";
+
 //  ボタン
 "attachedImage" = "画像添付";
 "logout" = "ログアウト";
