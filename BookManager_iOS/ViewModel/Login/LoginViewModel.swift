@@ -14,16 +14,18 @@ final class LoginViewModel {
     
     //  typealias => あとで型変更できる
     typealias inputValue = (mail: String, password: String)
-
-    private func validateLogin(mail: String, password: String, failerHandler: (String) -> Void) -> Bool {
+    
+    private func validateLogin(mail: String,
+                               password: String,
+                               failerHandler: (String) -> Void) -> Bool {
         
         var errors: [ValidationError]
         var messages = [String]()
         var message: String
-
+        
         let validationResults = [EmailValidator().validate(mail),
                                  PasswordValidator().validate(password)]
-
+        
         let filteredValidationResults = validationResults.filter({ !$0.isValid })
         
         if filteredValidationResults.count > 0 {

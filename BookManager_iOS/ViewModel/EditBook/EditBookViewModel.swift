@@ -26,20 +26,26 @@ final class EditBookViewModel {
         self.selectedBook = selectedBook
     }
     
-    private func extracteditBookValidationErrors(title: String) -> [ValidationError]? {
+    private func validateEdit(title: String,
+                              failerHandler: (String) -> Void) -> Bool {
+        
+        var errors: [ValidationError]
+        var messages = [String]()
+        var message: String
+        
         let validationResults = [BookNameValidator().validate(title)]
         
         let filteredValidationResults = validationResults.filter({ !$0.isValid })
         
         if filteredValidationResults.count > 0 {
-            return filteredValidationResults.compactMap { $0.error }
-        } else { return nil }
-    }
-    
-    private func generateErrorMessage(by errors: [ValidationError]) -> String {
-        var messages = [String]()
-        errors.forEach { messages.append($0.description!) }
-        return messages.joined(separator: "\n")
+            
+            errors = filteredValidationResults.compactMap { $0.error }
+            errors.forEach { messages.append($0.description ?? "") }
+            message = messages.joined(separator: "\n")
+            failerHandler(message)
+        } else { return false }
+        
+        return true
     }
     
     func editBook(
@@ -47,10 +53,7 @@ final class EditBookViewModel {
         successAction: @escaping () -> Void,
         errorAction: @escaping (String) -> Void) {
         
-        if let error: [ValidationError] = extracteditBookValidationErrors(
-            title: inputValue.title) {
-            
-            errorAction(generateErrorMessage(by: error))
+        if validateEdit(title: inputValue.title, failerHandler: errorAction) {
             return
         }
         

@@ -19,20 +19,26 @@ final class AddBookViewModel {
         date: String?
     )
     
-    private func extractAddBookValidationErrors(title: String) -> [ValidationError]? {
+    private func validateAdd(title: String,
+                             failerHandler: (String) -> Void) -> Bool {
+        
+        var errors: [ValidationError]
+        var messages = [String]()
+        var message: String
+        
         let validationResults = [BookNameValidator().validate(title)]
         
         let filteredValidationResults = validationResults.filter({ !$0.isValid })
         
         if filteredValidationResults.count > 0 {
-            return filteredValidationResults.compactMap { $0.error }
-        } else { return nil }
-    }
-    
-    private func generateErrorMessage(by errors: [ValidationError]) -> String {
-        var messages = [String]()
-        errors.forEach { messages.append($0.description!) }
-        return messages.joined(separator: "\n")
+            
+            errors = filteredValidationResults.compactMap { $0.error }
+            errors.forEach { messages.append($0.description ?? "") }
+            message = messages.joined(separator: "\n")
+            failerHandler(message)
+        } else { return false }
+        
+        return true
     }
     
     func addBook(
@@ -40,8 +46,7 @@ final class AddBookViewModel {
         successAction: @escaping () -> Void,
         errorAction: @escaping (String) -> Void) {
         
-        if let error: [ValidationError] = extractAddBookValidationErrors(title: inputValue.title) {
-            errorAction(generateErrorMessage(by: error))
+        if validateAdd(title: inputValue.title, failerHandler: errorAction) {
             return
         }
         
