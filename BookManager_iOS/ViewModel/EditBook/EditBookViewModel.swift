@@ -29,8 +29,10 @@ final class EditBookViewModel {
     private func extracteditBookValidationErrors(title: String) -> [ValidationError]? {
         let validationResults = [BookNameValidator().validate(title)]
         
-        if validationResults.filter({ !$0.isValid }).count > 0 {
-            return validationResults.filter({ !$0.isValid }).compactMap { $0.error }
+        let filteredValidationResults = validationResults.filter({ !$0.isValid })
+        
+        if filteredValidationResults.count > 0 {
+            return filteredValidationResults.compactMap { $0.error }
         } else { return nil }
     }
     

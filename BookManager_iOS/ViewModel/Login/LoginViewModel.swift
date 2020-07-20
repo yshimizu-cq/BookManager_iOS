@@ -22,14 +22,16 @@ final class LoginViewModel {
         let validationResults = [EmailValidator().validate(mail),
                                  PasswordValidator().validate(password)]
         
-        if validationResults.filter({ !$0.isValid }).count > 0 {
-            return validationResults.filter({ !$0.isValid }).compactMap { $0.error }
+        let filteredValidationResults = validationResults.filter({ !$0.isValid })
+        
+        if filteredValidationResults.count > 0 {
+            return filteredValidationResults.compactMap { $0.error }
         } else { return nil }
     }
     
     private func generateErrorMessage(by errors: [ValidationError]) -> String {
         var messages = [String]()
-        errors.forEach { messages.append($0.description!) }
+        errors.forEach { messages.append($0.description ?? "") }
         return messages.joined(separator: "\n")
     }
     
