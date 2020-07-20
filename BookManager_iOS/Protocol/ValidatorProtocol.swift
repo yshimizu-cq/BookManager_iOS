@@ -79,7 +79,7 @@ enum ValidationError: Error {
     var description: String? {
         switch self {
         case .empty(let formName):
-            return "\(formName)を入力してください"
+            return R.string.localizable.nameNotFound(formName)
             
         case .count(let formName, let min):
             var errorMessage = R.string.localizable.nameNotFound(formName)

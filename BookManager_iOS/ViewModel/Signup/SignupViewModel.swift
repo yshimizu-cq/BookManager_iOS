@@ -22,7 +22,7 @@ final class SignupViewModel {
         passwordConfirmation: String
     )
     
-    func extractSignupValidationErrors(
+    private func extractSignupValidationErrors(
         mail: String,
         password: String,
         passwordConfirmation: String) -> [ValidationError]? {
@@ -36,7 +36,7 @@ final class SignupViewModel {
         } else { return nil }
     }
     
-    func generateErrorMessage(by errors: [ValidationError]) -> String {
+    private func generateErrorMessage(by errors: [ValidationError]) -> String {
         var messages = [String]()
         errors.forEach { messages.append($0.description!) }
         return messages.joined(separator: "\n")

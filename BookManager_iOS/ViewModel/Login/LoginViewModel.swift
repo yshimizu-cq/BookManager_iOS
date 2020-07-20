@@ -15,7 +15,7 @@ final class LoginViewModel {
     //  typealias => あとで型変更できる
     typealias inputValue = (mail: String, password: String)
     
-    func extractLoginValidationErrors(
+    private func extractLoginValidationErrors(
         mail: String,
         password: String) -> [ValidationError]? {
         
@@ -27,7 +27,7 @@ final class LoginViewModel {
         } else { return nil }
     }
     
-    func generateErrorMessage(by errors: [ValidationError]) -> String {
+    private func generateErrorMessage(by errors: [ValidationError]) -> String {
         var messages = [String]()
         errors.forEach { messages.append($0.description!) }
         return messages.joined(separator: "\n")
