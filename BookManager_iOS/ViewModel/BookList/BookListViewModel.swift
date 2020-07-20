@@ -16,7 +16,7 @@ final class BookListViewModel {
     
     private(set) var books: [Book] = []
     
-    func setBookList(
+    func fetchBookList(
         initial: Bool,
         successAction: @escaping () -> Void,
         errorAction: @escaping(Error) -> Void) {
@@ -41,7 +41,7 @@ final class BookListViewModel {
         }
     }
     
-    func update(books: [Book]) {
+    func set(books: [Book]) {
         self.books = books
     }
 }

@@ -37,10 +37,9 @@ final class BookListViewController: UIViewController {
         return bookTable
     }()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        bookListViewModel.update(books: [])
+        bookListViewModel.set(books: [])
         sendBookListRequest(initial: true)
         
         view.addSubview(bookTableView)
@@ -52,7 +51,7 @@ final class BookListViewController: UIViewController {
     
     //  API処理
     private func sendBookListRequest(initial: Bool) {
-        bookListViewModel.setBookList(
+        bookListViewModel.fetchBookList(
             initial: initial,
             successAction: { [unowned self] in
                 self.bookTableView.reloadData() },

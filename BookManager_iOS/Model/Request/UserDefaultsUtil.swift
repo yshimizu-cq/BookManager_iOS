@@ -13,7 +13,7 @@ struct UserDefaultsUtil {
         return isFirstLaunch
     }
     
-    func setLaunchFlag(value: Any) {
+    static func setLaunchFlag(value: Any) {
         UserDefaults.standard.set(value, forKey: "isFirstLaunch")
     }
     

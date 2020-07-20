@@ -26,7 +26,7 @@ final class EditBookViewModel {
         self.selectedBook = selectedBook
     }
     
-    func extracteditBookValidationErrors(title: String) -> [ValidationError]? {
+    private func extracteditBookValidationErrors(title: String) -> [ValidationError]? {
         let validationResults = [BookNameValidator().validate(title)]
         
         if validationResults.filter({ !$0.isValid }).count > 0 {
@@ -34,7 +34,7 @@ final class EditBookViewModel {
         } else { return nil }
     }
     
-    func generateErrorMessage(by errors: [ValidationError]) -> String {
+    private func generateErrorMessage(by errors: [ValidationError]) -> String {
         var messages = [String]()
         errors.forEach { messages.append($0.description!) }
         return messages.joined(separator: "\n")
