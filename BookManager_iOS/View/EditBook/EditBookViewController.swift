@@ -110,11 +110,12 @@ final class EditBookViewController: UIViewController {
             let date = dateTextField.text,
             let image = imageView.image else { return }
         
-        let id = editBookViewModel?.selectedBook.id
+        
+        guard let id = editBookViewModel?.selectedBook.id else { return }
         let imageStr: String? = image.asBase64EncodedString
         
         editBookViewModel?.editBook(
-            inputValue: (id!, title, imageStr, Int(price)!, date),
+            inputValue: (id, title, imageStr, Int(price), date),
             successAction: { [unowned self] in
                 self.navigationController?.popViewController(animated: true)},
             errorAction: { [unowned self] error in
