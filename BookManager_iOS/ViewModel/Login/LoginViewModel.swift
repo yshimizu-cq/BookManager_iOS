@@ -14,25 +14,27 @@ final class LoginViewModel {
     
     //  typealias => あとで型変更できる
     typealias inputValue = (mail: String, password: String)
-    
-    private func extractLoginValidationErrors(
-        mail: String,
-        password: String) -> [ValidationError]? {
+
+    private func validateLogin(mail: String, password: String, failerHandler: (String) -> Void) -> Bool {
         
+        var errors: [ValidationError]
+        var messages = [String]()
+        var message: String
+
         let validationResults = [EmailValidator().validate(mail),
                                  PasswordValidator().validate(password)]
-        
+
         let filteredValidationResults = validationResults.filter({ !$0.isValid })
         
         if filteredValidationResults.count > 0 {
-            return filteredValidationResults.compactMap { $0.error }
-        } else { return nil }
-    }
-    
-    private func generateErrorMessage(by errors: [ValidationError]) -> String {
-        var messages = [String]()
-        errors.forEach { messages.append($0.description ?? "") }
-        return messages.joined(separator: "\n")
+            
+            errors = filteredValidationResults.compactMap { $0.error }
+            errors.forEach { messages.append($0.description ?? "") }
+            message = messages.joined(separator: "\n")
+            failerHandler(message)
+        } else { return false }
+        
+        return true
     }
     
     func login(
@@ -40,11 +42,9 @@ final class LoginViewModel {
         successAction: @escaping () -> Void,
         errorAction: @escaping (String) -> Void) {
         
-        if let error: [ValidationError] = extractLoginValidationErrors(
-            mail: inputValue.mail,
-            password: inputValue.password) {
-            
-            errorAction(generateErrorMessage(by: error))
+        if validateLogin(mail: inputValue.mail,
+                         password: inputValue.password,
+                         failerHandler: errorAction) {
             return
         }
         
@@ -63,6 +63,7 @@ final class LoginViewModel {
             case .failure:
                 errorAction(R.string.localizable.notUserFound())
             }
+            
         }
     }
 }
