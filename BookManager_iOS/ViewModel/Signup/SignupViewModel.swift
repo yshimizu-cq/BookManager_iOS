@@ -25,7 +25,7 @@ final class SignupViewModel {
     private func validateSignup(mail: String,
                                 password: String,
                                 passwordConfirmation: String,
-                                failerHandler: (String) -> Void) -> Bool {
+                                failureHandler: (String) -> Void) -> Bool {
         
         var errors: [ValidationError]
         var messages = [String]()
@@ -42,7 +42,7 @@ final class SignupViewModel {
             errors = filteredValidationResults.compactMap { $0.error }
             errors.forEach { messages.append($0.description ?? "") }
             message = messages.joined(separator: "\n")
-            failerHandler(message)
+            failureHandler(message)
         } else { return false }
         
         return true
@@ -56,7 +56,7 @@ final class SignupViewModel {
         if validateSignup(mail: inputValue.mail,
                           password: inputValue.password,
                           passwordConfirmation: inputValue.passwordConfirmation,
-                          failerHandler: errorAction) {
+                          failureHandler: errorAction) {
             return
         }
         

@@ -27,7 +27,7 @@ final class EditBookViewModel {
     }
     
     private func validateEdit(title: String,
-                              failerHandler: (String) -> Void) -> Bool {
+                              failureHandler: (String) -> Void) -> Bool {
         
         var errors: [ValidationError]
         var messages = [String]()
@@ -42,7 +42,7 @@ final class EditBookViewModel {
             errors = filteredValidationResults.compactMap { $0.error }
             errors.forEach { messages.append($0.description ?? "") }
             message = messages.joined(separator: "\n")
-            failerHandler(message)
+            failureHandler(message)
         } else { return false }
         
         return true
@@ -53,7 +53,7 @@ final class EditBookViewModel {
         successAction: @escaping () -> Void,
         errorAction: @escaping (String) -> Void) {
         
-        if validateEdit(title: inputValue.title, failerHandler: errorAction) {
+        if validateEdit(title: inputValue.title, failureHandler: errorAction) {
             return
         }
         

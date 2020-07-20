@@ -17,7 +17,7 @@ final class LoginViewModel {
     
     private func validateLogin(mail: String,
                                password: String,
-                               failerHandler: (String) -> Void) -> Bool {
+                               failureHandler: (String) -> Void) -> Bool {
         
         var errors: [ValidationError]
         var messages = [String]()
@@ -33,7 +33,7 @@ final class LoginViewModel {
             errors = filteredValidationResults.compactMap { $0.error }
             errors.forEach { messages.append($0.description ?? "") }
             message = messages.joined(separator: "\n")
-            failerHandler(message)
+            failureHandler(message)
         } else { return false }
         
         return true
@@ -46,7 +46,7 @@ final class LoginViewModel {
         
         if validateLogin(mail: inputValue.mail,
                          password: inputValue.password,
-                         failerHandler: errorAction) {
+                         failureHandler: errorAction) {
             return
         }
         

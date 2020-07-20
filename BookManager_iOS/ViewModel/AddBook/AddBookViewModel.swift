@@ -20,7 +20,7 @@ final class AddBookViewModel {
     )
     
     private func validateAdd(title: String,
-                             failerHandler: (String) -> Void) -> Bool {
+                             failureHandler: (String) -> Void) -> Bool {
         
         var errors: [ValidationError]
         var messages = [String]()
@@ -35,7 +35,7 @@ final class AddBookViewModel {
             errors = filteredValidationResults.compactMap { $0.error }
             errors.forEach { messages.append($0.description ?? "") }
             message = messages.joined(separator: "\n")
-            failerHandler(message)
+            failureHandler(message)
         } else { return false }
         
         return true
@@ -46,7 +46,7 @@ final class AddBookViewModel {
         successAction: @escaping () -> Void,
         errorAction: @escaping (String) -> Void) {
         
-        if validateAdd(title: inputValue.title, failerHandler: errorAction) {
+        if validateAdd(title: inputValue.title, failureHandler: errorAction) {
             return
         }
         
