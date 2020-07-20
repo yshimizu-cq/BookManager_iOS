@@ -43,7 +43,7 @@ struct Request {
         
         let path = "/books"
         let method = "GET"
-        let headers = KeychainManager.get()
+        let headers = KeychainManager.sharedKeychain.get()
         var params: Parameters?
     }
     
@@ -53,7 +53,7 @@ struct Request {
         
         let path = "/logout"
         let method = "DELETE"
-        let headers = KeychainManager.get()
+        let headers = KeychainManager.sharedKeychain.get()
         var params: Parameters?
     }
     
@@ -67,7 +67,7 @@ struct Request {
             return "/books/\(id.description)"
         }
         let method = "PATCH"
-        let headers = KeychainManager.get()
+        let headers = KeychainManager.sharedKeychain.get()
         var params: Parameters?
     }
     
@@ -77,7 +77,7 @@ struct Request {
         
         let path = "/books"
         let method = "POST"
-        let headers = KeychainManager.get()
+        let headers = KeychainManager.sharedKeychain.get()
         var params: Parameters?
     }
 }

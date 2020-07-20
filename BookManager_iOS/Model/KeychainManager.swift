@@ -9,22 +9,30 @@
 import Foundation
 import KeychainAccess
 
-struct KeychainManager {
-    static var keychain: Keychain = {
+final class KeychainManager {
+    
+    //  シングルトン
+    private init() {}
+    static let sharedKeychain = KeychainManager()
+    
+    //  インスタンスを保持
+    let keychain: Keychain = {
         guard let identifier = Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier")
             as? String else { return Keychain(service: "") }
         return Keychain(service: identifier)
     }()
     
-    static func set(token: String) {
+    func set(token: String) {
         try? keychain.set(token, key: "token")  //  keychainで値を保存
     }
     
-    static func get() -> String? {
+    func get() -> String? {
         try? keychain.get("token")
     }
     
-    static func remove() {
+    func remove() {
         try? keychain.remove("token")
     }
 }
+
+

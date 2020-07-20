@@ -19,7 +19,7 @@ final class AccountViewModel {
         APIClient.sendRequest(from: UserRequest()) { (result) in
             switch result {
             case .success:
-                KeychainManager.remove()
+                KeychainManager.sharedKeychain.remove()
                 successAction()
                 
             case .failure:

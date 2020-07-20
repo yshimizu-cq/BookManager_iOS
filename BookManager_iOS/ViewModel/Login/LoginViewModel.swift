@@ -59,7 +59,7 @@ final class LoginViewModel {
             switch result {
             case .success(let response):
                 let token = response.result.token
-                KeychainManager.set(token: token)
+                KeychainManager.sharedKeychain.set(token: token)
                 successAction()
                 
             case .failure:
