@@ -10,7 +10,7 @@ import Foundation
 
 final class AddBookViewModel {
     
-    typealias request = Request.AddBook
+    typealias BookRequest = Request.AddBook
     
     typealias InputValue = (
         title: String,
@@ -50,7 +50,7 @@ final class AddBookViewModel {
             return
         }
         
-        let params = request.Parameters(
+        let params = BookRequest.Parameters(
             id: -1,
             name: inputValue.title,
             image: inputValue.image,
@@ -58,7 +58,7 @@ final class AddBookViewModel {
             purchaseDate: inputValue.date
         )
         
-        APIClient.sendRequest(from: request(params: params)) { (result) in
+        APIClient.sendRequest(from: BookRequest(params: params)) { (result) in
             switch result {
             case .success:
                 successAction()

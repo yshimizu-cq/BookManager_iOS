@@ -10,13 +10,13 @@ import Foundation
 
 final class AccountViewModel {
     
-    typealias request = Request.Logout
+    typealias UserRequest = Request.Logout
     
     func logout(
         successAction: @escaping () -> Void,
         errorAction: @escaping (String) -> Void) {
         
-        APIClient.sendRequest(from: request()) { (result) in
+        APIClient.sendRequest(from: UserRequest()) { (result) in
             switch result {
             case .success:
                 KeychainManager.remove()

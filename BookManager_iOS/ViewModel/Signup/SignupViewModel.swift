@@ -10,13 +10,13 @@ import Foundation
 
 final class SignupViewModel {
     
-    typealias request = Request.Signup
+    typealias UserRequest = Request.Signup
     
     private struct Const {
         static let minimumLengthOfCharactors: Int = 6
     }
     
-    typealias inputValue = (
+    typealias InputValue = (
         mail: String,
         password: String,
         passwordConfirmation: String
@@ -49,7 +49,7 @@ final class SignupViewModel {
     }
     
     func signup(
-        inputValue: inputValue,
+        inputValue: InputValue,
         successAction: @escaping () -> Void,
         errorAction: @escaping (String) -> Void) {
         
@@ -60,12 +60,12 @@ final class SignupViewModel {
             return
         }
         
-        let params = request.Parameters(
+        let params = UserRequest.Parameters(
             email: inputValue.mail,
             password: inputValue.password
         )
         
-        APIClient.sendRequest(from: request(params: params)) { (result) in
+        APIClient.sendRequest(from: UserRequest(params: params)) { (result) in
             switch result {
             case .success(let response):
                 let token = response.result.token

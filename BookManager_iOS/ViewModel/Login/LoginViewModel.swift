@@ -10,10 +10,10 @@ import Foundation
 
 final class LoginViewModel {
     
-    typealias request = Request.Login
+    typealias UserRequest = Request.Login
     
     //  typealias => あとで型変更できる
-    typealias inputValue = (mail: String, password: String)
+    typealias InputValue = (mail: String, password: String)
     
     private func validateLogin(mail: String,
                                password: String,
@@ -40,7 +40,7 @@ final class LoginViewModel {
     }
     
     func login(
-        inputValue: inputValue,
+        inputValue: InputValue,
         successAction: @escaping () -> Void,
         errorAction: @escaping (String) -> Void) {
         
@@ -50,12 +50,12 @@ final class LoginViewModel {
             return
         }
         
-        let params = request.Parameters(
+        let params = UserRequest.Parameters(
             email: inputValue.mail,
             password: inputValue.password
         )
         
-        APIClient.sendRequest(from: request(params: params)) { (result) in
+        APIClient.sendRequest(from: UserRequest(params: params)) { (result) in
             switch result {
             case .success(let response):
                 let token = response.result.token

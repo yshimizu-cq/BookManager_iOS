@@ -10,9 +10,9 @@ import Foundation
 
 final class EditBookViewModel {
     
-    typealias request = Request.EditBook
+    typealias BookRequest = Request.EditBook
     
-    typealias inputValue = (
+    typealias InputValue = (
         id: Int,
         title: String,
         image: String?,
@@ -49,7 +49,7 @@ final class EditBookViewModel {
     }
     
     func editBook(
-        inputValue: inputValue,
+        inputValue: InputValue,
         successAction: @escaping () -> Void,
         errorAction: @escaping (String) -> Void) {
         
@@ -57,7 +57,7 @@ final class EditBookViewModel {
             return
         }
         
-        let params = request.Parameters(
+        let params = BookRequest.Parameters(
             id: selectedBook.id,
             name: inputValue.title,
             image: inputValue.image,
@@ -65,7 +65,7 @@ final class EditBookViewModel {
             purchaseDate: inputValue.date
         )
         
-        APIClient.sendRequest(from: request(id: selectedBook.id, params: params)) { (result) in
+        APIClient.sendRequest(from: BookRequest(id: selectedBook.id, params: params)) { (result) in
             switch result {
             case .success:
                 successAction()
