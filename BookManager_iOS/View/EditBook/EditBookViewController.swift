@@ -10,7 +10,22 @@ import UIKit
 
 final class EditBookViewController: UIViewController {
     
-    @IBOutlet weak var imageUploadButtonTapped: UIButton!
+    private var editBookViewModel: EditBookViewModel?
+    
+    static func makeInstance(book: Book) -> EditBookViewController {
+        let editView = R.storyboard.editBook.instantiateInitialViewController()!
+        //  イニシャライザで宣言したselectedBookにBookListの値を渡す
+        editView.editBookViewModel = EditBookViewModel(selectedBook: book)
+        return editView
+    }
+    
+    @IBAction func imageUploadButtonTapped(_ sender: UIButton) {
+        //  PhotoLibraryから画像選択
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        //  ピッカー表示
+        present(imagePicker, animated: true)
+    }
     
     @IBOutlet weak var titleTextField: UITextField!
     
@@ -18,13 +33,11 @@ final class EditBookViewController: UIViewController {
     
     @IBOutlet weak var dateTextField: UITextField!
     
-    @IBOutlet weak var imageView: UIImageView! {
-        didSet {
-            imageView.image = R.image.sample_image()
-        }
-    }
+    @IBOutlet weak var imageView: UIImageView!
     
     private var datePicker: UIDatePicker = UIDatePicker()
+    
+    private let imagePicker: UIImagePickerController = UIImagePickerController()
     
     private lazy var rightBarButton: UIBarButtonItem = {    //  lazy var => 呼び出された時に初期値決定
         let rightBarButton = UIBarButtonItem()
@@ -76,6 +89,7 @@ final class EditBookViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setEditBookInfo()
         
         view.backgroundColor = .white
         navigationItem.title = R.string.localizable.edit()
@@ -94,13 +108,20 @@ final class EditBookViewController: UIViewController {
         guard let title = titleTextField.text,
             let price = priceTextField.text,
             let date = dateTextField.text,
-            //　未入力チェック
-            !title.isEmpty,
-            !price.isEmpty,
-            !date.isEmpty else {
-                showAlert(message: R.string.localizable.blank())
-                return
-        }
+            let image = imageView.image else { return }
+        
+        
+        guard let id = editBookViewModel?.selectedBook.id else { return }
+        let imageStr: String? = image.asBase64EncodedString
+        
+        editBookViewModel?.editBook(
+            inputValue: (id, title, imageStr, Int(price), date),
+            successAction: { [unowned self] in
+                self.navigationController?.popViewController(animated: true)},
+            errorAction: { [unowned self] error in
+                self.showAlert(message: error)
+            }
+        )
     }
     
     // ”キャンセル”ボタンが押された時の処理
@@ -124,7 +145,7 @@ final class EditBookViewController: UIViewController {
         dateTextField.endEditing(true)
         // 日付のフォーマット
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy年MM月dd日"
+        formatter.dateFormat = "yyyy-MM-dd"
         //(from: datePicker.date))を指定してあげることでdatePickerで指定した日付が表示される
         dateTextField.text = "\(formatter.string(from: datePicker.date))"
     }
@@ -132,6 +153,19 @@ final class EditBookViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureObserver()    //  Notification発行
+    }
+    
+    //  書籍一覧からの書籍情報を編集画面にセット
+    private func setEditBookInfo() {
+        //  画像情報セット
+        guard let bookImageData = editBookViewModel?.selectedBook.image,
+            let url = URL(string: bookImageData) else { return }
+        
+        imageView.showImage(url: url)
+        titleTextField.text = editBookViewModel?.selectedBook.name
+        let price = editBookViewModel?.selectedBook.price ?? 0
+        priceTextField.text = String(price)
+        dateTextField.text = editBookViewModel?.selectedBook.purchaseDate
     }
     
     // Notificationを設定 => キーボードの表示・非表示を検知
@@ -151,8 +185,11 @@ final class EditBookViewController: UIViewController {
     
     // キーボードが現れた時に画面全体をずらす
     @objc private func keyboardWillShow(_ notification: Notification?) {
-        guard let rect = (notification?.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue,
-            let duration = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval else { return }
+        guard let rect = (notification?.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey]
+            as? NSValue)?.cgRectValue,
+            let duration = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey]
+                as? TimeInterval else { return }
+        
         UIView.animate(withDuration: duration) {
             let transform = CGAffineTransform(translationX: 0, y: -(rect.size.height))
             self.view.transform = transform
@@ -161,9 +198,27 @@ final class EditBookViewController: UIViewController {
     
     // キーボードが消えたときに、画面を戻す
     @objc private func keyboardWillHide(_ notification: Notification?) {
-        guard let duration = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? TimeInterval else { return }
+        guard let duration = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey]
+            as? TimeInterval else { return }
+        
         UIView.animate(withDuration: duration) {
             self.view.transform = CGAffineTransform.identity
         }
+    }
+}
+
+extension EditBookViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    //  画像選択されたときの処理
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        imageView.image = image
+        dismiss(animated: true)
+    }
+    
+    //  画像選択がキャンセルされたときの処理
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true)
     }
 }

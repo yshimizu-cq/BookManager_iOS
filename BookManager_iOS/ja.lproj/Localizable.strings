@@ -16,6 +16,12 @@
 "price" = "価格";
 "purchaseDate" = "購入日";
 "priceLabel" = "%d円";
+"yen" = "円";
+
+//  バリデーション
+"email" = "メールアドレス";
+"password" = "パスワード";
+"passwordConfirmation" = "パスワード確認";
 
 //  ボタン
 "attachedImage" = "画像添付";
@@ -29,14 +35,18 @@
 "add" = "追加";
 
 //  メッセージ
-"blank" = "未入力項目があります";
 "error" = "入力エラー";
 "okay" = "OK";
 "noProblem" = "よろしいですか？";
-"countCharacters" = "メールアドレスとパスワードは6文字以上で設定してください";
-"notMatch" = "パスワードが一致していません";
+"unmatch" = "パスワードが一致していません";
 
-//  サンプルデータ
-"sampleImage" = "sample_image";
-"sampleName" = "はじめてのSwift";
-"sampleDate" = "2020-06-20";
+//  エラーメッセージ
+"notUserFound" = "ユーザーが見つかりません";
+"notUniqueMail" = "そのメールアドレスは既に登録されています";
+"failToAddBook" = "書籍登録に失敗しました";
+"failToEditBook" = "書籍編集に失敗しました";
+"failToLogout" = "ログアウトに失敗しました";
+"noData" = "データがありません";
+"nameNotFound" = "%@を入力してください";
+"moreThanCharactors" = "%dを入力してください";
+"needToInput" = "%@で入力してください";

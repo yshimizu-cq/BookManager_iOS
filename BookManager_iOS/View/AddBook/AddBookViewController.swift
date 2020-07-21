@@ -10,6 +10,8 @@ import UIKit
 
 final class AddBookViewController: UIViewController, UITextFieldDelegate {
     
+    private let addBookViewModel = AddBookViewModel()
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = R.string.localizable.bookName()
@@ -61,7 +63,6 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     private let bookImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = R.image.sample_image()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -75,6 +76,8 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
         button.addTarget(nil, action: #selector(didImageUploadButtonTapped(_ :)), for: .touchUpInside)
         return button
     }()
+    
+    private let imagePicker: UIImagePickerController = UIImagePickerController()
     
     private lazy var rightBarButton: UIBarButtonItem = {    //  lazy var => 呼び出された時に初期値決定
         let rightBarButton = UIBarButtonItem()
@@ -142,7 +145,7 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func setAnchor() {
-        [titleLabel, titleTextField, priceLabel, priceTextField, dateLabel, dateTextField, bookImageView, imageUploadButton].forEach{ view.addSubview($0) }
+        [titleLabel, titleTextField, priceLabel, priceTextField, dateLabel, dateTextField, bookImageView, imageUploadButton].forEach { view.addSubview($0) }
         
         bookImageView.leftAnchor.constraint(equalTo: titleTextField.leftAnchor).isActive = true
         bookImageView.centerYAnchor.constraint(equalTo: titleTextField.topAnchor, constant: -150).isActive = true
@@ -185,13 +188,17 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
         guard let title = titleTextField.text,
             let price = priceTextField.text,
             let date = dateTextField.text,
-            //  未入力チェック
-            !title.isEmpty,
-            !price.isEmpty,
-            !date.isEmpty else {
-                showAlert(message: R.string.localizable.blank())
-                return
-        }
+            let image = bookImageView.image else { return }
+        
+        let imageStr: String? = image.asBase64EncodedString
+        
+        addBookViewModel.addBook(
+            inputValue: (title, imageStr, Int(price), date),
+            successAction: { [unowned self] in
+                self.dismiss(animated: true) },
+            errorAction: { [unowned self] error in
+                self.showAlert(message: error)}
+        )
     }
     
     // ”キャンセル”ボタンが押された時の処理
@@ -201,6 +208,11 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     // ”画像投稿”ボタンが押された時の処理
     @objc private func didImageUploadButtonTapped(_ sender: UIBarButtonItem) {
+        //  PhotoLibraryから画像選択
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        //  ピッカー表示
+        present(imagePicker, animated: true)
     }
     
     //  returnでキーボードを閉じる
@@ -219,7 +231,7 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
         dateTextField.endEditing(true)
         // 日付のフォーマット
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy年MM月dd日"
+        formatter.dateFormat = "yyyy-MM-dd"
         //(from: datePicker.date))を指定することでdatePickerで指定した日付が表示される
         dateTextField.text = "\(formatter.string(from: datePicker.date))"
     }
@@ -240,14 +252,17 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
         notification.addObserver(self,
                                  selector: #selector(keyboardWillHide(_:)),
                                  name: UIResponder.keyboardWillHideNotification,
-                             object: nil
+                                 object: nil
         )
     }
     
     // キーボードが現れた時に画面全体をずらす
     @objc private func keyboardWillShow(_ notification: Notification?) {
-        guard let rect = (notification?.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue,
-            let duration = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval else { return }
+        guard let rect = (notification?.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey]
+            as? NSValue)?.cgRectValue,
+            let duration = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey]
+                as? TimeInterval else { return }
+        
         UIView.animate(withDuration: duration) {
             let transform = CGAffineTransform(translationX: 0, y: -(rect.size.height))
             self.view.transform = transform
@@ -256,9 +271,28 @@ final class AddBookViewController: UIViewController, UITextFieldDelegate {
     
     // キーボードが消えたときに、画面を戻す
     @objc private func keyboardWillHide(_ notification: Notification?) {
-        guard let duration = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? TimeInterval else { return }
+        guard let duration = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey]
+            as? TimeInterval else { return }
+        
         UIView.animate(withDuration: duration) {
             self.view.transform = CGAffineTransform.identity
         }
+    }
+}
+
+extension AddBookViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    //  画像選択されたときの処理
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        
+        guard let image = info[UIImagePickerController.InfoKey.originalImage]
+            as? UIImage else { return }
+        bookImageView.image = image
+        dismiss(animated: true)
+    }
+    
+    //  画像選択がキャンセルされたときの処理
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true)
     }
 }

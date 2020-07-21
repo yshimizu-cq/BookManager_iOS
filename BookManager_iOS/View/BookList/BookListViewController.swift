@@ -10,8 +10,11 @@ import UIKit
 
 final class BookListViewController: UIViewController {
     
-    //    var addBookButton: UIBarButtonItem!
+    private var addBookButton: UIBarButtonItem!
+    
     private let tableView = UITableView()
+    
+    private let bookListViewModel = BookListViewModel()
     
     private lazy var rightBarButton: UIBarButtonItem = {    //  lazy var => 呼び出された時に初期値決定
         let rightBarButton = UIBarButtonItem()
@@ -22,24 +25,38 @@ final class BookListViewController: UIViewController {
         return rightBarButton
     }()
     
-    // tableViewにBookListCellを"cell"という名前で登録する
+    // tableViewにBookListCellを登録する
     private lazy var bookTableView: UITableView = {
         let bookTable = UITableView()
         bookTable.frame = view.bounds
         bookTable.delegate = self
         bookTable.dataSource = self
-        bookTable.register(BookListCell.self, forCellReuseIdentifier: BookListCell.identifer)
+        bookTable.register(BookListCell.self,
+                           forCellReuseIdentifier: BookListCell.identifer)
+        bookTable.rowHeight = 150
         return bookTable
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bookListViewModel.set(books: [])
+        sendBookListRequest(initial: true)
         
         view.addSubview(bookTableView)
         view.backgroundColor = .white
         navigationItem.title = R.string.localizable.booklist()
         navigationItem.hidesBackButton = true
-        navigationItem.setRightBarButton(rightBarButton, animated: true)    // バーボタンアイテムの追加
+        navigationItem.setRightBarButton(rightBarButton, animated: true)
+    }
+    
+    //  API処理
+    private func sendBookListRequest(initial: Bool) {
+        bookListViewModel.fetchBookList(
+            initial: initial,
+            successAction: { [unowned self] in
+                self.bookTableView.reloadData() },
+            errorAction: { _ in }
+        )
     }
     
     //  ”追加”ボタンが押された時の処理
@@ -48,33 +65,46 @@ final class BookListViewController: UIViewController {
         let addBookViewController = UINavigationController(rootViewController: addBook)
         present(addBookViewController, animated: true)
     }
+    
+    //  下スクロール時にAPI通信実施
+    func tableView(_ tableView: UITableView,
+                   willDisplay cell: UITableViewCell,
+                   forRowAt indexPath: IndexPath) {
+        
+        if bookListViewModel.books.count >= 20 &&
+            indexPath.row == ( bookListViewModel.books.count - 10) {
+            
+            sendBookListRequest(initial: false)
+        }
+    }
 }
 
 extension BookListViewController: UITableViewDataSource {
     //  セルをインスタンス化
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: BookListCell.identifer, for: indexPath)
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell: BookListCell = tableView.dequeueReusableCell(
+            withIdentifier: BookListCell.identifer) as? BookListCell else { return UITableViewCell() }
+        
         cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+        cell.configure(book: bookListViewModel.books[indexPath.row])
         return cell
     }
     
     //  表示するセルの数を指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return bookListViewModel.books.count
     }
 }
 
 extension BookListViewController: UITableViewDelegate {
-    //    セルの高さを指定
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // セルの選択を解除
         tableView.deselectRow(at: indexPath, animated: true)
+        let book = bookListViewModel.books[indexPath.row]
         //  Rswiftを使ってstoryboardのインスタンス取得し、遷移先ViewControllerのインスタンス取得
-        let editBookViewController = R.storyboard.editBook.instantiateInitialViewController()!
+        let editBookViewController = EditBookViewController.makeInstance(book: book)
         //  画面遷移
         navigationController?.pushViewController(editBookViewController, animated: true)
     }
